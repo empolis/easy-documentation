@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EASY Dokumentation – EASY - 
+Energieeffiziente Analyse- und Steuerungsprozesse 
+im dynamischen Edge-Cloud-Kontinuum
+für die industrielle Fertigung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/002_laufzeitumgebung/datenpipeline.html" rel="next">
+<link href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" rel="prev">
+<link href="../../pictures/Logos/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dddb6540b923bee26809846fb4198f84.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo light-content">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EASY - Energieeffiziente Analyse- und Steuerungsprozesse im dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/empolis/" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/empolis/easy-documentation" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../EASY-Dokumentation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html">Laufzeitumgebung</a></li><li class="breadcrumb-item"><a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einleitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zusammenfassung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/projektpartner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektpartner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/kontakt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontakt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Laufzeitumgebung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/datenpipeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenpipeline – Von der Maschine bis zur Aktion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Die Verwaltungsschalen in der EASY Architektur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale_architektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Hosting der Verwaltungsschale und Integration von Eclipse BaSyx in die EASY Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/service_federation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Service Federation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/integration_federated_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integration Federated-Learning in EASY Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/k8s_operatoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kubernetes Operatoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/demo_planung_monitoring_agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Planungs- und Monitoring-Agenten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Effiziente Analyseprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Effiziente Analyseprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/ergebnisse_anforderungsanalyse_kriterien_ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kriterien und Indikatoren zum Thema Ressourcen-, Energie- und Dateneffizienz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Messaufbau und Modellierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Verteiltes Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Föderiertes Lernen (Federated Learning)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Föderiertes Lernen - Grundlagen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/anforderungsanalyse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungsanalyse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/evaluation_metriken.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation und Metriken von Föderiertem Lernen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_strategien.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modell-Aggregations Strategien im Federated Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Überblick FL-Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_raumluft.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Raumluft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Bild-basierte Qualitätskontrolle in der Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_OT_network_anomaly_detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Anomalieerkennung in der OT‑Netzwerkkommunikation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Anomalien in Fräsprozessen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_cwru.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Kugellagerüberwachung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Wireless Network</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Flexible Steuerungsprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Flexible Steuerungsprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.1anforderungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungen an die Flexible Steuerung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.2repraesentation_produktionsprozess.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repräsentationsformen von Produktionsprozessen und -kapazitäten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.3prozessgestaltung_planung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessgestaltung mit Planungsverfahren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.4ueberwachte_prozessausfuehrung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessausführung mit Monitoring &amp; Rekonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.5erprobung_validierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Experimentelle Erprobung und Validierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demonstratoren / Use Cases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_roboter_use_case.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator einer Roboterzelle für Palettierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_zerspanung_easy_box.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator Plug&amp;Play EASY-Box für die Zerspanung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/evaluation_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation der Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Geschäftsmodelle und Verwertung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/geschaeftsmodelle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Geschäftsmodelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/verwertung_standardisierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verwertung und Standardisierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Ausblick</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/ausblick.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ausblick</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/authors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referenzen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/impressum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Impressum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/datenschutz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenschutz</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#grundlegendes-systemdesign" id="toc-grundlegendes-systemdesign" class="nav-link active" data-scroll-target="#grundlegendes-systemdesign">Grundlegendes Systemdesign</a></li>
+  <li><a href="#dienste-in-der-easy-edge-cloud-umgebung" id="toc-dienste-in-der-easy-edge-cloud-umgebung" class="nav-link" data-scroll-target="#dienste-in-der-easy-edge-cloud-umgebung">Dienste in der EASY Edge-Cloud-Umgebung</a></li>
+  <li><a href="#sec-easy-cluster-service-classes" id="toc-sec-easy-cluster-service-classes" class="nav-link" data-scroll-target="#sec-easy-cluster-service-classes">EASY-Cluster-Service-Availability-Classes</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html">Laufzeitumgebung</a></li><li class="breadcrumb-item"><a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-002_laufzeitumgebung_architektur_easy_cloud_edge" class="quarto-section-identifier"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In folgendem Kapitel wird die Architektur der EASY Edge und Cloud Komponenten skizziert und die einzelnen Komponenten beschrieben. Bevor genauer auf die Ergebnisse zur Architektur eingegangen wird, werden vorab die im Projekt gesetzten Rahmenbedingungen erläutert.</p>
+<p><br>
+Folgende Ziele und Rahmenbedingungen wurden im Rahmen der Implementierung einer Edge-Cloud fähigen Laufzeitumgebung gesetzt:</p>
+<ul>
+<li><p><strong>Dynamische Ausführbarkeit von Diensten</strong><br>
+Analyse- und Produktionsdienste sollen innerhalb eines Edge-Cloud-Kontinuums flexibel deploybar und skalierbar sein</p></li>
+<li><p><strong>Geringer Ressourcenverbrauch auf Edge-Geräten</strong><br>
+Da Edge-Hardware oft limitiert ist (CPU, RAM, Speicher), muss die Laufzeitumgebung besonders leichtgewichtig und effizient sein. Das System soll in einer ressourcenstarken Cloud, auf einem Far-Edge oder ressourcenschwachen Edge lauffähig sein.</p></li>
+<li><p><strong>Datensicherheit und Datenschutz</strong><br>
+Sensible Daten sollen möglichst lokal (on Edge) verarbeitet werden, um Latenzen zu reduzieren und Datenschutzanforderungen einzuhalten. Die Kommunikation zwischen Edge und Cloud soll gesichert sein.</p></li>
+<li><p><strong>Multicluster-Fähigkeit</strong><br>
+Das System soll mehrere Cluster (Cloud und Edge) parallel verwalten und orchestrieren können.</p></li>
+<li><p><strong>Hohe Verfügbarkeit und Resilienz</strong><br>
+Dienste sollen auch bei Netzwerkunterbrechungen zwischen Edge und Cloud weiterhin funktionsfähig bleiben.</p></li>
+<li><p><strong>Monitoring und Observability</strong><br>
+Eine durchgängige Überwachung der Systemzustände, Ressourcen und Dienste ist erforderlich.</p></li>
+<li><p><strong>Portabilität und Plattformunabhängigkeit</strong><br>
+Die Lösung soll auf unterschiedlichen Betriebssystemen und Umgebungen lauffähig sein.</p></li>
+<li><p><strong>EASY Edge und Cloud bestehen grundlegend aus Open-Source Komponenten</strong></p></li>
+</ul>
+<section id="grundlegendes-systemdesign" class="level2">
+<h2 class="anchored" data-anchor-id="grundlegendes-systemdesign">Grundlegendes Systemdesign</h2>
+<p>Die implementierte Laufzeitumgebung basiert auf der Container-Orchestrierungs-plattform Kubernetes <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Kubernetes ermöglicht die automatisierte Bereitstellung, Skalierung und Verwaltung containerisierter Anwendungen und bildet die Grundlage für die flexible Verteilung der Analyse- und Produktionsdienste.</p>
+<p>Das System ist als verteilte Architektur ausgelegt, bestehend aus mindestens einem Cloud-Cluster und mehreren Edge-Clustern. Der Cloud-Cluster ist für die zentrale Steuerung, langfristige Datenverarbeitung oder ressourcenintensiven Analysen zuständig und bietet auch eine zentrale Bereitstellung der Verwaltungsschalen. Zudem werden in der Cloud die Repositories und Registries zur Verfügung gestellt. Die Edge-Cluster sind maschinen- und datenquellen nah positioniert, fokussieren die lokale Verarbeitung von Daten und garantieren damit eine geringere Latenz und erhöhte Datensouveränität. Alle Cluster arbeiten unabhängig und kommunizieren bei Bedarf (Verteilung Workloads, Analysen, …) miteinander. Das System ist in solcher Weise implementiert, dass es auf verschiedenen Ebenen generisch deployed werden kann. So kann das System auch Multi-Level Near- und Far-Edge zum Einsatz kommen, zusätzlich auf einem bspw. firmeninternen Server und letztlich auch in einer zentralen Cloud.</p>
+<p>Zu Projektbeginn wurde die Umsetzung einer Multi-Cloud-Cluster-Architektur diskutiert. Dieser Ansatz wurde jedoch verworfen, da moderne Cloud-Plattformen bereits innerhalb einer einzelnen Cloud-Umgebung eine bedarfsgerechte Skalierung von Ressourcen ermöglichen. Eine Verteilung von Workloads über mehrere Cloud-Anbieter hinweg hätte für die betrachteten Anwendungsfälle keinen zusätzlichen Nutzen geboten, jedoch die Komplexität und den Betriebsaufwand deutlich erhöht. Stattdessen wurde die Plattform cloudagnostisch ausgelegt, sodass Anwendungen und Dienste flexibel auf unterschiedlichen Cloud- und Edge-Infrastrukturen betrieben und bei Bedarf migriert werden können. Im Ausblick in <a href="../ausblick.html" class="quarto-xref"><span>Ausblick</span></a> wird jedoch die Anbindung an industrielle Datenräume betrachtet, um eine sichere und standardisierte Vernetzung von Unternehmen, Produktionsstandorten und Dienstanbietern über Organisations- und Infrastrukturgrenzen hinweg zu ermöglichen.</p>
+<p><strong>Kubernetes-Distribution: k3s</strong></p>
+<p>In der konkreten Umsetzung kommt, insbesondere auf den Edge-Systemen, die leichtgewichtige Kubernetes-Distribution k3s zum Einsatz. Diese ist speziell für ressourcenbeschränkte Umgebungen optimiert und zeichnet sich durch einen reduzierten Ressourcenbedarf, vereinfachte Installation und Wartung und Integration zentraler Kubernetes-Komponenten in kompakter Form aus. Dadurch eignet sich k3s besonders für den Einsatz auf Edge-Geräten.</p>
+<p><strong>Containerisierte Cluster in k3d</strong></p>
+<p>Zum Einsatz auf den Edge-Geräten, zur lokalen Entwicklung und zum Testen der Cluster wird k3d verwendet. k3d ermöglicht das Ausführen von k3s-Clustern innerhalb von Docker-Containern. Dies bietet eine schnelle und leichtgewichtige Bereitstellung von Kubernetes-Umgebungen, welche reproduzierbare Cluster-Konfigurationen und einen geringen Ressourcenverbrauch aufweisen. Durch k3d können prinzipiell mehrere Kubernetes-Cluster aufgesetzt werden, aufgrund der Ressourcen-beschränkungen wird auf der Edge ein k3d-Cluster aufgesetzt.</p>
+<p><strong>Docker als Container-Laufzeitumgebung</strong></p>
+<p>Die Grundlage für die Ausführung von k3d bildet Docker. Docker stellt die Container-Laufzeit-umgebung bereit, in der die Kubernetes-Komponenten ausgeführt werden. Docker wird auf unterschiedlichen Betriebssystemen (Windows, macOS, Linux) unterstützt, schafft eine Isolation der Anwendungen und somit konsistente Laufzeitumgebungen.</p>
+<p>Für das Deployment on Edge (und für lokale Entwicklungszwecke) werden plattformübergreifende Tools wie Rancher Desktop oder Docker Desktop eingesetzt. In der Cloud werden innerhalb virtueller Maschinen (EC2-Instanzen) Kubernetes Cluster deployed, bspw. Amazon AWS EKS (Elastic Kubernetes Service), Microsoft Azure Kubernetes Service (AKS), Google Kubernetes Engine (GKE).</p>
+<p>Die implementierte Laufzeitumgebung kombiniert eine leichtgewichtige Kubernetes-Distribution mit containerbasierten Entwicklungswerkzeugen, um eine flexible, skalierbare und ressourceneffiziente Cloud-Edge-Architektur zu realisieren. Durch die Trennung in Cloud- und Edge-Cluster sowie die Nutzung standardisierter Technologien wird sowohl eine hohe Portabilität als auch eine einfache Erweiterbarkeit des Systems gewährleistet. In folgendem Abbild wird die grundlegende Kubernetes Architektur skizziert:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/easy-k8s-architecture-global.png" class="img-fluid figure-img"></p>
+<figcaption>Hier wird die grundlegende Kubernetes Architektur auf der Edge und in der Cloud skizziert.</figcaption>
+</figure>
+</div>
+<p><strong>Deployment der Dienste innerhalb der Edge und Cloud Cluster</strong></p>
+<p>Innerhalb der Kubernetes-Cluster erfolgt die Ausführung der verschiedenen Dienste und Anwendungen in Abhängigkeit von der jeweils verfügbaren Ressourcenbeschaffenheit der zugrunde liegenden Infrastruktur. Dabei wird gezielt berücksichtigt, dass Edge-Knoten typischerweise über deutlich eingeschränktere Ressourcen verfügen als Cloud-Umgebungen. Entsprechend werden leichtgewichtige, latenzkritische Dienste bevorzugt am Edge betrieben, während rechenintensive oder zentral koordinierende Anwendungen in der Cloud ausgeführt werden.</p>
+</section>
+<section id="dienste-in-der-easy-edge-cloud-umgebung" class="level2">
+<h2 class="anchored" data-anchor-id="dienste-in-der-easy-edge-cloud-umgebung">Dienste in der EASY Edge-Cloud-Umgebung</h2>
+<p>Die folgende Abbildung veranschaulicht die Verteilung zentraler Pods und Services innerhalb der Edge- und Cloud-Cluster:</p>
+<p><img src="pictures/EASY Services Cloud und Edge.png" class="img-fluid"></p>
+<p>In dieser Architektur übernehmen Edge-Cluster vor allem Aufgaben der Datenerfassung, Protokollverarbeitung und Voraggregation. Dienste wie ein MQTT-Broker ermöglichen hierbei eine effiziente Kommunikation mit angebundenen Geräten und die Kommunikation aggregierter Ergebnisdaten in die Cloud. In der Cloud hingegen werden die Daten zentral gesammelt, persistent gespeichert und weiterverarbeitet. Zusätzlich sind dort Monitoring- und Visualisierungskomponenten angesiedelt, die einen systemweiten Überblick ermöglichen.</p>
+<p>Zu den eingesetzten Kernkomponenten auf der Edge und in der Cloud zählt unter anderem das leichtgewichtige Messaging-Protokoll MQTT welches insbesondere für die Kommunikation in IoT-nahen Edge-Szenarien geeignet ist. Für die Verarbeitung und Kurzzeit-Persistierung größerer Datenströme kommt Kafka zum Einsatz, das eine skalierbare und fehlertolerante Streaming-Plattform bereitstellt. Ergänzend wird Node-RED verwendet, um Datenflüsse visuell zu modellieren und insbesondere am Edge flexibel anzupassen. Die Überwachung und Visualisierung von Systemzuständen erfolgt schließlich über Grafana, wodurch eine transparente Beobachtbarkeit der gesamten Infrastruktur gewährleistet wird. Speziell implementierte Datenrouter gewährleisten den Datenfluss zwischen den verschiedenen Kernkomponenten.</p>
+<p>Im folgenden Abschnitt wird näher auf die einzelnen Services eingegangen und deren jeweilige Funktion sowie Integration innerhalb der beschriebenen Edge-Cloud-Architektur detaillierter erläutert.</p>
+<p><strong>MQTT Mosquitto Broker</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Eclipse Mosquitto ist ein leichtgewichtiger MQTT-Broker, der für die zuverlässige Kommunikation zwischen Edge-Geräten und der Cloud eingesetzt wird. Er implementiert das Publish/Subscribe-Prinzip und eignet sich besonders für ressourcenarme Umgebungen bspw. auf Edge-Knoten. Im vorliegenden System übernimmt Mosquitto die Rolle der ersten Schnittstelle und Datensammelinstanz. Der MQTT-Broker wird ohne Persistenz verwendet, d.h. es werden keine Nachrichten dauerhaft gespeichert. Durch ein per Konvention festgelegtes Topic-Bennenungsschema werden Daten, bspw. von Sensoren aufgenommen, über ein “Source”-Topic in die EASY-Edge Umgebung gesendet und Ergebnisse wiederum nach außen an ein “Sink” MQTT Topic versendet. Für die Kommunikation zwischen mehreren Edge-Devices und zur Cloud muss das Benennungsschema bei Bedarf mit einer (eindeutigen) Device-ID erweitert werden, sodass das Routing jeweils eindeutig durchgeführt werden kann. So ergeben sich zum Beispiel Topic-Benennungsschema wie: <em>“&lt;deviceID-1&gt;/source”, “&lt;deviceID-1&gt;/sink”,</em> <em>“&lt;deviceID-2&gt;/source/sensor1”, “&lt;deviceID-2&gt;/sink”, “&lt;cloud-1&gt;/sink”, …</em></p>
+<p><strong>Kafka</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>Kafka (Apache Kafka) dient als zentrale Streaming-Plattform für die Verarbeitung großer Datenmengen. Es ermöglicht die persistente Speicherung und Weiterleitung von Datenströmen in Echtzeit und asynchrones Verarbeiten dieser Daten. Kafka wird auf der Edge und in der Cloud als erste Persistierungsschicht eingesetzt. Die “von außen” am MQTT-Broker ankommenden Daten werden über die MQTT-2-Kafka (M2K) und Kafka-2-MQTT (K2M) Datarouter nach Kafka weitergeleitet und dort persistiert. Auf der Edge wird aufgrund begrenzter Ressourcen eine geringere <em>Retention-Time (bspw. 20 Minuten) konfiguriert.</em> Im Cloud-Cluster betrieben, wo ausreichend Ressourcen vorhanden sind, kann eine längere Retention-Time (bspw. mehrere Monate) verwendet werden und zusätzlich mit mehreren <em>Replica</em> zur Erhöhung der Ausfallsicherheit, Skalierung und hohe Durchsatzraten das System angepasst werden. Durch Topics und Partitionierung können Daten effizient organisiert werden. Dies bildet die Grundlage für nachgelagerte Analyseprozesse.</p>
+<p><strong>Kafka UI</strong><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Kafka UI ist eine webbasierte Oberfläche zur Verwaltung und Überwachung von Kafka-Clustern. Sie ermöglicht das Einsehen von Topics, Partitionen und Nachrichtenströmen. Darüber hinaus können Nachrichten direkt inspiziert und getestet werden. Dies erleichtert Debugging und Systemanalyse erheblich.</p>
+<p><strong>MQTT-2-Kafka und Kafka-2-MQTT Datarouter</strong></p>
+<p>Zwei eigens entwickelte Datarouter sorgen dafür, dass die Daten von MQTT nach Kafka bzw. von Kafka nach MQTT geroutet werden. Durch Topic-Filterung wird der Inhalt nur von explizit vorkonfigurierten Topics weitergeleitet. Zudem findet ein Re-Mapping der Topic-Namen statt. Das MQTT Topic-Benennungsschema kann nicht direkt für Kafka übernommen werden, da “/” (Slash) als Zeichen in Kafka Topic-Namen nicht zulässig sind. Daher wird das Slash-Zeichen in den Dataroutern durch “…” ersetzt (bspw. <em>“&lt;deviceID-2&gt;…source…sensor1”).</em> Die Nachrichteninhalte werden als JSON-Objekte erwartet und weitgehend unverändert übernommen. JSON-Nachrichten, welche in einer Liste empfangen werden, werden vereinzelt und als einzelne Elemente nach Kafka geschrieben. Optional kann in den Dataroutern eine JSON-Schema<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Validierung aktiviert werden, welche das Datenformat der empfangenen Nachrichten überprüft.</p>
+<p><strong>Node-RED</strong><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>Node-RED ist ein visuelles Entwicklungswerkzeug und Low-Code Plattform zur Erstellung von Datenflüssen, sogenannten <em>Flows</em>. Es ermöglicht die einfache Integration und Transformation von Daten aus unterschiedlichen Quellen. Besonders im Edge-Bereich wird Node-RED genutzt, um Daten lokal vorzuverarbeiten. Durch die grafische Oberfläche können auch komplexe Logiken schnell implementiert werden. Dies erleichtert die Anpassung an unterschiedliche Anwendungsfälle. Durch die grafische Benutzeroberfläche wird somit auch ein niederschwelliger Zugang für Experten aus anderen Disziplinen ermöglicht. Demnach wird Node-RED auch in der Cloud eingesetzt. Es wurden diverse Node-RED Flows zur Transformation und Analyse von Datenströmen implementiert (siehe <a href="demo_planung_monitoring_agent.html" class="quarto-xref"><span>Planungs- und Monitoring-Agenten</span></a>). Durch Plugins wie Node-RED Dashboard 2.0 können auch einfache HMIs implementiert werden und Ergebnisdaten der Flows visualisiert werden.</p>
+<p><strong>Kubernetes Dashboard</strong><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>Das Kubernetes Dashboard stellt eine grafische Benutzeroberfläche zur Verwaltung von Kubernetes-Clustern bereit. Es ermöglicht die Überwachung von Pods, Deployments und anderen Ressourcen. Darüber hinaus können administrative Aufgaben direkt über die Oberfläche durchgeführt werden. Dies erleichtert insbesondere die Fehleranalyse und das Debugging. Das Dashboard wird sowohl für Cloud- als auch Edge-Cluster eingesetzt.</p>
+<p><strong>Grafana</strong><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p>Grafana wird zum einen zur Visualisierung von Metriken und Systemzuständen eingesetzt. Es ermöglicht die Erstellung interaktiver Dashboards für Monitoring-Daten. Datenquellen wie Zeitreihendatenbanken können direkt angebunden werden. Dadurch entsteht eine zentrale Übersicht über die gesamte Systemlandschaft. Zum anderen wird Grafana auch zur Visualisierung der Ergebnisdaten aus den Node-RED Flows verwendet. In Dashboards werden so bspw. Live-Sensordaten oder deren Auswertung bezüglich etwaiger Anomalien dargestellt.</p>
+<p><strong>MinIO</strong><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p>MinIO ist ein S3-kompatibler Objektspeicher, der für die persistente Ablage von Daten verwendet wird. Er eignet sich besonders für große, unstrukturierte Datenmengen. Im System wird MinIO beispielsweise für Rohdaten oder ML-Artefakte genutzt. Zum Beispiel werden die zugrundeliegenden Trainingsdaten für ein Föderiertes Lernen in MinIO Buckets abgelegt. Durch seine Skalierbarkeit kann MinIO sowohl im Edge- als auch im Cloud-Umfeld betrieben werden.</p>
+<p><strong>PostgreSQL</strong></p>
+<p>PostgreSQL ist ein leistungsfähiges relationales Datenbanksystem zur strukturierten Datenspeicherung. Es wird für transaktionale Daten und Metadaten eingesetzt. Im System übernimmt PostgreSQL zentrale Persistenzaufgaben für verschiedene Services. Die Integration erfolgt containerisiert innerhalb der Kubernetes-Umgebung.</p>
+<p><strong>InfluxDB</strong><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<p>InfluxDB ist eine spezialisierte Datenbank für Zeitreihendaten. Sie wird insbesondere zur Speicherung von Sensordaten und Monitoring-Metriken eingesetzt. Durch ihre optimierte Struktur ermöglicht sie effiziente Schreib- und Lesezugriffe auf Zeitreihendaten. InfluxDB wird vor allem im Cloud-Kontext genutzt, auf der Edge nur bei Bedarf und ausreichenden Rechenressourcen (siehe auch Definition der “EASY-Cluster-Service-Availability-Classes”, <a href="#sec-easy-cluster-service-classes" class="quarto-xref"><span>EASY-Cluster-Service-Availability-Classes</span></a>)</p>
+<p><strong>Telegraf</strong><a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+<p>Telegraf ist ein Agent zur Sammlung und Weiterleitung von Daten. Er unterstützt eine Vielzahl von Input- und Output-Plugins. Dadurch können Daten aus unterschiedlichen Quellen aggregiert werden. Im System wird Telegraf zur Erfassung von System- und Anwendungsmetriken und Anbindung unterschiedlicher Sensor-Schnittstellen eingesetzt. Die gesammelten Daten werden anschließend an Datenbanken wie InfluxDB weitergeleitet.</p>
+<p><strong>Keycloak</strong><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p>
+<p>Keycloak ist eine Open-Source-Lösung für Identity- und Access-Management. Es ermöglicht die zentrale Verwaltung von Benutzerkonten und Zugriffsrechten. Im System sorgt Keycloak für die Absicherung von Diensten und APIs aus der Edge oder in der Cloud. Dadurch wird eine konsistente Authentifizierung und Autorisierung gewährleistet.</p>
+<p><strong>Label Studio</strong><a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
+<p>Label Studio ist ein Tool zur Annotation und Aufbereitung von Daten. Es wird insbesondere im Kontext von Machine-Learning Anwendungen eingesetzt. Nutzer können Daten manuell labeln und für Trainingsprozesse vorbereiten, was eine wichtige Voraussetzung für überwachte Lernverfahren ist. Im System wird es Cloud-seitig zur Vorbereitung von Trainingsdatensätzen als Grundlage für das Föderierte Lernen eingesetzt.</p>
+<p><strong>MLflow</strong><a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
+<p>MLflow ist eine Plattform zur Verwaltung des gesamten Machine-Learning Lebenszyklus. Sie ermöglicht das Tracking von Experimenten, das Speichern von Modellen und deren Versionierung. Darüber hinaus unterstützt MLflow das Deployment von Modellen, welche zuvor im MinIO Backend persistiert werden. Im System wird es zur Organisation und Nachvollziehbarkeit von ML-Prozessen im Föderierten Lernkontext eingesetzt.</p>
+<p><strong>Zammad</strong><a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></p>
+<p>Zammad wird als webbasiertes Ticket-System zur Verwaltung von Supportanfragen und Störungen Cloud-seitig eingesetzt. Es ermöglicht eine strukturierte Nachverfolgung von Problemen im Betrieb. Probleme, welche auf der Edge detektiert und in einem Event resultieren, können somit in ein Ticket-System zur weiteren Problembehandlung überführt werden.</p>
+<p><strong>Eclipse BaSyx</strong><a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a></p>
+<p>Eclipse BaSyx wird im Cloud-Cluster als zentrale Middleware für die Umsetzung von Industrie-4.0-Konzepten eingesetzt. Es ermöglicht die Verwaltung und Bereitstellung von Asset Administration Shells (AAS), welche digitale Zwillinge von physischen Assets repräsentieren. Dadurch können Daten und Funktionen standardisiert beschrieben und systemübergreifend genutzt werden. BaSyx übernimmt im System insbesondere die Integration und Orchestrierung von Asset-bezogenen Informationen aus den Edge-Clustern. Technische Geräte, Maschinen, aber auch Teile von Software-Services oder des EASY-Edge Frameworks werden als Verwaltungsschale innerhalb von Submodellen modelliert und beschrieben. Somit bildet es eine wichtige Grundlage für interoperable und skalierbare Beschreibung und Steuerung von Assets und Anwendungen innerhalb der Gesamtarchitektur.</p>
+<p><strong>Containerisierte Anwendungen für Analyse und Produktionssteuerung</strong></p>
+<p>Neben den zuvor beschriebenen Basisdiensten werden innerhalb der Kubernetes-Umgebung auch spezifische, containerisierte Anwendungen zur Analyse und Steuerung von Produktionsprozessen betrieben. Diese Anwendungen sind als Docker-Images umgesetzt und können somit standardisiert, portabel und reproduzierbar in unterschiedlichen Clustern mit konsistenter Ausführung unabhängig von der zugrunde liegenden Infrastruktur bereitgestellt werden. Neben den in Node-RED implementierten Agenten und Flows besteht hierüber die Möglichkeit weitere Services und Agenten zu integrieren.</p>
+<p>Die Deployment-Prozesse erfolgen über Kubernetes wodurch eine flexible Skalierung sowie eine automatisierte Verwaltung der Anwendungen gewährleistet wird. Je nach Ressourcenanforderung und Einsatzzweck können diese Anwendungen sowohl im Edge- als auch im Cloud-Cluster ausgeführt werden.</p>
+<p>Im folgenden <a href="datenpipeline.html" class="quarto-xref"><span>Datenpipeline – Von der Maschine bis zur Aktion</span></a> wird auf das Zusammenspiel und die Abhängigkeiten zwischen den einzelnen Services im Rahmen der Beschreibung der Datenpipeline eingegangen.</p>
+</section>
+<section id="sec-easy-cluster-service-classes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-easy-cluster-service-classes">EASY-Cluster-Service-Availability-Classes</h2>
+<p>Zur systematischen Steuerung dieser Verteilung wurden sogenannte “EASY-Cluster-Service-Avail-ability-Classes” definiert. Diese beschreiben unterschiedliche Klassen von Ressourcenverfügbarkeiten innerhalb der Clusterlandschaft, bilden diese auf die Klassen “Low, Middle, High, High-End” ab und sind somit die Grundlage für Scheduling- und Skalierungsentscheidungen im Cluster und Dienste Deployment. Zusätzlich werden je Klasse noch bei Bedarf die jeweiligen Komponenten für Federated Learning (Flower-Client, Flower-Server, MinIO, ML-Flow) gesondert integriert. Während Edge-Cluster mit niedriger Ressourcenausstattung primär für Datenerfassung und einfache Vorverarbeitung vorgesehen sind, können leistungsfähigere Edge-Knoten bereits erste Analyseaufgaben übernehmen. Die Cloud-Cluster hingegen stellen umfangreiche Rechen- und Speicherkapazitäten bereit und sind für komplexe Datenverarbeitung sowie zentrale Dienste ausgelegt. Eine übersichtliche tabellarische Darstellung dieser Klassifikation wird im Folgenden dargestellt:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pictures/EASY Edge Classes - Excel.png" class="img-fluid figure-img"></p>
+<figcaption>EASY Cluster Service Availability Classes: Je nach Ressourcenverfügbarkeit werden unterschiedliche Services im Kubernetes-Cluster deployed.</figcaption>
+</figure>
+</div>
+<p>Die Zuordnung von Anwendungen zu den jeweiligen Clustern erfolgte auf Abschätzung der minimalen (requests) und maximalen (limits) Anforderungen bez. CPU, RAM und Storage der jeweiligen Dienste und wie diese skaliert werden können. Aufgrund dieser Zuordnung können abhängig der Klassenbezeichnungen durch Kubernetes Methoden die Cluster bestückt werden.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://kubernetes.io/" class="uri">https://kubernetes.io/</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://mosquitto.org/" class="uri">https://mosquitto.org/</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://kafka.apache.org/" class="uri">https://kafka.apache.org/</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://github.com/provectus/kafka-ui" class="uri">https://github.com/provectus/kafka-ui</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://json-schema.org/" class="uri">https://json-schema.org/</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://nodered.org/" class="uri">https://nodered.org/</a><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/" class="uri">https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://grafana.com/" class="uri"><strong>https://grafana.com/</strong></a><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><a href="https://www.min.io/" class="uri"><strong>https://www.min.io/</strong></a><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><a href="https://www.influxdata.com" class="uri"><strong>https://www.influxdata.com</strong></a><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p><a href="https://github.com/influxdata/telegraf" class="uri"><strong>https://github.com/influxdata/telegraf</strong></a><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p><a href="https://www.keycloak.org/" class="uri"><strong>https://www.keycloak.org/</strong></a><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p><a href="https://labelstud.io/" class="uri"><strong>https://labelstud.io/</strong></a><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p><a href="https://mlflow.org/" class="uri">https://mlflow.org/</a><a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p><a href="https://zammad.com/" class="uri">https://zammad.com/</a> , <a href="https://github.com/zammad/zammad" class="uri">https://github.com/zammad/zammad</a><a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn16"><p><a href="https://basyx.org/" class="uri">https://basyx.org/</a><a href="#fnref16" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" class="pagination-link" aria-label="Zusammenfassung Laufzeitumgebung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Zusammenfassung Laufzeitumgebung</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/002_laufzeitumgebung/datenpipeline.html" class="pagination-link" aria-label="Datenpipeline – Von der Maschine bis zur Aktion">
+        <span class="nav-page-text"><span class="chapter-title">Datenpipeline – Von der Maschine bis zur Aktion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+  document.title = "EASY Dokumentation";
+</script>
+
+
+
+
+</body></html>

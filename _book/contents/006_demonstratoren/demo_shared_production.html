@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EASY Dokumentation – EASY - 
+Energieeffiziente Analyse- und Steuerungsprozesse 
+im dynamischen Edge-Cloud-Kontinuum
+für die industrielle Fertigung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/006_demonstratoren/demo_roboter_use_case.html" rel="next">
+<link href="../../contents/006_demonstratoren/zusammenfassung.html" rel="prev">
+<link href="../../pictures/Logos/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dddb6540b923bee26809846fb4198f84.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo light-content">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EASY - Energieeffiziente Analyse- und Steuerungsprozesse im dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/empolis/" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/empolis/easy-documentation" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../EASY-Dokumentation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/006_demonstratoren/zusammenfassung.html">Demonstratoren / Use Cases</a></li><li class="breadcrumb-item"><a href="../../contents/006_demonstratoren/demo_shared_production.html"><span class="chapter-title">Demo Shared Production</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einleitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zusammenfassung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/projektpartner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektpartner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/kontakt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontakt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Laufzeitumgebung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/datenpipeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenpipeline – Von der Maschine bis zur Aktion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Die Verwaltungsschalen in der EASY Architektur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale_architektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Hosting der Verwaltungsschale und Integration von Eclipse BaSyx in die EASY Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/service_federation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Service Federation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/integration_federated_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integration Federated-Learning in EASY Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/k8s_operatoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kubernetes Operatoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/demo_planung_monitoring_agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Planungs- und Monitoring-Agenten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Effiziente Analyseprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Effiziente Analyseprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/ergebnisse_anforderungsanalyse_kriterien_ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kriterien und Indikatoren zum Thema Ressourcen-, Energie- und Dateneffizienz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Messaufbau und Modellierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Verteiltes Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Föderiertes Lernen (Federated Learning)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Föderiertes Lernen - Grundlagen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/anforderungsanalyse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungsanalyse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/evaluation_metriken.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation und Metriken von Föderiertem Lernen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_strategien.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modell-Aggregations Strategien im Federated Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Überblick FL-Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_raumluft.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Raumluft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Bild-basierte Qualitätskontrolle in der Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_OT_network_anomaly_detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Anomalieerkennung in der OT‑Netzwerkkommunikation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Anomalien in Fräsprozessen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_cwru.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Kugellagerüberwachung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Wireless Network</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Flexible Steuerungsprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Flexible Steuerungsprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.1anforderungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungen an die Flexible Steuerung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.2repraesentation_produktionsprozess.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repräsentationsformen von Produktionsprozessen und -kapazitäten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.3prozessgestaltung_planung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessgestaltung mit Planungsverfahren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.4ueberwachte_prozessausfuehrung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessausführung mit Monitoring &amp; Rekonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.5erprobung_validierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Experimentelle Erprobung und Validierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demonstratoren / Use Cases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_shared_production.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Demo Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_roboter_use_case.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator einer Roboterzelle für Palettierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_zerspanung_easy_box.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator Plug&amp;Play EASY-Box für die Zerspanung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/evaluation_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation der Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Geschäftsmodelle und Verwertung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/geschaeftsmodelle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Geschäftsmodelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/verwertung_standardisierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verwertung und Standardisierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Ausblick</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/ausblick.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ausblick</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/authors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referenzen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/impressum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Impressum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/datenschutz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenschutz</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
+  <li><a href="#probleme-und-herausforderungen-der-shared-production" id="toc-probleme-und-herausforderungen-der-shared-production" class="nav-link" data-scroll-target="#probleme-und-herausforderungen-der-shared-production">Probleme und Herausforderungen der Shared Production</a>
+  <ul>
+  <li><a href="#planungsdomäne" id="toc-planungsdomäne" class="nav-link" data-scroll-target="#planungsdomäne">Planungsdomäne</a></li>
+  <li><a href="#datensicherheit" id="toc-datensicherheit" class="nav-link" data-scroll-target="#datensicherheit">Datensicherheit</a></li>
+  <li><a href="#qualitätskontrolle" id="toc-qualitätskontrolle" class="nav-link" data-scroll-target="#qualitätskontrolle">Qualitätskontrolle</a></li>
+  </ul></li>
+  <li><a href="#umsetzung-der-shared-production" id="toc-umsetzung-der-shared-production" class="nav-link" data-scroll-target="#umsetzung-der-shared-production">Umsetzung der Shared Production</a>
+  <ul>
+  <li><a href="#planung-mit-ktf-und-ontologien" id="toc-planung-mit-ktf-und-ontologien" class="nav-link" data-scroll-target="#planung-mit-ktf-und-ontologien">Planung mit KTF und Ontologien</a></li>
+  <li><a href="#nutzerpräferenzen-aus-real-world-use-cases" id="toc-nutzerpräferenzen-aus-real-world-use-cases" class="nav-link" data-scroll-target="#nutzerpräferenzen-aus-real-world-use-cases">Nutzerpräferenzen aus Real-World Use Cases</a></li>
+  <li><a href="#konzeption-und-umsetzung-eines-sicheren-datenraums-zur-verwaltung-digitaler-produktzwillinge" id="toc-konzeption-und-umsetzung-eines-sicheren-datenraums-zur-verwaltung-digitaler-produktzwillinge" class="nav-link" data-scroll-target="#konzeption-und-umsetzung-eines-sicheren-datenraums-zur-verwaltung-digitaler-produktzwillinge">Konzeption und Umsetzung eines sicheren Datenraums zur Verwaltung digitaler Produktzwillinge</a></li>
+  <li><a href="#provider" id="toc-provider" class="nav-link" data-scroll-target="#provider">Provider</a></li>
+  <li><a href="#consumer" id="toc-consumer" class="nav-link" data-scroll-target="#consumer">Consumer</a></li>
+  <li><a href="#federated-learning-für-bildbasierte-qualitätskontrolle-in-der-shared-production" id="toc-federated-learning-für-bildbasierte-qualitätskontrolle-in-der-shared-production" class="nav-link" data-scroll-target="#federated-learning-für-bildbasierte-qualitätskontrolle-in-der-shared-production">Federated Learning für bildbasierte Qualitätskontrolle in der Shared Production</a></li>
+  </ul></li>
+  <li><a href="#kausale-analyseverfahren-für-standortübergreifendes-produktionsmonitoring" id="toc-kausale-analyseverfahren-für-standortübergreifendes-produktionsmonitoring" class="nav-link" data-scroll-target="#kausale-analyseverfahren-für-standortübergreifendes-produktionsmonitoring">Kausale Analyseverfahren für standortübergreifendes Produktionsmonitoring</a>
+  <ul>
+  <li><a href="#zielsetzung-und-anforderungsanalyse" id="toc-zielsetzung-und-anforderungsanalyse" class="nav-link" data-scroll-target="#zielsetzung-und-anforderungsanalyse">Zielsetzung und Anforderungsanalyse</a></li>
+  <li><a href="#auswahl-und-konzeption-der-verfahren" id="toc-auswahl-und-konzeption-der-verfahren" class="nav-link" data-scroll-target="#auswahl-und-konzeption-der-verfahren">Auswahl und Konzeption der Verfahren</a></li>
+  <li><a href="#implementierung-des-kausalen-lernprototyps" id="toc-implementierung-des-kausalen-lernprototyps" class="nav-link" data-scroll-target="#implementierung-des-kausalen-lernprototyps">Implementierung des kausalen Lernprototyps</a>
+  <ul class="collapse">
+  <li><a href="#datenaufbereitung" id="toc-datenaufbereitung" class="nav-link" data-scroll-target="#datenaufbereitung">Datenaufbereitung</a></li>
+  <li><a href="#granger-kausalität" id="toc-granger-kausalität" class="nav-link" data-scroll-target="#granger-kausalität">Granger-Kausalität</a></li>
+  <li><a href="#transfer-entropy" id="toc-transfer-entropy" class="nav-link" data-scroll-target="#transfer-entropy">Transfer-Entropy</a></li>
+  <li><a href="#graphaufbau-visualisierung-und-ergebnisdarstellung" id="toc-graphaufbau-visualisierung-und-ergebnisdarstellung" class="nav-link" data-scroll-target="#graphaufbau-visualisierung-und-ergebnisdarstellung">Graphaufbau, Visualisierung und Ergebnisdarstellung</a></li>
+  </ul></li>
+  <li><a href="#einbindung-der-verwaltungsschale-aas" id="toc-einbindung-der-verwaltungsschale-aas" class="nav-link" data-scroll-target="#einbindung-der-verwaltungsschale-aas">Einbindung der Verwaltungsschale (AAS)</a></li>
+  <li><a href="#qualitätskriterium-und-evaluation" id="toc-qualitätskriterium-und-evaluation" class="nav-link" data-scroll-target="#qualitätskriterium-und-evaluation">Qualitätskriterium und Evaluation</a>
+  <ul class="collapse">
+  <li><a href="#konstruktion-prädiktiver-kausalmodelle" id="toc-konstruktion-prädiktiver-kausalmodelle" class="nav-link" data-scroll-target="#konstruktion-prädiktiver-kausalmodelle">Konstruktion prädiktiver Kausalmodelle</a></li>
+  <li><a href="#quantitative-bewertung-und-modellselektion" id="toc-quantitative-bewertung-und-modellselektion" class="nav-link" data-scroll-target="#quantitative-bewertung-und-modellselektion">Quantitative Bewertung und Modellselektion</a></li>
+  </ul></li>
+  <li><a href="#ergebnisse" id="toc-ergebnisse" class="nav-link" data-scroll-target="#ergebnisse">Ergebnisse</a></li>
+  <li><a href="#perspektive-integration-in-den-shared-production-demonstrator" id="toc-perspektive-integration-in-den-shared-production-demonstrator" class="nav-link" data-scroll-target="#perspektive-integration-in-den-shared-production-demonstrator">Perspektive: Integration in den Shared-Production-Demonstrator</a></li>
+  <li><a href="#zusammenfassung" id="toc-zusammenfassung" class="nav-link" data-scroll-target="#zusammenfassung">Zusammenfassung</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/006_demonstratoren/zusammenfassung.html">Demonstratoren / Use Cases</a></li><li class="breadcrumb-item"><a href="../../contents/006_demonstratoren/demo_shared_production.html"><span class="chapter-title">Demo Shared Production</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-006-demo_shared_production" class="quarto-section-identifier"><span class="chapter-title">Demo Shared Production</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+---
+author:
+   - Dennis Heitkamp
+   - Stefanie Hittmeyer
+   - Lukas Klein
+---
+-->
+<section id="motivation" class="level2">
+<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<p>Shared Production bezeichnet ein kooperatives Produktionskonzept, bei dem mehrere Unternehmen oder organisatorische Einheiten gemeinsam Produktionsressourcen, Infrastrukturen und Kompetenzen nutzen, um Wertschöpfungsprozesse effizienter und flexibler zu gestalten. Im Gegensatz zu klassischen, unternehmensintern organisierten Produktionsstrukturen basiert Shared Production auf der Idee der geteilten Nutzung von Produktionsmitteln sowie der koordinierten Zusammenarbeit über Unternehmensgrenzen hinweg <span class="citation" data-cites="Haese2015SharingEconomy"><a href="../references.html#ref-Haese2015SharingEconomy" role="doc-biblioref">[1]</a></span>. Ziel ist es, Skaleneffekte zu realisieren, Investitionskosten zu reduzieren und gleichzeitig die Anpassungsfähigkeit an volatile Marktbedingungen zu erhöhen. Im Projekt EASY dient Shared Production als Referenzszenario, um die Themen der vorangegangenen Kapitel, wie u.A. verteilte Planung, Föderiertes Lernen und sichere Datenräume, in einer realistischen, standortübergreifenden Produktion zu integrieren.</p>
+<p>Die zunehmende Relevanz von Shared Production ist eng mit technologischen Entwicklungen im Rahmen der Digitalisierung und Industrie 4.0 verknüpft. Fortschritte in den Bereichen Cyber-Physische Systeme, industrielle Vernetzung, Cloud-Computing und datengetriebene Produktionsplanung ermöglichen eine transparente und effiziente Koordination verteilter Produktionsressourcen. Dadurch wird es möglich, Produktionskapazitäten bedarfsgerecht zu teilen und Produktionsprozesse dynamisch zu orchestrieren, ohne dass die beteiligten Akteure ihre organisatorische Autonomie vollständig aufgeben müssen.</p>
+<p>Neben ökonomischen Vorteilen bietet Shared Production auch ein erhebliches Potenzial zur Förderung nachhaltiger Produktionsweisen. Durch eine verbesserte Auslastung bestehender Anlagen können Ressourcen effizienter genutzt und der Bedarf an zusätzlichen Investitionen reduziert werden. Gleichzeitig ermöglicht die Zusammenarbeit zwischen unterschiedlichen Akteuren den Austausch von Know-how und die gemeinsame Entwicklung innovativer Produktionslösungen. Vor diesem Hintergrund stellt Shared Production einen vielversprechenden Ansatz dar, um den steigenden Anforderungen an Effizienz, Flexibilität und Nachhaltigkeit in modernen Produktionssystemen gerecht zu werden. Die in diesem Demonstrator verwendeten Planungs- und Ontologiekonzepte werden in den Kapiteln <a href="../005_flex_steuerung/5.2repraesentation_produktionsprozess.html" class="quarto-xref"><span>Repräsentationsformen von Produktionsprozessen und -kapazitäten</span></a> und <a href="../005_flex_steuerung/5.3prozessgestaltung_planung.html" class="quarto-xref"><span>Prozessgestaltung mit Planungsverfahren</span></a> ausführlich vorgestellt.</p>
+</section>
+<section id="probleme-und-herausforderungen-der-shared-production" class="level2">
+<h2 class="anchored" data-anchor-id="probleme-und-herausforderungen-der-shared-production">Probleme und Herausforderungen der Shared Production</h2>
+<section id="planungsdomäne" class="level3">
+<h3 class="anchored" data-anchor-id="planungsdomäne">Planungsdomäne</h3>
+<p>Die erste Herausforderung liegt in der intelligenten Planung zur Ausführung von Tasks an verschiedenen Standorten. Die besagte Herausforderung der adressierten Planungsdomäne besteht in der formal konsistenten und zugleich praxisnahen Abbildung heterogener Produktionsumgebungen in ein maschinell verarbeitbares Planungsmodell. Ausgangspunkt ist die Anforderung, individuelle Kundenaufträge automatisiert in valide, optimierte und ausführbare Produktionsprozesse zu überführen. Dies erfordert eine präzise Modellierung von Ressourcen, Fähigkeiten, Vorbedingungen, Effekten sowie relevanten Optimierungskriterien (z. B. Zeit, Kosten, Nachhaltigkeitsmetriken) in einer Weise, die sowohl semantisch eindeutig als auch algorithmisch zugänglich ist.</p>
+<p>Die Schwierigkeit liegt insbesondere in der Heterogenität der beteiligten Systeme (Maschinen, Roboter, IT-Dienste), der Verteilung über ein Edge-Cloud-Continuum sowie der Notwendigkeit, deren Fähigkeiten dynamisch und interoperabel zu beschreiben. Planungsdomänen müssen dabei nicht nur syntaktisch korrekt, sondern auch semantisch vollständig sein, sodass KI-Planungsverfahren valide Aktionsmodelle generieren können. Gleichzeitig sind Kundenpräferenzen und domänenspezifische Metriken formal in die Planungsprobleme zu integrieren, um eine zielgerichtete Optimierung zu ermöglichen.</p>
+<p>Die Herausforderung besteht somit in der durchgängigen Transformation von informell formulierten Kundenanforderungen über semantische Repräsentationen hin zu formalen Planungsdomänen, ohne Informationsverlust und unter Sicherstellung der Ausführbarkeit in realen Produktionsumgebungen.</p>
+</section>
+<section id="datensicherheit" class="level3">
+<h3 class="anchored" data-anchor-id="datensicherheit">Datensicherheit</h3>
+<p>Die zweite zentrale Herausforderung in der verteilten Produktion ist die Gewährleistung von Datensicherheit und Datensouveränität. Verteilte Produktionssysteme zeichnen sich dadurch aus, dass sie über mehrere Standorte – häufig sogar firmenübergreifend – organisiert sind. Dadurch entstehen neue Fragestellungen hinsichtlich der sicheren Nutzung und des Schutzes sensibler Produktionsdaten. Im Kontext der verteilten Produktion muss insbesondere geklärt werden, welche Daten wem zugänglich gemacht werden dürfen, unter welchen Bedingungen dies geschieht und wie eine missbräuchliche Nutzung verhindert werden kann.</p>
+<p>Neben klassischen IT-Security-Maßnahmen wie Authentifizierung, OAuth2 oder rollenbasierter Zugriffskontrolle (RBAC) ist in diesem Zusammenhang vor allem die Interaktion zwischen verschiedenen Stakeholdern – Produzenten und Konsumenten – relevant. Es stellt sich beispielsweise die Frage, welcher Produzent über die für den Kunden relevanten Daten verfügt und ob diese überhaupt geteilt werden dürfen. Falls eine Freigabe möglich ist, müssen zudem Dauer, Umfang und Bedingungen der Nutzung eindeutig definiert werden. Darüber hinaus sind rechtliche Rahmenbedingungen zu berücksichtigen: Welche Vorgaben ergeben sich aus Datenschutz- und Vertragsrecht? Welche Konsequenzen treten ein, wenn Daten missbräuchlich verwendet werden? Nicht zuletzt ist auch die Frage zu klären, welche Datenarten überhaupt ausgetauscht werden (z. B. Planungs- und Prozessdaten, siehe Planungsdomäne) und wie diese klassifiziert und geschützt werden können.</p>
+<p>Für eine verteilte Produktion ist daher ein verbindlicher Regelkatalog notwendig, der Verhaltensweisen, Zugriffsrechte und Sanktionen definiert, an den sich alle Beteiligten halten müssen. Ziel ist es, dass jeder Teilnehmer jederzeit die Kontrolle über seine Daten behält und eigenständig bestimmen kann, wie diese verwendet werden – ein Kernprinzip der Datensouveränität.</p>
+<p>Eine geeignete Lösung für dieses Problem bietet GAIA-X. GAIA-X ist ein europäisches, föderiertes Dateninfrastruktur-Projekt, das darauf abzielt, Datenräume zu schaffen, in denen Datenaustausch unter Einhaltung definierter Regeln und Standards möglich ist. Im Kern ermöglicht GAIA-X die Einrichtung von föderierten Datenräumen, in denen Datenanbieter (Producer) und Datennutzer (Consumer) sicher und vertrauenswürdig interagieren können. Dabei werden insbesondere Policy- und Governance-Mechanismen bereitgestellt, die die Bedingungen für Datenzugriff und -nutzung verbindlich regeln <span class="citation" data-cites="GaiaXHubWasIstGaiaX"><a href="../references.html#ref-GaiaXHubWasIstGaiaX" role="doc-biblioref">[2]</a></span>.</p>
+<p>Der typische Anwendungsfall in GAIA-X lässt sich wie folgt beschreiben: Ein Producer und ein Consumer treten einem Datenraum bei. Ziel des Datenraums ist die Bereitstellung und Verteilung eines digitalen Datenprodukts. Der Producer stellt das Datenprodukt bereit und kann es – sofern gewünscht – unter festgelegten Nutzungsbedingungen (Policies) in den föderierten Katalog des Datenraums einbringen. Der Consumer kann den Katalog durchsuchen, ein geeignetes Datenprodukt auswählen und erhält Einsicht in die zugehörigen Policies. Anschließend verhandeln Producer und Consumer über die Nutzungsbedingungen. Wird eine Einigung erzielt, schließen beide Parteien einen rechtsgültigen Vertrag, und der Consumer erhält entsprechend den vereinbarten Regeln Zugriff auf das Datenprodukt. Dadurch werden Datensouveränität, Nachvollziehbarkeit und rechtliche Absicherung im Datenaustausch gewährleistet.</p>
+</section>
+<section id="qualitätskontrolle" class="level3">
+<h3 class="anchored" data-anchor-id="qualitätskontrolle">Qualitätskontrolle</h3>
+<p>Die dritte Herausforderung steht in engem Zusammenhang mit der Datensouveränität: die Qualitätskontrolle in der verteilten Produktion. In jeder Produktion ist das Auftreten von Abweichungen und Fehlzuständen unvermeidlich, etwa infolge von Maschinenstörungen, Materialinkonsistenzen oder Logistikfehlern. Solche Abweichungen können die Produktqualität mindern; die Aufgabe besteht daher nicht nur darin, den Fehler zu erkennen, sondern auch dessen Ursache und den verantwortlichen Standort zuverlässig zu identifizieren.</p>
+<p>Föderiertes Lernen beschleunigt in der Shared Production die Übernahme neuer Fehlerbilder und stabilisiert Entscheidungen unter Domain‑Shift: Kontinuierliche Aggregation und gezielte Personalisierung (z. B. lokale Köpfe, FedBN) reduzieren Fehlalarme, erhalten die Cross‑Site‑Übertragbarkeit und bilden standortspezifische Besonderheiten ab. Ergänzend erhöhen Edge‑seitige Anomalieerkennung auf Prozessdaten und föderiertes Active Learning die Effizienz der Datenauswahl; seltene Defekte werden schneller erkannt und Fehlerursachen lassen sich leichter einem Standort zuordnen.</p>
+</section>
+</section>
+<section id="umsetzung-der-shared-production" class="level2">
+<h2 class="anchored" data-anchor-id="umsetzung-der-shared-production">Umsetzung der Shared Production</h2>
+<p>Um die 3 Probleme zu untersuchen wurde ein verteilter Demonstrator entworfen und in den beiden SmartFactories (SmartFactoryOWL in Lemgo und SmartFactoryKL in Kaiserslautern) aufgebaut. Die beiden Module des Demonstrators für sich betrachtet sind identisch. Jedes Modul beinhaltet einen 3D-Drucker mit Filamentwechslereinheit (Prusa MK4S mit MMU3), einen Robotergreifarm (UR5e) mit Greifer, ein Transportsystem zum Warenlager und eine Kamera zur Qualitätskontrolle. Die beiden Module sind über zwei Bundesländer (NRW und RLP) verteilt und stehen ca. 400km weit auseinder und schaffen dadurch ein realistisches Szenario bei dem Standortfaktoren wirklich eine Rolle spielen. Interessenten der Demo können die Module über eine Web-UI bedienen. In der Weboberfläche kann der Kunde ein Produkt auswählen und es konfigurieren (Farbe und Material). Danach können noch Präferenzen für die Planung eingegeben werden und schlieslich wird der auftrag in einer der SmartFactories ausgeführt. Abschließend wird die Qualitätskontrolle ausgeführt und das Produkt am ende entweder ins Warenlagertransportiert oder ins Recycling gegeben.</p>
+<section id="planung-mit-ktf-und-ontologien" class="level3">
+<h3 class="anchored" data-anchor-id="planung-mit-ktf-und-ontologien">Planung mit KTF und Ontologien</h3>
+<p>Das Problem der Planung wurde mittels einem durchgängigen, semantisch fundierten Ansatzes gelöst: Produktionsressourcen wurden als Digitale Zwillinge mittels Asset Administration Shell (AAS) beschrieben und zusätzlich in einer Ontologie formalisiert. Ein Knowledge Transformation Framework (KTF) überführte diese semantischen Beschreibungen automatisch in PDDL-Planungsdomänen und -Probleme. Darauf aufbauend kombinierte das System klassische KI-Planung mit Case-Based Reasoning, um gültige und optimierte Prozesspläne zu erzeugen. Diese Pläne wurden anschließend in ausführbare Workflow-Modelle transformiert und in einer Edge-Cloud-Umgebung überwacht ausgeführt (siehe <a href="../005_flex_steuerung/zusammenfassung.html" class="quarto-xref"><span>Zusammenfassung Flexible Steuerungsprozesse</span></a>).</p>
+</section>
+<section id="nutzerpräferenzen-aus-real-world-use-cases" class="level3">
+<h3 class="anchored" data-anchor-id="nutzerpräferenzen-aus-real-world-use-cases">Nutzerpräferenzen aus Real-World Use Cases</h3>
+<p>Die Kunden einer Shared-Production-Umgebung können sich in sehr unterschiedlichen wirtschaftlichen und strategischen Ausgangslagen befinden. Während ein Kunde (Kunde A) primär das Ziel verfolgt, Produktionskosten entlang der gesamten Wertschöpfungskette zu minimieren, legt ein anderer Kunde (Kunde B) möglicherweise den Fokus auf die Reduktion seines CO₂-Fußabdrucks und damit auf ökologische Nachhaltigkeitsaspekte. Diese divergierenden Zielsetzungen führen dazu, dass ein einheitlicher Produktionsplan nicht zwangsläufig den individuellen Anforderungen aller Kunden gerecht wird.</p>
+<p>Um diesem Umstand Rechnung zu tragen, sieht das Shared-Production-Konzept die Möglichkeit vor, kundenspezifische Optimierungspräferenzen zu definieren und zu berücksichtigen. Diese Präferenzen spiegeln die jeweiligen wirtschaftlichen, ökologischen oder strategischen Zielsetzungen der Kunden wider und können beispielsweise Kosten-, Emissions-, Zeit- oder Qualitätskriterien umfassen.</p>
+<p>Die vom Nutzer festgelegten Optimierungspräferenzen <a href="#fig-user-prefs" class="quarto-xref">Abbildung&nbsp;<span>34.1</span></a> werden an einen zentralen Planungsservice übermittelt. Dieser übernimmt die Aufgabe, die Präferenzen im Kontext der verfügbaren Produktionsressourcen, Prozessrestriktionen und Kapazitäten zu evaluieren. Auf dieser Basis werden unterschiedliche Produktionsszenarien analysiert und gegeneinander abgewogen. Ziel dieses Evaluierungsprozesses ist es, einen Produktionsplan zu ermitteln, der die angegebenen Präferenzen bestmöglich erfüllt und gleichzeitig die technischen und organisatorischen Randbedingungen der Shared-Production-Umgebung einhält.</p>
+<p>Das Ergebnis dieses Planungsprozesses ist ein optimierter Produktionsplan, der individuell auf die Anforderungen des jeweiligen Kunden zugeschnitten ist. Durch die systematische Integration von Optimierungspräferenzen wird es somit ermöglicht, innerhalb einer gemeinsamen Produktionsinfrastruktur unterschiedliche Zielsetzungen parallel zu unterstützen. Dies erhöht sowohl die Flexibilität als auch die Attraktivität der Shared Production für Kunden mit heterogenen wirtschaftlichen und nachhaltigkeitsbezogenen Anforderungen.</p>
+<div id="fig-user-prefs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-user-prefs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pref.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-user-prefs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;34.1: Kundenpräferenzen. Der Kunde kann auswählen der Faktoren Preis, CO_2 Emissionen und Produktionszeit besonders in die Produktionsplanung miteinfließen sollen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="konzeption-und-umsetzung-eines-sicheren-datenraums-zur-verwaltung-digitaler-produktzwillinge" class="level3">
+<h3 class="anchored" data-anchor-id="konzeption-und-umsetzung-eines-sicheren-datenraums-zur-verwaltung-digitaler-produktzwillinge">Konzeption und Umsetzung eines sicheren Datenraums zur Verwaltung digitaler Produktzwillinge</h3>
+<p>Für den kontrollierten Austausch digitaler Datenprodukte zwischen verschiedenen Akteuren wurde ein Datenraum erstellt. Die Teilnehmer dieses Datenraums sind zwei SmartFactories sowie die Kunden des betrachteten Use Cases. Innerhalb des Datenraums übernehmen die SmartFactories die Rolle der Datenproduzenten (Producer), während die Kunden als Datenkonsumenten (Consumer) auftreten. Ziel ist es, den Kunden einen sicheren und regelkonformen Zugriff auf die für sie relevanten digitalen Datenprodukte zu ermöglichen, ohne dabei die Hoheit der Hersteller über ihre Daten zu gefährden.</p>
+<p>Die im Datenraum bereitgestellten digitalen Datenprodukte entsprechen den Digitalen Zwillingen der gefertigten Produkte, die in Form von Asset Administration Shells (AAS) umgesetzt sind. Wird ein Produkt durch einen Kunden beauftragt, liegt die Verantwortung für die Erstellung, Verwaltung und Pflege der zugehörigen AAS zunächst beim jeweiligen Hersteller. Im Rahmen der vorliegenden Demonstration werden exemplarisch die Submodelle Nameplate sowie Handover Documentation erstellt und in die AAS integriert. Perspektivisch ist darüber hinaus die Einbindung eines Digitalen Produktpasses vorgesehen, sodass dieser bereits zu Beginn des Produktlebenszyklus erzeugt und kontinuierlich angereichert werden kann.</p>
+<p>Nach der Erstellung wird die AAS des Produkts sicher auf einem AASX-Server des Herstellers abgelegt. Zu diesem Zeitpunkt befindet sich der Digitale Zwilling vollständig unter der Kontrolle des Producers. Sobald der Kunde Zugriff auf die AAS seines neu beauftragten Produkts erhalten möchte, wird die AAS vom Hersteller in den Datenraum eingebracht. Dabei definiert der Producer eine Zugriffsrichtlinie (Policy), die die Nutzung der AAS durch den Consumer regelt. In der aktuellen Implementierung stehen hierfür drei unterschiedliche Policies zur Verfügung:</p>
+<ul>
+<li><p>uneingeschränkter Zugriff,</p></li>
+<li><p>Zugriff beschränkt auf den Standort Europa,</p></li>
+<li><p>zeitlich begrenzter Zugriff mit einer Nutzungsdauer von einem Jahr.</p></li>
+</ul>
+<p>Kommt zwischen Producer und Consumer eine Einigung über die anzuwendende Policy zustande, erhält der Consumer Zugriff auf die AAS und kann diese entsprechend der definierten Rahmenbedingungen nutzen.</p>
+<p>Die finale Architektur besteht aus folgenden Komponenten:</p>
+<ul>
+<li><p>einem Identity Provider (Keycloak)</p></li>
+<li><p>einem Datenraumkonnektor (Eclipse Dataspace Connector)</p></li>
+<li><p>einer Erweiterung des Datenraumkonnektors, welche speziell für den Austausch von AAS entwickelt wurde (Fraunhofer IOSB Fa³ST-Extension).</p></li>
+<li><p>Provider Services</p></li>
+<li><p>Consumer Services</p></li>
+</ul>
+<p>Zusammenbilden diese Komponenten einen Datenraum-orientierten Workflow indessen Industrielle Komponenten inklusive einer Selbstbeschreibung vom Provider in den Datenraum hinzugefügt werden und vom Consumer gefunden und genutzt werden können, sofern vorher bestimmte Richtlinien (Policies/Roles) eingehalten werden. Das System stellt dabei sicher, dass die Nutzung der Ressourcen des Datenraumes nur von authorisierten Benutzern erfolgt.</p>
+<p>Damit ein Datenaustausch erfolgen kann müssen zwei Kriterien erfüllt sein.</p>
+<ol type="1">
+<li>der Provider erlaubt einer Bestimmten Rolle etwaige Ressourcen im Förderierten Katalog überhaupt zusehen</li>
+<li>Provider und Consumer einigen sich auf eine Policy.</li>
+</ol>
+<p>In diesem Use Case fragen mehrere Consumer einen Producer nach den Digitalen Zwillingen ihrer bestellten Produkte. Damit Firma A nicht im Föderierten Katalog einsehen kann, dass Firma B Produkte beauftragt hat werden die Elemente im Föderierten über den Identity Provider geschützt. Lediglich die Consumer mit einer passende Rolle können die entsprechende Einträge sehen. Für jedes nun angezeigt Element können Provider und Consumer sich auf eine Policy einigen und die Daten austauschen.</p>
+<p>Der Identity Provider Keycloak ist hierbei eine Single-Source-of-Truth für die Authentifizierung und die Authorisierung und Nutzerverwaltung. Innerhalb Keycloaks wurde ein Realm (SmartFactory_Dataspace) erstellt indem für jeden Nutzer des Datenraumes ein eigener Client erstellt wurde. Diese Clients stellen Provider und Consumer dar. Die Nutzer authentifizieren sich über OpenID Connect und ihre Rollen (z.B. bosch_operator, empolis_operator) werden in den ausgestellten acces tokens abgelegt. Jeder Service im Datenraum verwendet diese Methode der Authorisierung. Diese Zentralisierung des Identiy Provider ermöglicht konsistenten Zugriff auf den entsprechenden Ressource über Unternehmensgrenzen hinweg.</p>
+</section>
+<section id="provider" class="level3">
+<h3 class="anchored" data-anchor-id="provider">Provider</h3>
+<p>Zusätzlicher zur REST-API des Datenraumes erhalten Provider und Consumer eine eigene Web-GUI. Der Provider kann sich in den Datenraum einloggen und erhält eine Übersicht über seine hochgeladenen Ressourcen, sowie weitere Aktionen, z.B. den Upload neuer Rssourcen in den Datenraum. Für den Upload einer neuen Ressource gibt der Nutzer einen neuen freien Port an, wählt eine gültige AASX Datei aus (Digitaler Zwilling der Ressource), vergibt Rollen und setzt eine Policy für die Nutzung <a href="#sec-006-demo_shared_production" class="quarto-xref"><span>Demo Shared Production</span></a>.</p>
+</section>
+<section id="consumer" class="level3">
+<h3 class="anchored" data-anchor-id="consumer">Consumer</h3>
+<p>Auch der Consumer kann sich über eine Web-GUI in den Datenraum einloggen und kann den Föderierten Katalog nach Ressourcen durchsuchen. Sofern der Consumer die passenden Rollen hat, kann er entsprechenden Ressourcen sehen und diese anfragen. Nach Anfrage erfolgt die Verhandlung der Policy, derzeit muss der Consumer die Policy des Providers in Gänze akzeptieren. Nach der erfolgreichen Verhandlung erhält der Consumer Zugriff auf die Ressource.</p>
+<div id="fig-edc-view" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-edc-view-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="prod_con.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-edc-view-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;34.2: Provider und Consumer Sicht. Der Provider stellt Datenobjekte zur Verfügung und der Consumer kann diese Verhandeln.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="federated-learning-für-bildbasierte-qualitätskontrolle-in-der-shared-production" class="level3">
+<h3 class="anchored" data-anchor-id="federated-learning-für-bildbasierte-qualitätskontrolle-in-der-shared-production">Federated Learning für bildbasierte Qualitätskontrolle in der Shared Production</h3>
+<p>Federated Learning fungiert in diesem Demonstrator als Bindeglied und Enabler zwischen Shared-Production-Szenario, GAIA‑X‑basiertem Datenraum und Edge‑Cloud‑Kontinuum. Anstatt Bilddaten aus der Qualitätskontrolle standortübergreifend zu poolen, trainieren SmartFactoryOWL und SmartFactoryKL ein gemeinsames, VGG16‑basiertes Modell föderiert, sodass ausschließlich Modellupdates übertragen werden und alle Rohdaten in den Werken verbleiben (vgl. <a href="../004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.html" class="quarto-xref"><span>FL-Demonstrator Bild-basierte Qualitätskontrolle in der Shared Production</span></a>). Durch die Aggregation der Modellgewichte entsteht ein globaler, domänenrobuster Feature‑Backbone, der lokal über spezifische Köpfe und Schwellenwerte an Beleuchtung, Perspektive und Defektverteilung der jeweiligen Linie angepasst werden kann. Das zentral trainierte Modell dient dabei als theoretische Genauigkeitsobergrenze; föderierte Konfigurationen – insbesondere ein 5×20‑Schedule – nähern sich dieser Grenze in der Praxis an, ohne Datensouveränität oder IP‑Schutz zu verletzen. In Kombination mit dem Datenraum, der Digitale Zwillinge und Zugriffsrichtlinien verwaltet, und der EASY‑Laufzeitumgebung im Edge‑Cloud‑Kontinuum ermöglicht FL damit eine skalierbare, daten- und energieeffiziente, bildbasierte Qualitätskontrolle in der Shared Production, die sowohl Cross‑Site‑Generalisierung als auch sitespezifische Optimierung unterstützt.</p>
+</section>
+</section>
+<section id="kausale-analyseverfahren-für-standortübergreifendes-produktionsmonitoring" class="level2">
+<h2 class="anchored" data-anchor-id="kausale-analyseverfahren-für-standortübergreifendes-produktionsmonitoring">Kausale Analyseverfahren für standortübergreifendes Produktionsmonitoring</h2>
+<p>Die zuvor beschriebenen Herausforderungen der Qualitätskontrolle und Fehlerdiagnose in verteilten Produktionsumgebungen erfordern methodische Ansätze, die über klassische zustandsbasierte Verfahren hinausgehen. Während bildbasierte Qualitätskontrolle und Federated Learning die Erkennung von Abweichungen ermöglichen, bleibt die Frage nach den zugrundeliegenden Ursachen und der Fehlerausbreitung über mehrere Produktionsstandorte hinweg oft unbeantwortet. Um diese Lücke zu schließen, wurden im Rahmen des Projekts kausale Analyseverfahren entwickelt, die explizite Abhängigkeitsmodelle zwischen Prozessgrößen identifizieren und damit eine fundierte Fehlerdiagnose ermöglichen.</p>
+<section id="zielsetzung-und-anforderungsanalyse" class="level3">
+<h3 class="anchored" data-anchor-id="zielsetzung-und-anforderungsanalyse">Zielsetzung und Anforderungsanalyse</h3>
+<p>Im Rahmen dieser Arbeit wurden zunächst systematisch Anforderungen an Datenanalyseverfahren für das Monitoring und die Diagnose von Produktionsanlagen identifiziert. Darauf aufbauend wurde ein prototypischer kausaler Lernalgorithmus entwickelt und evaluiert.</p>
+<p>Motivation bildet die Beobachtung, dass klassische zustandsbasierte Verfahren zwar Abweichungen erkennen, aber nur eingeschränkt erklären, warum eine Abweichung auftritt und wie sich Fehler über eine Anlage ausbreiten. Für eine effektive Wartung und Fehlersuche werden daher explizite Abhängigkeits- und Kausalmodelle benötigt, die skalierbar sind, heterogene Datenquellen robust verarbeiten und sich für verteilte Lernansätze eignen.</p>
+<p>Die Anforderungsanalyse identifizierte folgende zentrale Herausforderungen:</p>
+<ul>
+<li>Erkennbarkeit gerichteter Zusammenhänge zwischen Prozessgrößen (nicht nur Korrelation)</li>
+<li>Umgang mit Zeitreihen und Nicht-Stationarität (Preprocessing und statistische Tests)</li>
+<li>Quantitative Qualitätsmaße für die Güte eines Kausalmodells mit direktem Bezug zur Diagnosefähigkeit</li>
+<li>Einbettbarkeit in eine Verwaltungsschale (AAS), um semantische Informationen (Anlagenzuordnung, Variablentypen) zu nutzen</li>
+<li>Perspektive auf verteiltes/föderiertes Lernen zur Unterstützung von Szenarien mit mehreren Anlagen oder Mandanten</li>
+</ul>
+<p>Als Benchmark dient der Tennessee-Eastman-Prozess (TEP), der in zahlreichen Veröffentlichungen zu Fault Diagnosis und kausalem Lernen etabliert ist.</p>
+</section>
+<section id="auswahl-und-konzeption-der-verfahren" class="level3">
+<h3 class="anchored" data-anchor-id="auswahl-und-konzeption-der-verfahren">Auswahl und Konzeption der Verfahren</h3>
+<p>Basierend auf einer systematischen Literaturrecherche zu modell- und signalbasierten Diagnoseverfahren sowie zu Methoden der kausalen Entdeckung (u. a. <span class="citation" data-cites="gao2015survey"><a href="../references.html#ref-gao2015survey" role="doc-biblioref">[3]</a></span>; <span class="citation" data-cites="hlavavckova2007causality"><a href="../references.html#ref-hlavavckova2007causality" role="doc-biblioref">[4]</a></span>; <span class="citation" data-cites="huang2020detecting"><a href="../references.html#ref-huang2020detecting" role="doc-biblioref">[5]</a></span>; <span class="citation" data-cites="li2024federated"><a href="../references.html#ref-li2024federated" role="doc-biblioref">[6]</a></span>) wurden verschiedene methodische Ansätze hinsichtlich ihrer Eignung für das industrielle Anlagenmonitoring evaluiert.</p>
+<p>Modellbasierte Verfahren wie Beobachter und Paritätsrelationen bieten zwar einen soliden konzeptionellen Rahmen, erfordern jedoch detaillierte physikalische Modelle, deren Erstellung für komplexe Produktionsanlagen mit erheblichem Aufwand verbunden ist. Signalkorrelations- und spektrale Verfahren, beispielsweise Motor Current Signature Analysis (MCSA) oder Zeit-Frequenz-Methoden, zeigen zwar Abhängigkeiten zwischen Signalen auf, liefern jedoch keine Informationen über die kausale Richtung dieser Zusammenhänge.</p>
+<p>Im Gegensatz dazu ermöglichen statistische kausale Verfahren wie Granger-Kausalität und Transfer-Entropy die Identifikation gerichteter Abhängigkeitsstrukturen auf Basis informationstheoretischer Größen. Diese datengetriebenen Ansätze erfordern keine explizite Prozessmodellierung und sind somit besonders für komplexe Anlagen geeignet, bei denen vollständige physikalische Modelle nicht verfügbar oder zu aufwendig zu erstellen sind.</p>
+<p>Für die prototypische Umsetzung wurden bewusst etablierte, gut interpretierbare Verfahren gewählt: Granger-Kausalität dient als lineares Referenzverfahren zur Identifikation gerichteter Abhängigkeiten, während Transfer-Entropy als nichtlineares, modellfreies Maß den gerichteten Informationsfluss auch bei komplexeren Zusammenhängen erfassen kann. Ergänzend wurde ein qualitätsbasiertes Auswahlkriterium entwickelt, das über die rein statistische Signifikanz hinausgeht und den tatsächlichen Nutzen eines Kausalmodells für Prognose- und Diagnoseaufgaben quantifiziert.</p>
+</section>
+<section id="implementierung-des-kausalen-lernprototyps" class="level3">
+<h3 class="anchored" data-anchor-id="implementierung-des-kausalen-lernprototyps">Implementierung des kausalen Lernprototyps</h3>
+<p>Zur Validierung und Evaluation der ausgewählten Verfahren wurde eine modulare Python-basierte Pipeline entwickelt und auf den Tennessee-Eastman-Prozess-Datensatz angewendet. Die Implementierung folgt einem systematischen Verarbeitungsworkflow, der verschiedene Vorverarbeitungs-, Analyse- und Evaluationsschritte integriert.</p>
+<section id="datenaufbereitung" class="level4">
+<h4 class="anchored" data-anchor-id="datenaufbereitung">Datenaufbereitung</h4>
+<p>Die Vorverarbeitung der TEP-Daten stellt einen kritischen Schritt dar, um die Voraussetzungen für die nachfolgenden kausalen Analyseverfahren zu gewährleisten. Nach dem Einlesen der Rohdaten aus RData-Dateien in strukturierte DataFrames erfolgt zunächst eine Qualitätssicherung, bei der konstante Variablen identifiziert und aus dem Datensatz entfernt werden, da diese keine Informationen über dynamische Prozesszusammenhänge liefern können.</p>
+<p>Ein zentraler Aspekt der Aufbereitung ist die Sicherstellung der Stationarität, da viele zeitreihenbasierte Analyseverfahren diese als Grundvoraussetzung haben. Hierzu wird jede Variable mittels Augmented Dickey-Fuller (ADF) und Kwiatkowski-Phillips-Schmidt-Shin (KPSS) Test systematisch auf stationäres Verhalten geprüft. Nicht-stationäre Zeitreihen werden durch einen mehrstufigen Transformationsprozess behandelt: Zunächst wird bei strikt positiven Variablen eine Log-Transformation angewendet, um Varianzinstationarität zu reduzieren. Anschließend erfolgt eine Differenzbildung, die bei Bedarf iterativ wiederholt wird, bis Stationarität erreicht ist.</p>
+<p>Für die Anwendung entropiebasierter Verfahren wird zusätzlich eine optionale Diskretisierung der kontinuierlichen Zeitreihen durchgeführt. Hierbei werden die Wertebereiche in gleichbreite Bins unterteilt, wodurch diskrete Zustandsräume entstehen, die für die Berechnung von Transferentropie erforderlich sind.</p>
+<p>Durch diese systematische Vorverarbeitung wird sichergestellt, dass sowohl klassische zeitreihenbasierte Methoden wie die Granger-Kausalität als auch entropiebasierte Maße wie die Transfer-Entropy auf statistisch validen und methodisch geeigneten Datengrundlagen operieren können.</p>
+</section>
+<section id="granger-kausalität" class="level4">
+<h4 class="anchored" data-anchor-id="granger-kausalität">Granger-Kausalität</h4>
+<p>Für die Granger-Analyse werden alle geordneten Paare von Variablen betrachtet. Für jedes Paar wird:</p>
+<ul>
+<li>ein Granger-Kausalitätstest für mehrere Lags durchgeführt,</li>
+<li>aus den zugehörigen p-Werten derjenige Lag mit dem minimalen p-Wert bestimmt,</li>
+<li>eine gerichtete Kante aufgenommen, sofern der minimale p-Wert unterhalb eines Signifikanzniveaus α liegt.</li>
+</ul>
+<p>Die Ergebnisse werden als Menge gerichteter Kanten mit zugehörigen p-Werten abgelegt, z. B. in der Form (Quelle, Ziel) → p-Wert.</p>
+</section>
+<section id="transfer-entropy" class="level4">
+<h4 class="anchored" data-anchor-id="transfer-entropy">Transfer-Entropy</h4>
+<p>Die Transfer-Entropy wird als nichtlineares Maß für gerichteten Informationsfluss eingesetzt:</p>
+<ul>
+<li>Die Zeitreihen werden zunächst in Klassen diskretisiert,</li>
+<li>für jedes geordnete Variablenpaar wird die Transfer-Entropy berechnet,</li>
+<li>die Signifikanz wird mittels Permutationstest geprüft, indem die TE der Originaldaten mit einer Nullverteilung aus permutierten Reihen verglichen wird,</li>
+<li>nur signifikante Relationen werden als gerichtete Kanten in ein Kanten-Set übernommen.</li>
+</ul>
+<p>Zur besseren Vergleichbarkeit ist zusätzlich eine optionale Normierung der TE-Werte vorgesehen, sodass unterschiedliche Skalen auf einen gemeinsamen Wertebereich abgebildet werden können.</p>
+</section>
+<section id="graphaufbau-visualisierung-und-ergebnisdarstellung" class="level4">
+<h4 class="anchored" data-anchor-id="graphaufbau-visualisierung-und-ergebnisdarstellung">Graphaufbau, Visualisierung und Ergebnisdarstellung</h4>
+<p>Die Ergebnisse der verschiedenen kausalen Analyseverfahren werden in einem integrierten Ansatz zusammengeführt, um ein robustes Gesamtbild der kausalen Prozessstruktur zu erhalten. Hierbei wird eine kausale Kantenliste konstruiert, die für jede identifizierte gerichtete Abhängigkeit dokumentiert, ob diese durch Granger-Kausalität, Transfer-Entropy oder konsistent durch beide Verfahren nachgewiesen wurde. Diese methodische Triangulation erhöht die Zuverlässigkeit der identifizierten kausalen Strukturen, da Abhängigkeiten, die von mehreren Verfahren mit unterschiedlichen Annahmen bestätigt werden, als besonders robust gelten.</p>
+<p>Die identifizierten kausalen Strukturen werden als gerichtete Graphen visualisiert, wobei etablierte Graph-Bibliotheken zum Einsatz kommen. Die resultierende graphische Darstellung wird persistent als PNG-Datei gespeichert und ermöglicht eine intuitive Interpretation der Informationsflüsse und Abhängigkeitsketten innerhalb des Produktionsprozesses. Ergänzend erfolgt eine tabellarische Auswertung der identifizierten Kanten, die quantitative Kenngrößen wie normierte Transfer-Entropy-Werte, Granger-p-Werte sowie eine explizite Kennzeichnung des zugrunde liegenden Analyseverfahrens umfasst. Diese mehrdimensionale Dokumentation ermöglicht sowohl eine visuelle Exploration der Prozessstruktur als auch eine quantitative Bewertung der Signalstärke einzelner kausaler Verbindungen.</p>
+</section>
+</section>
+<section id="einbindung-der-verwaltungsschale-aas" class="level3">
+<h3 class="anchored" data-anchor-id="einbindung-der-verwaltungsschale-aas">Einbindung der Verwaltungsschale (AAS)</h3>
+<p>Zur Nutzung semantischer Informationen wurde ein erster Prototyp zur Integration in eine Verwaltungsschale entwickelt:</p>
+<ul>
+<li>Für jede Prozessinstanz des TEP wird ein AAS-ähnliches JSON-Objekt erzeugt, das u. a. Asset-ID, Fehlernummer, Simulationslauf, Zeitstempel und den Variablenvektor enthält.</li>
+<li>Die Struktur orientiert sich konzeptionell an der IDTA-Spezifikation für Submodelle (insbesondere Nameplate) und an der Idee einer Strukturierung mittels SubmodelElementCollections.</li>
+<li>Konzeptionell wurde aufgezeigt, wie AAS-Informationen (z. B. Zuordnung einer Messgröße zu einem Anlagenteil, Messgröße vs.&nbsp;Stellgröße, Ex-Zone) künftig genutzt werden können, um
+<ul>
+<li>die Suche nach Kanten zu beschränken (z. B. nur innerhalb eines Moduls),</li>
+<li>gefundene Kausalbeziehungen anlagentechnisch zu interpretieren,</li>
+<li>hierarchische, modular verschachtelte Modelle zu unterstützen.</li>
+</ul></li>
+</ul>
+<p>Damit ist die Grundlage gelegt, kausale Abhängigkeitsgraphen nicht nur auf Variablenebene, sondern semantisch angereichert in der Anlagenstruktur abzulegen und wiederzuverwenden.</p>
+</section>
+<section id="qualitätskriterium-und-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="qualitätskriterium-und-evaluation">Qualitätskriterium und Evaluation</h3>
+<p>Ein zentrales methodisches Element der vorliegenden Arbeit ist die Entwicklung eines qualitätsbasierten Evaluationskriteriums, das die Güte eines Kausalmodells nicht ausschließlich über statistische Signifikanzmaße, sondern über dessen praktische Vorhersageleistung bewertet. Dieser Ansatz verknüpft die identifizierten kausalen Strukturen explizit mit der Diagnosefähigkeit des Gesamtsystems und ermöglicht eine anwendungsorientierte Bewertung unterschiedlicher kausaler Entdeckungsverfahren.</p>
+<section id="konstruktion-prädiktiver-kausalmodelle" class="level4">
+<h4 class="anchored" data-anchor-id="konstruktion-prädiktiver-kausalmodelle">Konstruktion prädiktiver Kausalmodelle</h4>
+<p>Auf Basis der durch Granger-Kausalität und Transfer-Entropy identifizierten gerichteten Abhängigkeiten wird für jede Zielvariable eine Menge kausaler Vorgänger (Parents) abgeleitet. Diese Struktur bildet die Grundlage für variable-spezifische Prognosemodelle, wobei jede Zielvariable durch ihre im Kausalgraph identifizierten Eingangsgrößen modelliert wird.</p>
+<p>Für die prädiktive Modellierung werden Regressionsdatensätze konstruiert, die zeitverzögerte (gelaggte) Werte der Prädiktorvariablen als Features nutzen. Dies berücksichtigt explizit die zeitliche Struktur der kausalen Beziehungen und erlaubt die Vorhersage zukünftiger Zustände basierend auf historischen Informationen. Die Daten werden zeitlich konsistent in Trainings- und Testdatensätze aufgeteilt (typischerweise im Verhältnis 80:20), wobei die zeitliche Ordnung streng gewahrt bleibt, um unrealistische Look-ahead-Bias-Effekte zu vermeiden.</p>
+<p>Als Basisprognosemodell wird ein Random-Forest-Regressor eingesetzt, der durch seine Ensemble-Struktur robust gegenüber Überanpassung ist und nichtlineare Zusammenhänge erfassen kann, ohne dass explizite Modellannahmen über die funktionale Form der Beziehungen getroffen werden müssen. Die modulare Architektur der Implementierung ermöglicht die spätere Integration alternativer Modellklassen wie Ridge-Regression für lineare Zusammenhänge oder LSTM-Netzwerke für komplexe zeitliche Abhängigkeiten.</p>
+</section>
+<section id="quantitative-bewertung-und-modellselektion" class="level4">
+<h4 class="anchored" data-anchor-id="quantitative-bewertung-und-modellselektion">Quantitative Bewertung und Modellselektion</h4>
+<p>Die Evaluationsmetrik umfasst drei komplementäre Fehlermaße: Mean Squared Error (MSE) als primäres Kriterium für die Vorhersagegüte, Mean Absolute Error (MAE) zur Bewertung der durchschnittlichen Abweichung und das Bestimmtheitsmaß R² zur Quantifizierung der erklärten Varianz. Diese werden für jede Zielvariable und jede Kausalmodell-Variante (basierend auf Granger-Inputs bzw. TE-Inputs) berechnet.</p>
+<p>Die vergleichende Bewertung folgt einer hierarchischen Entscheidungslogik: Primär wird das Modell mit geringerem MSE präferiert, bei statistischer Gleichwertigkeit entscheidet der MAE, und als tertiäres Kriterium dient das Bestimmtheitsmaß R². Durch Aggregation über alle Zielvariablen lässt sich quantifizieren, welches kausale Entdeckungsverfahren insgesamt die höhere Prognosequalität liefert.</p>
+<p>Dieser Ansatz etabliert eine unmittelbare Verbindung zwischen Kausalstruktur und praktischem Nutzen: Ein Kausalmodell, das zu besseren Vorhersagen führt, ermöglicht auch eine präzisere Anomalieerkennung und fundiertere Diagnoseentscheidungen, da es die tatsächlichen Informationsflüsse im Prozess besser abbildet.</p>
+</section>
+</section>
+<section id="ergebnisse" class="level3">
+<h3 class="anchored" data-anchor-id="ergebnisse">Ergebnisse</h3>
+<p>Der Prototyp konnte auf dem TEP-Datensatz stabile kausale Graphen für mehrere Dutzend Prozessvariablen berechnen.</p>
+<ul>
+<li>Granger-Kausalität zeigte insbesondere bei weitgehend linearen Beziehungen gute Ergebnisse.</li>
+<li>Transfer-Entropy war in der Lage, zusätzliche nichtlineare und zeitverzögerte Zusammenhänge aufzudecken.</li>
+<li>Die Prognose-basierte Bewertung verdeutlichte, dass kein Verfahren allein alle relevanten Zusammenhänge erfasst; eine kombinierte Betrachtung (TE + Granger) ist für Diagnosezwecke am aussagekräftigsten.</li>
+</ul>
+</section>
+<section id="perspektive-integration-in-den-shared-production-demonstrator" class="level3">
+<h3 class="anchored" data-anchor-id="perspektive-integration-in-den-shared-production-demonstrator">Perspektive: Integration in den Shared-Production-Demonstrator</h3>
+<p>Die entwickelten Verfahren bilden eine methodische Grundlage für die erweiterte Qualitätskontrolle im verteilten Demonstrator der SmartFactoryOWL und SmartFactoryKL. Die Identifikation kausaler Zusammenhänge zwischen Prozessparametern an beiden Standorten ermöglicht eine präzisere Lokalisation von Fehlerquellen über die 400 km hinweg und trägt damit zur Verbesserung der Gesamtproduktqualität bei. In Verbindung mit den bereits implementierten bildbasierten Qualitätskontrollverfahren und dem GAIA-X-basierten Datenraum entsteht so ein ganzheitliches Monitoring- und Diagnosesystem für die Shared Production.</p>
+</section>
+<section id="zusammenfassung" class="level3">
+<h3 class="anchored" data-anchor-id="zusammenfassung">Zusammenfassung</h3>
+<p>Die vorliegende Arbeit präsentiert einen funktionsfähigen Analyse- und Diagnosebaustein für industrielle Produktionsanlagen, der auf kausalen Lernverfahren basiert und mehrere methodische Anforderungen integriert adressiert. Der entwickelte Ansatz erfüllt die identifizierten Anforderungen an gerichtete, interpretierbare Abhängigkeitsmodelle, indem er sowohl lineare Zusammenhänge mittels Granger-Kausalität als auch nichtlineare Informationsflüsse durch Transfer-Entropy systematisch erfasst und dokumentiert.</p>
+<p>Ein wesentliches Alleinstellungsmerkmal liegt in der Verknüpfung der kausalen Strukturidentifikation mit prognosebasierten Qualitätsmetriken, die eine direkte Bewertung der Diagnosefähigkeit ermöglichen. Durch diesen Ansatz wird die Brücke zwischen theoretischer Kausalanalyse und praktischem Nutzen für Wartungs- und Fehlerdiagnoseaufgaben geschlagen. Die Güte eines identifizierten Kausalmodells bemisst sich damit nicht ausschließlich an statistischen Signifikanzmaßen, sondern an dessen Fähigkeit, zukünftige Prozesszustände präzise vorherzusagen.</p>
+<p>Die Integration in das Konzept der Asset Administration Shell ermöglicht die semantische Anreicherung der kausalen Modelle mit anlagentechnischen Kontextinformationen, ist im Rahmen des Projekts jedoch nur konzeptionell integriert. Dies unterstützt nicht nur die Interpretierbarkeit der identifizierten Strukturen, sondern schafft auch die Voraussetzung für eine standardisierte Wiederverwendbarkeit über verschiedene Anlagen und Organisationsgrenzen hinweg.</p>
+<p>Insgesamt demonstriert die Arbeit die Machbarkeit einer (halb-)automatischen Erkennung kausaler Abhängigkeiten in komplexen Prozessdaten und liefert einen skalierbaren methodischen Rahmen für datengetriebene Diagnose- und Wartungsstrategien in der industriellen Produktion.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Haese2015SharingEconomy" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">M. Haese, <span>„Aktueller Begriff: Sharing Economy“</span>, Wissenschaftliche Dienste Deutscher Bundestag, Nr.\ 13/15 13/15, Juni 2015. Verfügbar unter: <a href="https://www.bundestag.de/resource/blob/377486/21fc4300787540e3881dbc65797b2cde/sharing-economy-data.pdf">https://www.bundestag.de/resource/blob/377486/21fc4300787540e3881dbc65797b2cde/sharing-economy-data.pdf</a></div>
+</div>
+<div id="ref-GaiaXHubWasIstGaiaX" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">Gaia‑X Hub Germany, <span>„Was ist Gaia‑X?“</span> [Online]. Verfügbar unter: <a href="https://gaia-x-hub.de/was-ist-gaia-x/">https://gaia-x-hub.de/was-ist-gaia-x/</a></div>
+</div>
+<div id="ref-gao2015survey" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Z. Gao, C. Cecati, und S. X. Ding, <span>„A survey of fault diagnosis and fault-tolerant techniques—Part I: Fault diagnosis with model-based and signal-based approaches“</span>, <em>IEEE transactions on industrial electronics</em>, Bd. 62, Nr. 6, S. 3757–3767, 2015.</div>
+</div>
+<div id="ref-hlavavckova2007causality" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">K. Hlaváčková-Schindler, M. Paluš, M. Vejmelka, und J. Bhattacharya, <span>„Causality detection based on information-theoretic approaches in time series analysis“</span>, <em>Physics Reports</em>, Bd. 441, Nr. 1, S. 1–46, 2007.</div>
+</div>
+<div id="ref-huang2020detecting" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">Y. Huang, Z. Fu, und C. L. Franzke, <span>„Detecting causality from time series in a machine learning framework“</span>, <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em>, Bd. 30, Nr. 6, 2020.</div>
+</div>
+<div id="ref-li2024federated" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">L. Li <em>u.&nbsp;a.</em>, <span>„Federated causal discovery from heterogeneous data“</span>, <em>arXiv preprint arXiv:2402.13241</em>, 2024.</div>
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/006_demonstratoren/zusammenfassung.html" class="pagination-link" aria-label="Zusammenfassung Demonstratoren">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Zusammenfassung Demonstratoren</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/006_demonstratoren/demo_roboter_use_case.html" class="pagination-link" aria-label="Demonstrator einer Roboterzelle für Palettierung">
+        <span class="nav-page-text"><span class="chapter-title">Demonstrator einer Roboterzelle für Palettierung</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+  document.title = "EASY Dokumentation";
+</script>
+
+
+
+
+</body></html>

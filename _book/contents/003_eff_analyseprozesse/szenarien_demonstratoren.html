@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EASY Dokumentation – EASY - 
+Energieeffiziente Analyse- und Steuerungsprozesse 
+im dynamischen Edge-Cloud-Kontinuum
+für die industrielle Fertigung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../contents/004_verteiltes_ml/zusammenfassung.html" rel="next">
+<link href="../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" rel="prev">
+<link href="../../pictures/Logos/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dddb6540b923bee26809846fb4198f84.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo light-content">
+    <img src="../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">EASY - Energieeffiziente Analyse- und Steuerungsprozesse im dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/empolis/" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/empolis/easy-documentation" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../EASY-Dokumentation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/003_eff_analyseprozesse/zusammenfassung.html">Effiziente Analyseprozesse</a></li><li class="breadcrumb-item"><a href="../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html"><span class="chapter-title">Demonstratoren</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einleitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zusammenfassung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/projektpartner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektpartner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/001_introduction/kontakt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontakt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Laufzeitumgebung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/datenpipeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenpipeline – Von der Maschine bis zur Aktion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Die Verwaltungsschalen in der EASY Architektur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/verwaltungsschale_architektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Hosting der Verwaltungsschale und Integration von Eclipse BaSyx in die EASY Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/service_federation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Service Federation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/integration_federated_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integration Federated-Learning in EASY Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/k8s_operatoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kubernetes Operatoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/002_laufzeitumgebung/demo_planung_monitoring_agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Planungs- und Monitoring-Agenten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Effiziente Analyseprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Effiziente Analyseprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/ergebnisse_anforderungsanalyse_kriterien_ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kriterien und Indikatoren zum Thema Ressourcen-, Energie- und Dateneffizienz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Messaufbau und Modellierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Verteiltes Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Föderiertes Lernen (Federated Learning)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Föderiertes Lernen - Grundlagen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/anforderungsanalyse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungsanalyse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/evaluation_metriken.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation und Metriken von Föderiertem Lernen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_strategien.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modell-Aggregations Strategien im Federated Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Überblick FL-Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_raumluft.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Raumluft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Bild-basierte Qualitätskontrolle in der Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_OT_network_anomaly_detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Anomalieerkennung in der OT‑Netzwerkkommunikation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Anomalien in Fräsprozessen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_cwru.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Kugellagerüberwachung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Wireless Network</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Flexible Steuerungsprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Flexible Steuerungsprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.1anforderungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungen an die Flexible Steuerung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.2repraesentation_produktionsprozess.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repräsentationsformen von Produktionsprozessen und -kapazitäten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.3prozessgestaltung_planung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessgestaltung mit Planungsverfahren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.4ueberwachte_prozessausfuehrung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessausführung mit Monitoring &amp; Rekonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/005_flex_steuerung/5.5erprobung_validierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Experimentelle Erprobung und Validierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demonstratoren / Use Cases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_roboter_use_case.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator einer Roboterzelle für Palettierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/demo_zerspanung_easy_box.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator Plug&amp;Play EASY-Box für die Zerspanung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/006_demonstratoren/evaluation_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation der Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Geschäftsmodelle und Verwertung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/geschaeftsmodelle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Geschäftsmodelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/007_geschaeftsmodelle/verwertung_standardisierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verwertung und Standardisierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Ausblick</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/ausblick.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ausblick</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/authors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referenzen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/impressum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Impressum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contents/datenschutz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenschutz</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#demonstrator-zur-fehlererkennung-in-der-additiven-fertigung" id="toc-demonstrator-zur-fehlererkennung-in-der-additiven-fertigung" class="nav-link active" data-scroll-target="#demonstrator-zur-fehlererkennung-in-der-additiven-fertigung">Demonstrator zur Fehlererkennung in der additiven Fertigung</a>
+  <ul>
+  <li><a href="#bewertung-der-ergebnisse" id="toc-bewertung-der-ergebnisse" class="nav-link" data-scroll-target="#bewertung-der-ergebnisse">Bewertung der Ergebnisse</a></li>
+  </ul></li>
+  <li><a href="#lüftungsdemonstrator" id="toc-lüftungsdemonstrator" class="nav-link" data-scroll-target="#lüftungsdemonstrator">Lüftungsdemonstrator</a></li>
+  <li><a href="#evaluation-und-weiterentwicklung-der-methodik" id="toc-evaluation-und-weiterentwicklung-der-methodik" class="nav-link" data-scroll-target="#evaluation-und-weiterentwicklung-der-methodik">Evaluation und Weiterentwicklung der Methodik</a></li>
+  <li><a href="#erstellung-einer-ai-on-device-hardware" id="toc-erstellung-einer-ai-on-device-hardware" class="nav-link" data-scroll-target="#erstellung-einer-ai-on-device-hardware">Erstellung einer AI on Device Hardware</a>
+  <ul>
+  <li><a href="#anforderungen" id="toc-anforderungen" class="nav-link" data-scroll-target="#anforderungen">Anforderungen</a></li>
+  <li><a href="#architekturübersicht" id="toc-architekturübersicht" class="nav-link" data-scroll-target="#architekturübersicht">Architekturübersicht</a></li>
+  <li><a href="#schaltungskonzepte-und-energiepfade" id="toc-schaltungskonzepte-und-energiepfade" class="nav-link" data-scroll-target="#schaltungskonzepte-und-energiepfade">Schaltungskonzepte und Energiepfade</a></li>
+  <li><a href="#softwareintegration" id="toc-softwareintegration" class="nav-link" data-scroll-target="#softwareintegration">Softwareintegration</a></li>
+  <li><a href="#automatisierte-modellanpassung" id="toc-automatisierte-modellanpassung" class="nav-link" data-scroll-target="#automatisierte-modellanpassung">Automatisierte Modellanpassung</a></li>
+  <li><a href="#kommunikation-und-vernetzung" id="toc-kommunikation-und-vernetzung" class="nav-link" data-scroll-target="#kommunikation-und-vernetzung">Kommunikation und Vernetzung</a></li>
+  <li><a href="#evaluation-und-einsatz-im-easy-kontext" id="toc-evaluation-und-einsatz-im-easy-kontext" class="nav-link" data-scroll-target="#evaluation-und-einsatz-im-easy-kontext">Evaluation und Einsatz im EASY-Kontext</a></li>
+  </ul></li>
+  <li><a href="#umsetzung-der-demonstratoren" id="toc-umsetzung-der-demonstratoren" class="nav-link" data-scroll-target="#umsetzung-der-demonstratoren">Umsetzung der Demonstratoren</a></li>
+  <li><a href="#zero-trust-ansatz-für-ai-on-device-hardware" id="toc-zero-trust-ansatz-für-ai-on-device-hardware" class="nav-link" data-scroll-target="#zero-trust-ansatz-für-ai-on-device-hardware">Zero-Trust-Ansatz für AI-on-Device Hardware</a>
+  <ul>
+  <li><a href="#grundprinzipien-und-übertragung-auf-das-board" id="toc-grundprinzipien-und-übertragung-auf-das-board" class="nav-link" data-scroll-target="#grundprinzipien-und-übertragung-auf-das-board">Grundprinzipien und Übertragung auf das Board</a></li>
+  <li><a href="#authentifizierung-rechtevergabe-und-modellintegrität" id="toc-authentifizierung-rechtevergabe-und-modellintegrität" class="nav-link" data-scroll-target="#authentifizierung-rechtevergabe-und-modellintegrität">Authentifizierung, Rechtevergabe und Modellintegrität</a></li>
+  <li><a href="#kommunikationssicherheit-und-segmentierung" id="toc-kommunikationssicherheit-und-segmentierung" class="nav-link" data-scroll-target="#kommunikationssicherheit-und-segmentierung">Kommunikationssicherheit und Segmentierung</a></li>
+  <li><a href="#monitoring-und-anwendung-im-föderierten-lernen" id="toc-monitoring-und-anwendung-im-föderierten-lernen" class="nav-link" data-scroll-target="#monitoring-und-anwendung-im-föderierten-lernen">Monitoring und Anwendung im föderierten Lernen</a></li>
+  </ul></li>
+  <li><a href="#sec-003-demonstrator-performancemetrics-wirelessnetworks" id="toc-sec-003-demonstrator-performancemetrics-wirelessnetworks" class="nav-link" data-scroll-target="#sec-003-demonstrator-performancemetrics-wirelessnetworks">Demonstrator: Schätzung von Performance-Metriken in drahtlosen Netzwerken</a></li>
+  <li><a href="#ausblick" id="toc-ausblick" class="nav-link" data-scroll-target="#ausblick">Ausblick</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contents/003_eff_analyseprozesse/zusammenfassung.html">Effiziente Analyseprozesse</a></li><li class="breadcrumb-item"><a href="../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html"><span class="chapter-title">Demonstratoren</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-003-szenarien-demonstratoren" class="quarto-section-identifier"><span class="chapter-title">Demonstratoren</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Dieses Kapitel präsentiert verschiedene Forschungsdemonstratoren zur Evaluierung der Energie- und Dateneffizienz von KI-gestützten Systemen in industriellen Anwendungen. Anhand praktischer Szenarien wird untersucht, wie durch gezielte Optimierungsmaßnahmen sowohl der Energieverbrauch als auch die benötigte Datenmenge erheblich reduziert werden können.</p>
+<p>Die vorgestellten Demonstratoren folgen einer einheitlichen Methodik, die von der Definition der Messobjekte und -ziele über den systematischen Messaufbau bis zur Auswertung der erfassten Daten reicht. Dabei werden relevante Metriken wie Energieverbrauch, Datenmengen, Erkennungsraten und Latenzzeiten analysiert. Die Untersuchungen umfassen sowohl bildbasierte Fehlererkennungssysteme als auch den Vergleich verschiedener Hardwareplattformen für maschinelles Lernen und zeigen konkrete Einsparpotenziale auf.</p>
+<p>Die gewonnenen Erkenntnisse liefern eine fundierte Grundlage zur Bewertung von Trade-offs zwischen Rechenleistung, Energieverbrauch und Dateneffizienz und unterstreichen die Relevanz intelligenter Lastverteilung zwischen Edge- und Cloud-Infrastrukturen für nachhaltige KI-Anwendungen.</p>
+<section id="demonstrator-zur-fehlererkennung-in-der-additiven-fertigung" class="level2">
+<h2 class="anchored" data-anchor-id="demonstrator-zur-fehlererkennung-in-der-additiven-fertigung">Demonstrator zur Fehlererkennung in der additiven Fertigung</h2>
+<p>Für den konkreten Anwendungsfall zur Erfassung der Energie- und Dateneffizienz eines Systems zur Fehlererkennung im Anwendungsgebiet des 3D-Drucks dient das Green Software Measurement Model (GSMM) als Vorgehensmodell. Das folgende Schaubild veranschaulicht die verschiedenen Ebenen und Komponenten des untersuchten Fehlererkennungssystems (System under Test (SuT)). Den schematischen Aufbau des Demonstrators zur additiven Fertigung zeigt <a href="#fig-3d-druck" class="quarto-xref">Abbildung&nbsp;<span>13.1</span></a>. Die im Demonstrator eingesetzte Hardware ist in <a href="#fig-3d-druck-hardware" class="quarto-xref">Abbildung&nbsp;<span>13.2</span></a> dokumentiert.</p>
+<div id="fig-3d-druck" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3d-druck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/schaubild_3d_druck.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-druck-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.1: Schaubild Demonstrator additive Fertigung
+</figcaption>
+</figure>
+</div>
+<p><strong>Messobjekt und Messziele (A)</strong></p>
+<p>Um die Energie- und Dateneffizienz eines bildbasierten Fehlererkennungssystems im 3D-Druck zu bestimmen, wird zunächst das zu messende Objekt definiert. Hierbei handelt es sich um die IKT-Komponenten des Systems, die zur Fehlererkennung verwendet werden. Das Hauptziel ist es, die Dateneffizienz zu optimieren, das heißt, die Menge der für eine erfolgreiche Fehlererkennung benötigten Daten zu minimieren, ohne dabei die Erkennungsgenauigkeit zu beeinträchtigen.</p>
+<div id="fig-3d-druck-hardware" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3d-druck-hardware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/hardware.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-druck-hardware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.2: Hardware des Demonstrators
+</figcaption>
+</figure>
+</div>
+<p><strong>Messungen und Metriken (B)</strong></p>
+<p>Im nächsten Schritt werden die relevanten Metriken festgelegt. Für das bildbasierte Fehlererkennungssystem wurden in diesem Forschungsprojekt exemplarisch die Metriken Datenmenge, Erkennungsrate (Präzision, Recall, F1-Score) sowie Energiebedarf analysiert. Diese Metriken dienen dazu, den Einfluss der Datenmenge auf die Leistung und die Energieeffizienz des Systems sichtbar zu machen.</p>
+<p><strong>Messverfahren (C)</strong></p>
+<p>Zur Messung des Energiebedarfs wurde ein fehlerfreier und vollständiger Druck sowie ein fehlerbehafteter und vorzeitig abgebrochener Druck erstellt. Im Rahmen der Messung wird das Potenzial zur Energieeinsparung durch den Vergleich eines vollständigen Drucks mit einem frühzeitig abgebrochenen Druck aufgrund eines identifizierten Fehlers analysiert.</p>
+<p><strong>Messaufbau (D)</strong></p>
+<p>Als Testobjekt diente ein herkömmlicher Würfel (3 cm Kantenlänge), der bei einer Betttemperatur von 75°C und einer Düsentemperatur von 230°C gedruckt wurde. Zur Erfassung des Energiebedarfs wurde das Messgerät Janitza Power Analyser UMG6042 eingesetzt. Während der Analyse wurden alle notwendigen IKT-Komponenten überwacht. Hierzu zählen Beleuchtung, Kamera und der Rechner mit laufendem Fehlererkennungssystem. Zur Referenzierung wurde zunächst eine Baseline-Messung ohne Ausführung der Fehlererkennung durchgeführt, um den zusätzlichen Energieverbrauch durch das Fehlererkennungssystem isolieren zu können. Parallel dazu erfasste eine Gude-Messleiste den Energieverbrauch des 3D-Druckers unter verschiedenen Bedingungen – sowohl bei fehlerfreien Druckvorgängen als auch bei vorzeitig abgebrochenen Drucken nach Fehlererkennung. Die <a href="#fig-3d-druck-hardware" class="quarto-xref">Abbildung&nbsp;<span>13.2</span></a>, <a href="#fig-3d-druck-messaufbau" class="quarto-xref">Abbildung&nbsp;<span>13.3</span></a> und <a href="#fig-3d-druck-vorzeitiger-abbruch" class="quarto-xref">Abbildung&nbsp;<span>13.4</span></a> zeigen den Messaufbau mit Messrechner und exemplarischer Messung (links) und dem Versuchsaufbau mit 3D-Drucker (rechts).</p>
+<div id="fig-3d-druck-messaufbau" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3d-druck-messaufbau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/3d_drucker_softwarelabor.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-druck-messaufbau-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.3: Messaufbau
+</figcaption>
+</figure>
+</div>
+<p><strong>Datenauswertung (E)</strong></p>
+<p>Der für die Energiemessung verwendete Messaufbau ist in <a href="#fig-3d-druck-messaufbau" class="quarto-xref">Abbildung&nbsp;<span>13.3</span></a> dargestellt. Die beiden gegenübergestellten Szenarien — mit und ohne automatisierten Abbruch — sind in <a href="#fig-3d-druck-vorzeitiger-abbruch" class="quarto-xref">Abbildung&nbsp;<span>13.4</span></a> visualisiert. Die gemessenen Daten bieten eine solide Grundlage zur Bewertung des Einflusses der Fehlererkennung auf den Energieverbrauch des Druckers. Die Auswertung der Messwerte zeigte, dass der vollständige Druck 44 Minuten und 4 Sekunden benötigte und 90,90 Wh verbrauchte, während der abgebrochene Druck nach 25 Minuten und 30 Sekunden mit 51,08 Wh auskam. Dadurch wurde eine Energieeinsparung von etwa 39,82 Wh, also 44%, erzielt. Die Ergebnisse belegen, dass die kürzere Druckdauer der Hauptfaktor für den Unterschied im Energieverbrauch ist, was eine erhebliche Reduktion des Energie- und Materialverbrauchs ermöglicht.</p>
+<div id="fig-3d-druck-vorzeitiger-abbruch" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3d-druck-vorzeitiger-abbruch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/energiebedarf_vorzeitiger_abbruch.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-druck-vorzeitiger-abbruch-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.4: Szenario mit und ohne Abbruch
+</figcaption>
+</figure>
+</div>
+<p>Bei der Betrachtung des Gesamtenergieverbrauchs aller IKT-Komponenten, die neben dem 3D-Drucker zur Fehlererkennung eingesetzt wurden, wurde deutlich, dass der Desktop-PC inklusive der angeschlossenen Kameras mit 88,9% den größten Anteil am Gesamtenergieverbrauch hat, während der Energiebedarf der Beleuchtung nur 3,6% beträgt. Diese Werte verdeutlichen, dass eine Portierung des Fehlererkennungssystems auf eine ressourcenschonendere Hardware den Energiebedarf des Gesamtsystems erheblich senken kann.</p>
+<p>Die in der folgenden Abbildung dargestellten Ergebnisse verdeutlichen, dass die Fehlererkennungssoftware in unserem System under Test (SuT) insbesondere unter hoher Last einen erheblichen Energieaufwand erfordert. Während des Betriebs mit aktivierter Fehlererkennung und Druckabbruch lag der durchschnittliche Energieverbrauch bei 38,92 W, was einer Erhöhung um 9,33 W gegenüber der Basis entspricht. Zudem stiegen sowohl der minimale als auch der maximale Energieverbrauch deutlich auf 33,25 W bzw. 51,48 W, verglichen mit den Basiswerten von 27,40 W und 32,03 W.</p>
+<div id="fig-3d-druck-anteil-energie-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3d-druck-anteil-energie-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/energiebedarf_baseline_vs_skript.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3d-druck-anteil-energie-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.5: Energieverbrauch Baseline vs.&nbsp;Messung
+</figcaption>
+</figure>
+</div>
+<p>Bei der Verarbeitung von Bilddaten in Echtzeit spielt die Datenmenge eine große Rolle. Für die Übertragung der Daten in einem Netzwerk ist eine Vorverarbeitung der Daten sehr sinnvoll, um die Netzwerklast und die Latenz zu reduzieren. Durch die Extraktion der wichtigsten Informationen mit einem Convolutional Neural Network (CNN) gelingt es, die Datenmenge eines Bildes von 95,38 KB auf 8,03 KB zu reduzieren. Hierdurch werden 91,58 % der Informationen verworfen, sodass nur noch die wichtigsten Bildinformationen erhalten bleiben, was sich positiv auf alle folgenden Schritte in der Datenverarbeitung auswirkt.</p>
+<section id="bewertung-der-ergebnisse" class="level3">
+<h3 class="anchored" data-anchor-id="bewertung-der-ergebnisse">Bewertung der Ergebnisse</h3>
+<p>Die durchgeführte Analyse verdeutlicht, dass die Software zur Fehlererkennung sowohl im Normalbetrieb als auch während der Erkennung von Fehlern einen erheblichen Energiebedarf aufweist. Insbesondere der hohe maximale Energieverbrauch lässt auf ressourcenintensive Berechnungen schließen, die direkt auf der Edge-Ebene ausgeführt werden. Dies unterstreicht die Relevanz energieeffizienter Algorithmen sowie einer intelligenten Lastverteilung, um die vorhandenen Rechenressourcen optimal zwischen Edge- und Cloud-Infrastrukturen zu nutzen und so den Energieverbrauch gezielt zu reduzieren.</p>
+</section>
+</section>
+<section id="lüftungsdemonstrator" class="level2">
+<h2 class="anchored" data-anchor-id="lüftungsdemonstrator">Lüftungsdemonstrator</h2>
+<div id="fig-lueftung" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-lueftung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/demonstrator.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lueftung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.6: Lüftungsdemonstrator
+</figcaption>
+</figure>
+</div>
+<p><strong>Messobjekt und Messziele (A)</strong></p>
+<p>Der Lüftungsdemonstrator in Kombination mit dem AI on Device Board dient als weiteres Referenzszenario zur Anwendung der entwickelten Methodik. Ziel ist es, den Energieverbrauch, die Latenzzeiten bei der Verarbeitung eingehender Sensordaten sowie den Datendurchsatz im laufenden Betrieb zu bestimmen. Darüber hinaus soll die Effizienz verschiedener Modellvarianten (z. B. unterschiedlich quantisierte Netze) im realen Nutzungskontext bewertet werden. Ziel ist es, die weiteren Demonstratoren wie den Lüftungsdemonstrator und eine Gefahrenstofferkennung mit Hilfe der genannten Hardware umzusetzen. Den Aufbau des Lüftungsdemonstrators zeigt @#fig-lueftung.</p>
+<p><strong>Metriken (B)</strong></p>
+<p>Die Messgrößen umfassen die mittlere Inferenzdauer, den Arbeitsspeicher- und CPU-Bedarf auf ESP32 und Raspberry Pi, die Energieaufnahme sowie die über ESP-NOW übertragenen Datenmengen. Damit lassen sich sowohl Ressourcen- als auch Dateneffizienz vergleichen.</p>
+<p><strong>Messverfahren (C)</strong></p>
+<p>Die Messungen erfolgen durch Ausführen verschiedener maschineller Lernmodelle auf der erstellten Hardware. Für die Kommunikation wird ESP-NOW genutzt, sodass der Demonstrator bei Bedarf auch in ein verteiltes Setup integriert werden kann.</p>
+<p><strong>Messaufbau (D)</strong></p>
+<p>Als Benchmark dient das Mnist Dataset sowie ein über den Demonstrator aufgenommenes Lüftungsdataset. Zur Erfassung des Energiebedarfs wurde ebenfalls das Messgerät Janitza Power Analyser UMG6042 eingesetzt. Zur Bestimmunge der Energieeffizienz wurde die Modellberechnung für ein LSTM, RNN, MLP und CNN zunächst auf der AI on Device Hardware als auch einem GPU basierten Rechnersystem mit einer GTX 1060 ausgeführt. Zur Referenzierung wurde zunächst eine Baseline-Messung ohne Modellberechnung vorgenommen. Wird der Wert der Baselinemessung nun mit den Ergebnissen der Algorithmen verrechnet erhält man den Bedarf der Algorithmen für die jeweilige Hardware.</p>
+<p><strong>Auswertung (E)</strong></p>
+<p>Die erfassten Daten werden zunächst deskriptiv ausgewertet und anschließend inferenzstatistisch verglichen. Damit lassen sich Unterschiede zwischen Modellvarianten sowie die Effekte verschiedener Übertragungs- und Ausführungsmodi belegen.</p>
+<p>Ein ergänzender Vergleich der Energieeffizienz wurde zwischen einem Raspberry Pi 4 und einem klassischen PC-System mit integrierter Grafikeinheit durchgeführt. Ziel war es, zu untersuchen, inwieweit sich die Ausführung typischer Trainingsaufgaben auf ressourcenschwacher, aber energieeffizienter Hardware gegenüber einem leistungsstärkeren Desktop-System unterscheidet.</p>
+<div id="fig-messung-pc" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-messung-pc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/pcpower.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-messung-pc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.7: Durchschnittlicher Energiebedarf von ML Algorithmen (PC)
+</figcaption>
+</figure>
+</div>
+<div id="fig-messung-pi" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-messung-pi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/messungpi.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-messung-pi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.8: Durchschnittlicher Energiebedarf von ML Algorithmen (Raspberry Pi)
+</figcaption>
+</figure>
+</div>
+<p>Die Ergebnisse zeigen, dass der Raspberry Pi zwar eine deutlich längere Rechenzeit für die betrachteten Modelle benötigt, dieser Nachteil jedoch durch den geringeren Grundverbrauch kompensiert wird. Beim Training eines Convolutional Neural Network (CNN) lag der Energieverbrauch des Raspberry Pi bei 1,52 Wh, während der PC hierfür 2,24 Wh benötigte – eine Einsparung von rund 32 %. Noch ausgeprägter war der Unterschied beim LSTM, bei dem sich eine Einsparung von 65 % ergab. Für MLP und RNN lag die Reduktion sogar bei jeweils 69 %.</p>
+<p>Damit wird deutlich, dass auch komplexere Modelle auf einem Raspberry Pi in akzeptabler Zeit trainiert werden können und dabei erheblich weniger Energie verbrauchen als auf einem konventionellen Desktop-System. Gleichzeitig zeigt die Auswertung, dass für viele Anwendungsfälle im Bereich des Edge-Computing keine dedizierte GPU erforderlich ist. Der Raspberry Pi erfüllt die gestellten Anforderungen sowohl hinsichtlich Mobilität als auch Energieeffizienz, während der PC vor allem durch seine höhere Rechengeschwindigkeit punktet.</p>
+<p>Die Messergebnisse verdeutlichen somit die Trade-offs zwischen Energieverbrauch und Trainingsdauer und liefern eine belastbare Grundlage für die Bewertung von Hardwarealternativen. Sie unterstreichen zudem die Relevanz der entwickelten Methodik, da sich anhand standardisierter Metriken wie Energieaufnahme pro Trainingsepoche oder pro Modellvariante objektiv aufzeigen lässt, welche Plattform im Hinblick auf Ressourcenschonung besser geeignet ist. Die Ergebnisse der vergleichenden Messung sind in <a href="#fig-messung-pc" class="quarto-xref">Abbildung&nbsp;<span>13.7</span></a> und <a href="#fig-messung-pi" class="quarto-xref">Abbildung&nbsp;<span>13.8</span></a> zusammengefasst.</p>
+</section>
+<section id="evaluation-und-weiterentwicklung-der-methodik" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-und-weiterentwicklung-der-methodik">Evaluation und Weiterentwicklung der Methodik</h2>
+<p>Die wissenschaftliche Weiterentwicklung der Methodik kann sowohl die Anpassung an verschiedene Architekturen zur Bewertung der Ressourcennutzung als auch die Integration von KI-gestützten Prognosemodellen zur Vorhersage und Optimierung des Energieverbrauchs umfassen. Anhand empirischer Studien kann die Korrelation zwischen Software-Metriken und Energieverbrauch gemessen werden – wie dies bereits in Teilen in <span class="citation" data-cites="FAZ24"><a href="../references.html#ref-FAZ24" role="doc-biblioref">[1]</a></span> im Rahmen des Forschungsprojekts umgesetzt wurde. Beim Einsatz bildbasierter Fehlererkennung mithilfe verschiedener Bildklassifizierungsalgorithmen (bzgl. Demonstrator zur Fehlererkennung) ist es essenziell, unterschiedliche Architekturen im Hinblick auf ihre Energie- und Dateneffizienz zu untersuchen. In <span class="citation" data-cites="FAZ24"><a href="../references.html#ref-FAZ24" role="doc-biblioref">[1]</a></span> wurden hierzu u. a. populäre Bildklassifizierungsalgorithmen systematisch verglichen, um belastbare Erkenntnisse über Ressourcenbedarf und Leistungsfähigkeit zu gewinnen. Des Weiteren kann die Entwicklung von Standards und Normen zur Bestimmung der Ressourceneffizienz von Edge-Cloud Systemen ein weiterer Baustein für eine effizientere Produktion sein. Durch den vermehrten Einsatz von Anwendungen der generativen Künstlichen Intelligenz besteht auch ein Bedarf an Metriken, die dabei helfen, den Ressourcenbedarf dieser Systeme zu erfassen und zu verbessern. Hierzu gibt es bereits erste Ansätze, die im Rahmen des Forschungsprojekts entwickelt wurden <span class="citation" data-cites="BAS24"><a href="../references.html#ref-BAS24" role="doc-biblioref">[2]</a></span>. Das GSMM hat sich auch in weiteren Arbeiten und Publikationen als Vorgehensmodell bewährt. So wurde es beispielsweise in den Veröffentlichungen <span class="citation" data-cites="FAZ24"><a href="../references.html#ref-FAZ24" role="doc-biblioref">[1]</a></span> und <span class="citation" data-cites="CET241"><a href="../references.html#ref-CET241" role="doc-biblioref">[3]</a></span> erfolgreich angewendet. Bei letzterer half die Methodik, durch gezielte Vorverarbeitungsoptimierungen Energieeinsparungen zu erzielen, wobei andere multivariate Zeitreihendaten und Architekturen als bei den oben genannten Demonstratoren analysiert wurden. Darüber hinaus kam das GSMM insbesondere nochmals im Kontext des Lüftungsdemonstrators in AP4.3 (AP4.3.4 und AP4.3.6) zum Einsatz.</p>
+<p>Ein weiterer Demonstrator (<span class="citation" data-cites="flenergy"><a href="../references.html#ref-flenergy" role="doc-biblioref">[4]</a></span>) wurde im Projektkontext realisiert, um die Potenziale föderierter Lernverfahren im Hinblick auf Energieeffizienz und Ressourcenschonung zu verdeutlichen. Der Demonstrator wurde entwickelt, um die Potenziale föderierter Lernverfahren hinsichtlich Energieeffizienz und Ressourcenschonung empirisch zu untersuchen. Damit adressiert der Demonstrator zentrale Fragestellungen im Bereich der Green AI und ergänzt die bisherige methodische Evaluation um praxisorientierte Einsichten.</p>
+<p><strong>Messobjekt und Aufbau</strong></p>
+<p>Der Demonstrator umfasst eine zentrale Serverkomponente (<a href="#fig-vl-2" class="quarto-xref">Abbildung&nbsp;<span>13.10</span></a>) sowie vier Edge-Clients (<a href="#fig-vl-1" class="quarto-xref">Abbildung&nbsp;<span>13.9</span></a>) auf Jetson-Nano-Basis. Während der Server die Aggregation der lokal trainierten Modelle steuert und über ein Touch-Display die Ergebnisse visualisiert, führen die Edge-Clients die Trainingsprozesse aus und erfassen parallel Leistungsdaten wie CPU- und GPU-Auslastung, Stromverbrauch und Speicherbedarf. Diese Kennzahlen werden in Echtzeit über ein 7-Zoll-Touch-Display dargestellt.</p>
+<p>Die Architektur bildet den vollständigen Ablauf föderierter Lernverfahren ab, wobei die Rohdaten auf den jeweiligen Edge-Geräten verbleiben. Dadurch wird ein praxisnahes Szenario für dezentrale Datenverarbeitung geschaffen, das die Ressourcennutzung systematisch analysierbar macht. Die Möglichkeit zur Eingabe handgeschriebener Ziffern dient nicht nur der Demonstration der Modellfunktionalität, sondern zugleich der Validierung, indem die Systemreaktionen direkt mit den gemessenen Ressourcendaten in Beziehung gesetzt werden können. Der Demonstrator stellt somit ein experimentelles Testfeld zur Untersuchung der Energieeffizienz föderierter Lernansätze dar. Den serverseitigen Aufbau sowie die Netzwerkanbindung des Flenergy-Demonstrators zeigt <a href="#fig-vl-1" class="quarto-xref">Abbildung&nbsp;<span>13.9</span></a>.</p>
+<div id="fig-vl-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/demonstrator_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vl-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.9: Flenergy Edge Devices
+</figcaption>
+</figure>
+</div>
+<div id="fig-vl-2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/demonstrator_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vl-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.10: Flenergy Server und Netzwerk
+</figcaption>
+</figure>
+</div>
+<p><strong>Use Case und Vorgehen</strong></p>
+<p>Als Anwendungsfall wurde der MNIST-Datensatz herangezogen, der im Kontext föderierter Lernverfahren eine etablierte Vergleichsbasis darstellt. Im Gegensatz zu zentralisierten Ansätzen wurde der Datensatz bewusst ungleichmäßig auf die Edge-Clients verteilt, sodass jeder Knoten lediglich über eine Teilmenge der Ziffern verfügte. Erst durch die Aggregation im Rahmen des föderierten Lernens entstand ein globales Modell, das sämtliche Ziffern zuverlässig klassifizieren konnte, ohne dass Rohdaten an den Server übertragen werden mussten. Dieses Vorgehen reduzierte sowohl den Netzwerkverkehr als auch die Serverlast und ermöglichte gleichzeitig die Untersuchung eines praxisnahen Szenarios für dezentrale Trainingsprozesse.</p>
+<p><strong>Messung des Ressourcenverbrauchs</strong></p>
+<p>Zur Erfassung der Ressourcennutzung auf den Jetson Nanos wurde das Tool jetson-stats1 integriert. Dieses ermöglicht die kontinuierliche Visualisierung zentraler Leistungsparameter, darunter CPU- und GPU-Auslastung, Stromverbrauch sowie Speicherbedarf. Die Daten werden in Echtzeit aufgezeichnet und bereitgestellt, wodurch sowohl die Performance des föderierten Lernansatzes als auch dessen Energieprofil transparent nachvollzogen werden konnte. Damit wurde eine methodische Grundlage geschaffen, um Effizienz und Belastung unterschiedlicher Systemkomponenten systematisch zu evaluieren.</p>
+<p><strong>Wesentliche Erkenntnisse</strong></p>
+<p>Im Verlauf der Implementierung zeigte sich, dass die GPU-Ressourcen der Jetson-Nano-Boards trotz vorhandener Hardwarefähigkeiten nicht genutzt werden konnten. Ursache hierfür ist eine Inkompatibilität zwischen den für das Flower-Framework erforderlichen Softwarekomponenten und den verfügbaren JetPack-Versionen: Während JetPack 4.0 GPU-Zugriffe unterstützt, ist es auf Python-Versionen unterhalb von 3.9 beschränkt. Neuere JetPack-Versionen bieten zwar die erforderliche Python-Kompatibilität, werden jedoch für den Jetson Nano nicht mehr bereitgestellt. Diese Konstellation verdeutlicht das Problem einer softwareinduzierten Hardware-Obsoleszenz, bei der leistungsfähige Hardware aufgrund mangelnder Softwarepflege nicht in vollem Umfang genutzt werden kann. Der Demonstrator liefert damit nicht nur empirische Erkenntnisse zur Energieeffizienz föderierter Lernverfahren, sondern verweist zugleich exemplarisch auf die Abhängigkeit zwischen Hard- und Software, die die nachhaltige Nutzung von KI-Infrastrukturen maßgeblich beeinflusst.</p>
+</section>
+<section id="erstellung-einer-ai-on-device-hardware" class="level2">
+<h2 class="anchored" data-anchor-id="erstellung-einer-ai-on-device-hardware">Erstellung einer AI on Device Hardware</h2>
+<p>Die Entwicklung einer eigenen AI-on-Device Hardware verfolgte das Ziel, ein praktisches und zugleich flexibles System zu schaffen, mit dem sich die im Rahmen von AP3 entwickelten Konzepte zur Messung und Bewertung von Ressourcen-, Energie- und Dateneffizienz prototypisch erproben lassen. Während herkömmliche PC- oder Cloud-Infrastrukturen zwar eine hohe Rechenleistung bereitstellen, sind sie im Hinblick auf Energieaufnahme, Datenvolumen und Reproduzierbarkeit von Messungen für den Einsatz im EASY-Kontext nur eingeschränkt geeignet.</p>
+<section id="anforderungen" class="level3">
+<h3 class="anchored" data-anchor-id="anforderungen">Anforderungen</h3>
+<p>Das AI-on-Device Board adressiert diese Anforderungen durch eine klare Trennung von Aufgaben: Eine Sensing-Node auf Basis eines ESP32 übernimmt die kontinuierliche Datenerfassung und die lokale Inferenz, während eine Model-Node auf Basis eines Raspberry Pi 4 nur bei Bedarf aktiviert wird, um Trainings- oder Konvertierungsprozesse durchzuführen. Auf diese Weise entsteht eine Hardware, die sowohl energieeffizient im Dauerbetrieb als auch flexibel in der Funktionserweiterung ist. Weitere Anforderungen bestanden in einer stabilen und reproduzierbaren Betriebsweise, einer einfachen Messbarkeit von Energie- und Rechenparametern sowie einer Vernetzbarkeit mehrerer Knoten zur Unterstützung föderierter Lernverfahren.</p>
+</section>
+<section id="architekturübersicht" class="level3">
+<h3 class="anchored" data-anchor-id="architekturübersicht">Architekturübersicht</h3>
+<div id="fig-ai-nodesplit" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-nodesplit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/NodeSplit.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-nodesplit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.11: Aufgabenverteilung der einzelnen Komponenten
+</figcaption>
+</figure>
+</div>
+<p>Das Gesamtsystem folgt einer modularen Architektur. Im Mittelpunkt steht die Sensing-Node (ESP32), die als dauerhafte Komponente in Betrieb ist und Sensordaten erfasst, erste Vorverarbeitungsschritte durchführt und Inferenzläufe mit eingebundenen Modellen ausführt. Ergänzend steht die Model-Node (Raspberry Pi 4) zur Verfügung, die bedarfsorientiert zugeschaltet wird. Ihre Aufgaben umfassen das Modelltraining auf Grundlage lokaler oder übertragener Daten, die Konvertierung trainierter Modelle in ein für Mikrocontroller ausführbares TFLite-Format sowie die Bereitstellung dieser Modelle über die gemeinsame SD-Karte.</p>
+<p>Diese Aufgabenteilung reduziert sowohl den Energiebedarf als auch das übertragene Datenvolumen erheblich. Während die ESP32-Node den energiearmen Dauerbetrieb gewährleistet, ist der Raspberry Pi nur dann aktiv, wenn rechenintensive Operationen tatsächlich erforderlich sind. Durch diese Architektur wird ein Gleichgewicht zwischen Flexibilität, Effizienz und Messbarkeit hergestellt, das im EASY-Kontext eine solide Grundlage für die Bewertung von AI-on-Device Ansätzen bildet.</p>
+</section>
+<section id="schaltungskonzepte-und-energiepfade" class="level3">
+<h3 class="anchored" data-anchor-id="schaltungskonzepte-und-energiepfade">Schaltungskonzepte und Energiepfade</h3>
+<p>Ein zentrales Element der Hardware ist die Ausgestaltung der Energiepfade und Schaltmechanismen, um einen stabilen Betrieb bei gleichzeitig minimalem Energieverbrauch sicherzustellen.</p>
+<div id="fig-ai-sdpin" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-sdpin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/sdpinbased.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-sdpin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.12: Verbindungen der Platine mit SD-Karte
+</figcaption>
+</figure>
+</div>
+<p>Die gemeinsame SD-Karte dient als Datenspeicher und ist so ausgeführt, dass sie je nach Betriebszustand entweder durch den Raspberry Pi über SDIO oder durch den ESP32 über SPI angesprochen wird. Damit es beim Wechsel der Zugriffsrechte nicht zu Bus-Kollisionen kommt, werden die ungenutzten Pins jeweils als Eingänge geschaltet. Zusätzlich sorgt eine kurze stromlose Phase für eine saubere Re-Initialisierung der Karte, wodurch ein konsistenter Betrieb gewährleistet bleibt.</p>
+<div id="fig-ai-selbst" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-selbst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/selbsterhalt.PNG" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-selbst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.13: Schaltplan zur energetischen Selbsterhaltung
+</figcaption>
+</figure>
+</div>
+<p>Um den Energieverbrauch des Raspberry Pi zu kontrollieren, wurde ein MOSFET-basierter Abschalt- und Zuschaltmechanismus implementiert. Hierbei ist die 5-Volt-Versorgung des Pi nur dann aktiv, wenn entweder der ESP32 oder der Pi selbst über einen Selbsterhaltungspin ein Freigabesignal liefert. Auf diese Weise bleibt die Model-Node vollständig spannungslos, solange sie nicht benötigt wird.</p>
+<p>Ergänzend verfügt die Platine über einen Selbsterhaltungsmechanismus, der insbesondere während Flash-Vorgängen oder bei Wechselzuständen eine stabile Versorgung sicherstellt. Dieser Mechanismus verhindert ungewollte Neustarts des Raspberry Pi und erhöht die Robustheit des Systems im Dauerbetrieb.</p>
+<p>Durch diese Kombination aus umschaltbarer SD-Karte, abschaltbarer Model-Node und Selbsterhaltungslogik entsteht ein Schaltungskonzept, das sowohl die Anforderungen an Messbarkeit als auch an Energieeffizienz erfüllt und die Grundlage für reproduzierbare Experimente bildet.</p>
+</section>
+<section id="softwareintegration" class="level3">
+<h3 class="anchored" data-anchor-id="softwareintegration">Softwareintegration</h3>
+<p>Die Softwarekette des Systems ist entlang eines deterministischen Workflows aufgebaut, der die Entwicklung, Optimierung und Ausführung von KI-Modellen abbildet. Ausgangspunkt ist die Modellerstellung und -schulung auf der Model-Node unter Nutzung gängiger Frameworks wie TensorFlow. Anschließend werden die Modelle mittels Verfahren wie Quantisierung oder Pruning reduziert, um sie speicher- und energieeffizienter zu machen. Darauf folgt die Konvertierung in ein kompaktes .tflite-Modell mit dem TensorFlow Lite Converter.</p>
+<p>Zur Einbindung auf der Sensing-Node wird dieses Modell in ein C-Array übersetzt und in die Firmware des ESP32 integriert. Für die Ausführung dient die Bibliothek TensorFlow Lite for Microcontrollers (TFLM), die mit einer statisch dimensionierten Tensor Arena arbeitet. Dieser deterministische Softwarepfad stellt sicher, dass Modellversionen nachvollziehbar bleiben und die Ergebnisse von Messungen reproduzierbar sind.</p>
+<div id="fig-ai-konvertierung" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ai-konvertierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/modellkonvertierung.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ai-konvertierung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.14: TensorFlow Lite Micro Konvertierung
+</figcaption>
+</figure>
+</div>
+<p>Ergänzt wird der Ablauf durch eine einfache Kommando-Schnittstelle zwischen ESP32 und Raspberry Pi. Die Sensing-Node signalisiert Zustände wie „check“, „download start“ oder „build model“, woraufhin die Model-Node die entsprechenden Schritte durchführt. Nach Fertigstellung wird das optimierte Modell zurückgespielt und unmittelbar für Inferenzläufe nutzbar gemacht.</p>
+</section>
+<section id="automatisierte-modellanpassung" class="level3">
+<h3 class="anchored" data-anchor-id="automatisierte-modellanpassung">Automatisierte Modellanpassung</h3>
+<p>Im Rahmen der Entwicklung des AI-on-Device Boards wurde ein Verfahren entwickelt, das es einem lernenden System ermöglicht, sein verwendetes Modell während des laufenden Betriebs automatisch zu aktualisieren und damit dauerhaft an veränderte Bedingungen anzupassen. Die grundlegende Idee besteht darin, dass das System selbstständig erkennt, wann die Leistungsfähigkeit des aktuellen Modells nicht mehr ausreicht, und daraufhin ein neues Modell erzeugt, das besser zu den aktuellen Datenverteilungen passt.</p>
+<p>Der Ablauf gliedert sich in zwei Funktionsbereiche:</p>
+<ol type="1">
+<li><p>Kontinuierliche Datenerfassung und Modellausführung,</p></li>
+<li><p>Ereignisbasierte Modellaktualisierung, sobald ein Anpassungsbedarf identifiziert wird.</p></li>
+</ol>
+<p>Während der regulären Ausführung werden eingehende Zeitreihendaten fortlaufend mit dem vorhandenen Modell ausgewertet. Parallel dazu prüft das System, ob bestimmte Bedingungen darauf hinweisen, dass sich die Umgebungs- oder Prozessbedingungen so verändert haben, dass das Modell nicht mehr angemessen reagiert. Dies kann zum Beispiel auftreten, wenn langfristige Driftprozesse, saisonale Veränderungen oder geänderte Nutzungsmuster dazu führen, dass die Modellvorhersagen systematisch schlechter werden.</p>
+<p>Sobald eine solche Veränderung erkannt wird, wird automatisiert ein neuer Trainingsprozess ausgelöst. Hierzu werden die im Betrieb aufgezeichneten Daten wiederverwendet und um aktuelle Messwerte ergänzt. Auf dieser erweiterten Datengrundlage wird ein aktualisiertes Modell trainiert, das die gegenwärtigen Bedingungen besser abbildet. Anschließend ersetzt das neue Modell das zuvor eingesetzte und wird unmittelbar im weiteren Betrieb genutzt.</p>
+<p>Ein wichtiger Aspekt der Konzeption besteht darin, dass ein Retraining nicht permanent, sondern ausschließlich bei tatsächlichem Anpassungsbedarf erfolgt. Auf diese Weise bleibt das System ressourceneffizient und vermeidet unnötige Trainingszyklen. Gleichzeitig stellt der automatische Ablauf sicher, dass das System im Laufe der Zeit flexibel auf Veränderungen reagieren kann, ohne dass manuelle Eingriffe erforderlich sind.</p>
+<p>Das entwickelte Vorgehen erzeugt somit einen geschlossenen Kreislauf aus laufender Modellausführung, Überwachung der Modellgüte und ereignisgesteuerter Modellneuberechnung. Dadurch wird ein kontinuierlich lernfähiges System geschaffen, das seine Leistungsfähigkeit auch unter veränderten Rahmenbedingungen langfristig aufrechterhalten kann.</p>
+<p>Die beschriebene Methodik zur automatisierten Anpassung der Lernfähigkeit wurde anschließend auf den Demonstrator übertragen und in dessen Gesamtablauf integriert. Dabei dient der Demonstrator als reale Ausführungsumgebung, in der sowohl die kontinuierliche Modellausführung als auch die ereignisgesteuerte Modellneuberechnung praktisch umgesetzt wurden.</p>
+<p>In diesem Fall werden die im Demonstratorbetrieb aufgezeichneten Zeitreihendaten gesammelt, aufbereitet und für ein erneutes Training bereitgestellt. Die Modellaktualisierung erfolgt anschließend auf Basis dieser Daten und erzeugt einen Modellstand, der die aktuellen raumklimatischen Verhältnisse besser abbildet. Das neue Modell wird daraufhin in das laufende System integriert und übernimmt ohne Unterbrechung die weitere Auswertung der Echtzeitdaten.</p>
+<p>Durch die Umsetzung dieser Methodik kann der Demonstrator langfristig auf Veränderungen reagieren, die beispielsweise durch jahreszeitliche Schwankungen, variierende Nutzergewohnheiten oder Driftprozesse der Klimadynamik entstehen.</p>
+</section>
+<section id="kommunikation-und-vernetzung" class="level3">
+<h3 class="anchored" data-anchor-id="kommunikation-und-vernetzung">Kommunikation und Vernetzung</h3>
+<p>Für die Kommunikation zwischen mehreren Boards wird ESP-NOW eingesetzt, ein von Espressif entwickeltes, leichtgewichtiges Peer-to-Peer-Protokoll. Es erlaubt direkte Verbindungen zwischen Knoten ohne Access Point und zeichnet sich durch einen geringen Overhead aus, der den Energiebedarf im Vergleich zu klassischen WLAN-Protokollen deutlich reduziert. Übertragen werden Datenpakete bis zu einer Größe von 250 Byte, die für Modellparameter, Statusmeldungen und Steuerkommandos ausreichen.</p>
+<p>Die Architektur unterstützt sowohl 1:1-Verbindungen als auch komplexere Stern-, Ketten- oder Mesh-Topologien. Reichweitentests ergaben, dass mit den integrierten Antennen des ESP32 eine zuverlässige Kommunikation bis zu rund 30 m möglich ist, während im Maximalfall Entfernungen bis zu 50 m erreicht werden können. Damit eignet sich ESP-NOW auch für verteilte Trainingsszenarien in größeren Laborumgebungen, ohne dass zusätzliche Infrastruktur benötigt wird.</p>
+<div id="fig-fedlearn" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fedlearn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/fedlearn.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fedlearn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.15: Ablauf des föderiertern Lernens
+</figcaption>
+</figure>
+</div>
+<p>Für verteilte Trainingsszenarien ist die Hardware so ausgelegt, dass mehrere Boards über ESP-NOW in einer Föderation zusammenarbeiten können. Dabei übernimmt eine Sensing-Node die Rolle des Koordinators: Sie aktiviert die beteiligten Knoten, verteilt die initialen Modellgewichte und startet anschließend den Trainingsprozess. Jede Model-Node führt lokal ein Training auf den ihr vorliegenden Daten durch und berechnet dabei angepasste Modellparameter.</p>
+<p>Nach Abschluss einer Trainingsrunde werden ausschließlich die Gewichtsänderungen (Gradienten oder Teilparameter) über ESP-NOW an den Koordinator zurückgesendet. Dieser aggregiert die eingegangenen Updates, beispielsweise durch Mittelung, und verteilt das neue globale Modell wieder an die Teilnehmer. Auf diese Weise wird ein vollständiger Lernprozess über mehrere Runden realisiert, ohne dass Rohdaten zwischen den Knoten ausgetauscht werden müssen (<a href="../004_verteiltes_ml/fl_intro.html" class="quarto-xref"><span>Föderiertes Lernen - Grundlagen</span></a>).</p>
+<p>Die Tests zeigten, dass bei gleichmäßiger Datenverteilung die Loss-Kurven im föderierten Training nahezu identisch zum zentralisierten Training verlaufen. Bei heterogenen Datenbeständen lassen sich dennoch robuste Ergebnisse erzielen, wobei die Kommunikation über ESP-NOW durch ihren geringen Overhead den Energie- und Zeitaufwand für den Austausch der Modellparameter gering hält. Damit ermöglicht das Board nicht nur den Betrieb einzelner Nodes, sondern auch die Untersuchung und Evaluation von föderierten Lernverfahren im Laborumfeld.</p>
+</section>
+<section id="evaluation-und-einsatz-im-easy-kontext" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation-und-einsatz-im-easy-kontext">Evaluation und Einsatz im EASY-Kontext</h3>
+<p>Die entwickelte Hardware wurde in ersten Messungen erprobt und mit klassischen PC-Systemen verglichen. Dabei zeigte sich, dass der Raspberry Pi bei Trainingsaufgaben zwar deutlich längere Laufzeiten aufweist, jedoch durch seinen geringen Grundverbrauch in der Gesamtbilanz erheblich energieeffizienter ist. Damit konnte belegt werden, dass auch komplexere Modelle auf ressourcenschwacher, aber energieeffizienter Hardware ausgeführt werden können, ohne dass dafür eine dedizierte GPU erforderlich ist.</p>
+<p>Zusätzlich wurde gezeigt, dass durch die bedarfsgerechte Zuschaltung der Model-Node weitere Einsparpotenziale erschlossen werden. Im Verbund mit der leichten Vernetzbarkeit über ESP-NOW eröffnen sich neue Möglichkeiten für föderierte Lernansätze, bei denen nicht mehr vollständige Datensätze, sondern lediglich Modellgewichte ausgetauscht werden. Dies reduziert sowohl das Kommunikationsvolumen als auch die Abhängigkeit von zentralen Serverstrukturen und stärkt den Datenschutz.</p>
+<p>Insgesamt stellt das AI-on-Device Board damit ein praxisnahes Mess- und Bewertungsobjekt dar, das die im EASY-Projekt entwickelten methodischen Rahmenwerke in eine konkrete technische Umsetzung überführt. Es erlaubt die Untersuchung realer Energie- und Datenflüsse und bietet so die Grundlage für eine belastbare Weiterentwicklung ressourceneffizienter KI-Systeme.</p>
+</section>
+</section>
+<section id="umsetzung-der-demonstratoren" class="level2">
+<h2 class="anchored" data-anchor-id="umsetzung-der-demonstratoren">Umsetzung der Demonstratoren</h2>
+<p>Der Lüftungsdemonstrator wurde entwickelt, um raumklimatische Bedingungen zu simulieren und die Wirkung von Lüftungsvorgängen zu erfassen. Hierfür ist ein Aufbau vorgesehen, der einen Raum mit zwei Fenstern nachbildet und eine Vielzahl relevanter Umweltparameter misst. Zentrale Komponente ist ein IoT-Mikrocontroller (Octopus-Plattform), ausgestattet mit einem BME680-Sensor zur Erfassung von Temperatur, Luftfeuchtigkeit, Luftdruck und flüchtigen organischen Verbindungen (VOCs). Zusätzlich ist ein SCD30-Sensor integriert, der präzise CO₂-Messungen ermöglicht. Zwei Reed-Schalter an den Fenstern erkennen deren Zustand (geschlossen, geöffnet oder gekippt) und liefern so den Kontext für die Ventilationssituation. Zur Simulation der Anwesenheit von Personen wird eine Flasche mit kohlensäurehaltigem Wasser in den Versuchsraum gestellt, um CO₂-Emissionen nachzuahmen.</p>
+<p>Die Daten werden in kurzen Intervallen erfasst und zu Sequenzen verarbeitet, die den zeitlichen Verlauf von Umweltbedingungen abbilden. Auf diese Weise lassen sich Zustandsübergänge – etwa das Öffnen oder Schließen eines Fensters – zuverlässig detektieren und klassifizieren. Für die Speicherung und Visualisierung kommt im Originalaufbau eine Kombination aus Raspberry Pi, InfluxDB und Grafana zum Einsatz.</p>
+<p>In Verbindung mit AI-on-Device Board lässt sich der Demonstrator nutzen, um Raummodelle föderiert zu trainieren. Jeder Knoten erfasst lokal seine Umgebungsdaten über die Sensing-Node (ESP32) und kann unmittelbar einfache Inferenzaufgaben ausführen, beispielsweise die Erkennung, ob gelüftet wird. Für Trainingsaufgaben wird die Model-Node (Raspberry Pi 4) zugeschaltet, die mit den lokalen Sensordaten die Modellgewichte anpasst. Im Anschluss werden lediglich die aktualisierten Gewichte, nicht aber die Rohdaten, über ESP-NOW an einen Koordinator übermittelt. Dort erfolgt die Aggregation mehrerer Teilmodelle und die Rückverteilung an die beteiligten Demonstratoren.</p>
+<p>Dieses Vorgehen ermöglicht es, föderierte Raummodelle aufzubauen, die aus den Daten mehrerer Räume lernen, ohne dass sensible Umweltdaten zentral gesammelt werden müssen. Der Kommunikationsaufwand wird auf den Austausch kleiner Gewichtsdateien reduziert, und gleichzeitig bleibt der Energieverbrauch durch die Nutzung der energieeffizienten AI-on-Device Hardware gering. Damit bietet der Lüftungsdemonstrator ein praxisnahes Szenario, um die Leistungsfähigkeit des entwickelten Boards im Kontext dezentraler, nachhaltiger Smart-Building-Lösungen zu evaluieren.</p>
+<p>Ferner wurde in Zusammenarbeit mit Bosch vom UCB ein Demonstrator zum Federated Learning (FL) zur Erkennung von Anomalien auf Werkzeugmaschinen aufgebaut. Hierzu steuerte der Umwelt-Campus sowohl Front- als auch Backend des Demonstrators bei, welches durch FL-Implementierungen von Bosch erweitert wurde (<a href="../004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.html" class="quarto-xref"><span>FL Demonstrator Anomalien in Fräsprozessen</span></a>).</p>
+<div id="fig-bosch-demo" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bosch-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/bosch_demo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bosch-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;13.16: Frontend für Federated Learning Demonstrator
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="zero-trust-ansatz-für-ai-on-device-hardware" class="level2">
+<h2 class="anchored" data-anchor-id="zero-trust-ansatz-für-ai-on-device-hardware">Zero-Trust-Ansatz für AI-on-Device Hardware</h2>
+<p>Die Nutzung von AI-on-Device Hardware in vernetzten Umgebungen eröffnet Chancen für energieeffiziente KI-Anwendungen, bringt aber zugleich Sicherheitsrisiken mit sich. Da mehrere Knoten Daten erfassen, Modelle austauschen und föderierte Lernverfahren durchführen, entstehen potenzielle Angriffsflächen. Klassische Sicherheitsmechanismen, die auf implizitem Vertrauen basieren, reichen in solchen Szenarien nicht aus. Ein zeitgemäßer Ansatz ist das Zero-Trust-Modell, das davon ausgeht, dass keinem Gerät, keiner Verbindung und keinem Nutzer automatisch vertraut werden darf. Jeder Zugriff muss kontinuierlich überprüft und abgesichert sein. Im Folgenden wird beschrieben, wie sich diese Prinzipien auf das AI-on-Device Board übertragen lassen.</p>
+<p>Im Rahmen des Arbeitspakets wurde ein Ansatz für eine Zero-Trust-Architektur mit dezentraler Policy-Durchsetzung und der Nutzung cyber-physischer Verträge entwickelt und publiziert <span class="citation" data-cites="zta"><a href="../references.html#ref-zta" role="doc-biblioref">[5]</a></span>. Der Fokus dieses Ansatzes liegt auf der Abkehr von zentralen Policy-Enforcement-Instanzen hin zu einer verteilten Durchsetzung auf Ressourcenebene sowie auf einer kryptographisch abgesicherten Policy-Administration. Cyber-physische Verträge dienen dabei als Mechanismus zur nachvollziehbaren und sicheren Authentisierung und Autorisierung von Kommunikationsbeziehungen innerhalb der Zero-Trust-Architektur.</p>
+<p>Die Übertragung dieses Konzepts auf den Kontext energieeffizienter IoT-Endknoten wurde im Projekt primär simulativ untersucht, mit dem Ziel, die grundsätzliche Machbarkeit und Übertragbarkeit auf ressourcenbeschränkte Edge- und Sensorhardware zu bewerten. Die Simulation wurde im Rahmen der Publikation Open Source verfügbar gemacht. Ergänzend zur Simulation wurde der Ansatz auch experimentell im Labordemonstrator erprobt und konnte dort in seiner grundlegenden Funktionsweise erfolgreich eingesetzt werden, insbesondere hinsichtlich sicherer Anbindung, dezentraler Zugriffssteuerung und der Einbindung cyber-physischer Verträge. Diese Arbeiten dienten jedoch vor allem der Validierung des Konzepts und der Identifikation praktischer Randbedingungen, unter anderem im Hinblick auf Energieeffizienz, Komplexität und Integrationsaufwand.</p>
+<p>Auf Basis der hierbei gewonnenen Erkenntnisse wurde im weiteren Projektverlauf ein veränderter und stärker angepasster Ansatz für den finalen Labordemonstrator entwickelt. Dieser baut auf den zentralen Ideen des untersuchten Zero-Trust-Konzepts auf, berücksichtigt jedoch die spezifischen Anforderungen und Einschränkungen der Zielhardware und der Demonstratorumgebung deutlich stärker. Die konkrete Ausgestaltung und Umsetzung dieses finalen Ansatzes werden in den nachfolgenden Kapiteln beschrieben.</p>
+<section id="grundprinzipien-und-übertragung-auf-das-board" class="level3">
+<h3 class="anchored" data-anchor-id="grundprinzipien-und-übertragung-auf-das-board">Grundprinzipien und Übertragung auf das Board</h3>
+<p>Der Zero-Trust-Ansatz beruht auf den Grundsätzen Authentifizierung, minimale Rechtevergabe, Integritätssicherung, Segmentierung und kontinuierliches Monitoring. Diese werden auf das AI-on-Device Board wie folgt übertragen: Jeder Knoten (Sensing- oder Model-Node) muss sich vor Kommunikationsaufnahme eindeutig identifizieren, Zugriffsrechte werden streng auf die jeweilige Rolle beschränkt, und alle Daten oder Modelle werden vor ihrer Ausführung auf Unversehrtheit geprüft. Kommunikationspfade sind nur für autorisierte Partner geöffnet, und der gesamte Betrieb wird laufend überwacht, um Auffälligkeiten frühzeitig zu erkennen. Damit wird die Hardware nicht nur als Plattform für ressourceneffiziente KI, sondern zugleich als sichere Komponente in verteilten Systemen nutzbar.</p>
+</section>
+<section id="authentifizierung-rechtevergabe-und-modellintegrität" class="level3">
+<h3 class="anchored" data-anchor-id="authentifizierung-rechtevergabe-und-modellintegrität">Authentifizierung, Rechtevergabe und Modellintegrität</h3>
+<p>Ein zentraler Aspekt ist die eindeutige Authentifizierung der Nodes. Dies kann über hardwaregebundene Identifikatoren, Zertifikate oder vergleichbare Verfahren erfolgen. Erst nach erfolgreicher Prüfung darf eine Verbindung aufgebaut werden. Zudem wird nach dem Prinzip des Least Privilege Access gearbeitet: Eine Sensing-Node darf lediglich Daten erfassen und Modelle ausführen, während die Verteilung von Modellartefakten ausschließlich durch einen Koordinator erfolgt. Darüber hinaus muss die Integrität der Modelle gesichert sein. Da das Board TensorFlow-Lite-Modelle oder Gewichtsupdates verarbeitet, wird vor jedem Einsatz eine Integritätsprüfung durchgeführt. Kryptographische Signaturen oder Hash-Verfahren stellen sicher, dass nur autorisierte und unveränderte Modelle ausgeführt werden. Auf diese Weise lässt sich verhindern, dass manipulierte oder fehlerhafte Modelle in den Betrieb gelangen.</p>
+</section>
+<section id="kommunikationssicherheit-und-segmentierung" class="level3">
+<h3 class="anchored" data-anchor-id="kommunikationssicherheit-und-segmentierung">Kommunikationssicherheit und Segmentierung</h3>
+<p>Die Kommunikation zwischen den Boards erfolgt über ESP-NOW oder WLAN. Um Angriffe zu vermeiden, wird das Netzwerk nach dem Prinzip der Mikrosegmentierung strukturiert: Nur explizit hinterlegte Peer-Beziehungen dürfen Daten austauschen. Jeder Datenfluss wird klar definiert, sodass unautorisierte Verbindungen blockiert bleiben. Damit lassen sich auch föderierte Lernumgebungen sicher umsetzen. Hierbei sendet jede Node nach einem lokalen Training nur ihre Modellgewichte an den Koordinator. Durch die Segmentierung ist sichergestellt, dass ausschließlich autorisierte Partner an diesem Prozess teilnehmen. Gleichzeitig reduziert sich die Angriffsfläche, da nicht das gesamte Netzwerk offensteht, sondern nur ausgewählte Kommunikationskanäle aktiv sind.</p>
+</section>
+<section id="monitoring-und-anwendung-im-föderierten-lernen" class="level3">
+<h3 class="anchored" data-anchor-id="monitoring-und-anwendung-im-föderierten-lernen">Monitoring und Anwendung im föderierten Lernen</h3>
+<p>Ein wesentlicher Bestandteil des Zero-Trust-Ansatzes ist das kontinuierliche Monitoring. Auf dem AI-on-Device Board können Kommunikationsereignisse, Energieverbrauchsmuster oder Speicherzugriffe protokolliert und regelmäßig ausgewertet werden. Auffälligkeiten, etwa wiederholte fehlgeschlagene Authentifizierungen oder ungewöhnlich hohe Datenvolumina, werden erkannt und automatisch beantwortet, z. B. durch temporäres Sperren eines Knotens. Besonders beim föderierten Lernen zeigt sich der Nutzen dieses Vorgehens. Da nur Modellgewichte ausgetauscht werden, muss sichergestellt sein, dass diese Updates von vertrauenswürdigen Quellen stammen und nicht manipuliert wurden. Der Koordinator aggregiert daher ausschließlich Modellupdates, die eine Authentifizierung und Integritätsprüfung bestanden haben. Somit wird verhindert, dass Schadcode oder kompromittierte Modelle in den globalen Lernprozess einfließen.</p>
+</section>
+</section>
+<section id="sec-003-demonstrator-performancemetrics-wirelessnetworks" class="level1">
+<h1>Demonstrator: Schätzung von Performance-Metriken in drahtlosen Netzwerken</h1>
+<!--
+---
+author:
+    - Christian Maier
+---
+-->
+<p>Ziel maschineller Lernmodelle als digitale Zwillinge im Netzwerkmanagement ist es, Vorhersagen zu Leistungskennzahlen im Netzwerk auf Basis des Zustandes des Netzwerkes zu liefern (<a href="../004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="quarto-xref"><span>FL-Demonstrator Wireless Network</span></a>). Im Zusammenhang mit Edge-Cloud-Netzwerken sind wichtige Kennzahlen die End-to-End-Latenz, der Jitter und der Paketverlust von Paketflüssen. Diese Leistungsvorhersage soll Messungen oder Schätzungen durch Simulationen ersetzen, da diese in der Regel mit einem erheblichen Aufwand (in Bezug auf Netzwerk-Overhead oder Rechenzeit) verbunden sind. Die Vorhersage von Leistungskennzahlen kann mit einer Vielzahl verschiedener maschineller Lernmodelle erfolgen, wie z. B. Entscheidungsbäumen oder künstlichen neuronalen Netzen. Ein in der Literatur häufig verwendeter Ansatz ist die Vorhersage von Netzwerkleistungskennzahlen mithilfe von Graph Neural Networks (GNNs). GNNs haben sich aufgrund ihrer Fähigkeit, komplexe Beziehungen und Abhängigkeiten zwischen Netzwerkkomponenten zu modellieren, als leistungsstarkes Werkzeug für die Vorhersage von Leistungskennzahlen in Kommunikationsnetzwerken etabliert. Durch die Darstellung des Netzwerks als Graph, in dem Knoten Geräten oder Netzwerkelementen entsprechen und Kanten Verbindungen oder Interaktionen darstellen, können GNNs die topologische Struktur und das dynamische Verhalten des Netzwerks effektiv erfassen.</p>
+<p>Jüngste Studien <span class="citation" data-cites="rusek2020routenet"><a href="../references.html#ref-rusek2020routenet" role="doc-biblioref">[6]</a></span> haben gezeigt, dass GNNs verschiedene Leistungskennzahlen wie Latenz, Durchsatz und Paketverlust vorhersagen können, indem sie aus historischen Daten und Netzwerkkonfigurationen lernen. Ihre Fähigkeit, sowohl Knotenmerkmale (z. B. Bandbreite, Rechenleistung) als auch Kantenmerkmale (z. B. Verbindungsqualität, Entfernung) zu berücksichtigen, ermöglicht ein differenzierteres Verständnis darüber, wie verschiedene Faktoren die Gesamtleistung des Netzwerks beeinflussen. Darüber hinaus lassen sich GNNs gut auf unbekannte Netzwerktopologien übertragen, wodurch sie sich für Echtzeitanwendungen eignen, bei denen sich die Netzwerkbedingungen häufig ändern können. Diese Anpassungsfähigkeit in Verbindung mit ihrer Fähigkeit, große Datenmengen effizient zu verarbeiten, macht GNNs zu einem vielversprechenden Ansatz für die Verbesserung der Leistungsvorhersagefähigkeiten in modernen Kommunikationsnetzwerken, insbesondere in Szenarien mit dynamischen und heterogenen Umgebungen (was für Edge-Cloud-Netzwerke gilt).</p>
+<p>Das Training eines GNN zur Vorhersage von Leistungskennzahlen in Kommunikationsnetzwerken umfasst in der Regel mehrere Schritte. Zunächst wird das Netzwerk als Graph dargestellt, wobei die Knoten den Netzwerkelementen (wie Routern und Switches) entsprechen und die Kanten die Verbindungen zwischen ihnen darstellen. Jeder Knoten und jede Kante ist mit Merkmalen verbunden, die relevante Informationen wie Bandbreite und Datenverkehrsauslastung erfassen. Für GNNs ist es nicht relevant, ein vollständiges Bild des zugrunde liegenden Netzwerks einschließlich aller Komponenten zu haben, sondern nur für die Knoten und Verbindungen, die analysiert werden sollen. Der Trainingsprozess beginnt mit der Erfassung historischer Leistungsdaten, die als Grundwahrheit für die zu prognostizierenden Kennzahlen dienen. Diese Daten werden verwendet, um beschriftete Trainingsbeispiele zu erstellen, wobei die Eingabe aus der Graphstruktur und den zugehörigen Merkmalen besteht, während die Ausgabe den Leistungskennzahlen (z. B. Latenz, Durchsatz) entspricht. Während des Trainings lernt das GNN, Informationen von benachbarten Knoten und Kanten durch mehrere Schichten der Nachrichtenübermittlung zu aggregieren. Dieser Prozess ermöglicht es dem Modell, sowohl lokale als auch globale Muster im Graphen zu erfassen. Das GNN wird in der Regel mit überwachten Lerntechniken trainiert, bei denen eine Verlustfunktion (z. B. der mittlere quadratische Fehler) die Differenz zwischen den vorhergesagten Metriken und den tatsächlichen Werten aus den Trainingsdaten misst. Optimierungsalgorithmen minimieren diese Verlustfunktion durch Anpassung der Modellparameter. Nach dem Training kann das GNN anhand eines separaten Validierungsdatensatzes bewertet werden, um seine Vorhersageleistung zu beurteilen. Zur Verbesserung der Genauigkeit kann eine Feinabstimmung vorgenommen werden, und das Modell kann für Echtzeitvorhersagen in dynamischen Kommunikationsumgebungen eingesetzt werden, wobei es sich an Änderungen der Netzwerkbedingungen anpasst, sobald neue Daten verfügbar werden. Insgesamt nutzt das Training von GNNs für die Vorhersage von Leistungsmetriken die einzigartige Graphstruktur von Kommunikationsnetzwerken, um die Vorhersagegenauigkeit und -effizienz zu verbessern.</p>
+<p>In unserem Demo Szenario “Schätzung von Performance-Metriken in drahtlosen Netzwerken” wird die Anwendung von GNNs zur Vorhersage von Leistungskennzahlen in Edge-Cloud-Netzwerken untersucht. Durch die Modellierung des Edge-Cloud-Netzwerks als Graph, in dem Knoten Geräte und Kanten Kommunikationsverbindungen darstellen, erfassen GNNs effektiv die komplexen Abhängigkeiten und Interaktionen innerhalb des Netzwerks. Wir zeigen, dass GNNs wichtige Leistungskennzahlen wie Latenz und Jitter anhand von Daten aus realen Netzwerkbedingungen genau vorhersagen können. Unsere Ergebnisse unterstreichen das Potenzial von GNNs zur Verbesserung der Leistungsüberwachung und -optimierung in Edge-Cloud-Umgebungen und ebnen den Weg für ein effizienteres Ressourcenmanagement und eine höhere Energieeffizienz.</p>
+<p>Dazu wurde ein Hardware-Testbed aufgebaut und in diesem durch geeignete Netzwerk-Messungen einen Datensatz erstellt (<a href="../004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="quarto-xref"><span>FL-Demonstrator Wireless Network</span></a>). Ein Übersichtsdiagramm unserer Hardware-Konfiguration ist in <a href="#fig-testbed-ap3" class="quarto-xref">Abbildung&nbsp;<span>14.1</span></a> dargestellt. Sie besteht aus zwei lokalen Edge-Netzwerken, von denen eines 5G und das andere WLAN-Geräte verwendet. Das 5G-Edge-Netzwerk wurde unter Verwendung einer 5G-Indoor-Basisstation in unserem Labor aufgebaut, die mit dem 5G-Core im Gebäude des Telekommunikationsanbieters verbunden ist. Zwei Messendpunkte sind über WLAN-Router mit der Indoor-Basisstation verbunden, ein dritter Messendpunkt ist im 5G-Core installiert. Messdatenströme werden zwischen allen drei Knoten in beide Richtungen generiert. Das andere Edge-Netzwerk basiert auf 5-GHz-WLAN-Technologie („Wi-Fi 5“) und verfügt ebenfalls über drei Messpunkte. Alle Messknoten davon befinden sich in unserem Labor, zwei auf drahtlosen Knoten und ein Knoten, der über ein Kabel mit dem WLAN-Router verbunden ist. Auch in diesem Teil des Netzwerks werden Messdatenströme zwischen allen drei Knoten in beide Richtungen generiert.</p>
+<div id="fig-testbed-ap3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-testbed-ap3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pictures/Hardware_Testbed_AP3.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-testbed-ap3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;14.1: Hardware-Testbed Salzburg Research
+</figcaption>
+</figure>
+</div>
+<p>Um einen Datensatz in unserem Hardware-Testbed zu erstellen, haben wir folgenden Ansatz verwendet: Wir wählen zufällig Paketgrößen und Paketabstände für jeden Paketfluss in unseren lokalen Edge-Netzwerken aus. Da es in jedem lokalen Netzwerk sechs Paketflüsse gibt, ergibt dies zwölf Parameter für jede Messung. Die Paketgrößen variieren zwischen 300 und 1500 Byte und die Paketraten zwischen 10 und 100 Paketen pro Sekunde, was zu Bitraten von 20 bis 1200 kbps für die Messflüsse führt. Die gewählten Paketgrößen und Inter-Paket-Zeiten definieren die Konfiguration des Netzwerkverkehrs. Für jede Konfiguration messen wir diverse Performancemetriken (d.&nbsp;h. Latenz, Jitter und Paketverlust, wobei Latenz und Jitter sowohl auf Anwendungs- als auch auf Paketebene gemessen werden) für ein Messintervall von 10 Sekunden. Der Datensatz wird schließlich als JSON-Datei gespeichert. Unser Datensatz im 5G-Netzwerk umfasst Messungen vom 26. Februar 2024 bis zum 31. Dezember 2024. Jeden Tag zwischen 21 Uhr und 5 Uhr morgens wurde alle 4 Minuten eine zehnsekündige Messung durchgeführt. Wir haben nur nachts und nur alle vier Minuten Messungen durchgeführt, da in diesem Netzwerk tagsüber und in anderen Zeitfenstern (die für diese Arbeit nicht relevant sind) andere Messungen durchgeführt werden. Da einige der Messungen (aus verschiedenen Gründen, z. B. Stromausfälle oder Störungen im 5G-Netz) fehlgeschlagen sind, enthält der vorverarbeitete Datensatz nicht für jeden Messzeitpunkt ein Messergebnis. Aus organisatorischen Gründen liefen die Messungen im WLAN-Netzwerk vom 22. Mai 2024 bis zum 31. Dezember 2024. Der Zeitraum zwischen zwei Messungen betrug auch hier 4 Minuten (um mit den 5G-Messungen konsistent zu sein), aber die Messungen wurden über den ganzen Tag hinweg durchgeführt, um einen Datensatz zu erhalten, der in seiner Größe dem im 5G-Netzwerk ähnelt. Für jede Messung und jedes übertragene Paket haben wir die Latenz und den Jitter, sowohl auf Paket- als auch auf Anwendungsebene, sowie die erfolgreiche Übertragung des Pakets gespeichert. So erhielten wir fünf Zeitreihen für jeden Paketfluss. Aus diesen Zeitreihen berechnen wir statistische Mittelwerte für die Latenz und den Jitter.</p>
+<p>Die Struktur des verwendeten GNNs ist wie folgt: Die Knoten des Graphen entsprechen den Verbindungen und Flüssen im Datensatz. Das bedeutet, dass die von uns betrachteten Graphen aus Knoten zweier Arten bestehen: Verbindungen und Flüsse. Für jede Verbindung gibt es eine gerichtete Kante zu jedem Fluss, der diese Verbindung nutzt. Für jeden Fluss gibt es eine gerichtete Kante zu jeder Verbindung, die von diesem Fluss genutzt wird. Für die Implementierung des GNN-Modells haben wir das iGNNition-Framework verwendet <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. iGNNition ist ein TensorFlow-basiertes Framework für das schnelle Prototyping von GNNs. Es bietet eine codelose Programmierschnittstelle, über die Benutzer ihre eigenen GNN-Modelle in einer YAML-Datei implementieren können. IGNNITION enthält außerdem eine Reihe von Tools und Funktionen, die Benutzer während des Entwurfs- und Implementierungsprozesses des GNN unterstützen.</p>
+<p>Wir haben die folgenden Szenarien bewertet: (A) Ein GNN-Modell für jedes lokale Edge-Netzwerk und (B) ein gemeinsames GNN-Modell für beide Edge-Netzwerke. Bei Szenario (A) wird jedes Modell nur mit den Daten aus dem entsprechenden Edge-Netzwerk trainiert. Bei Szenario (B) verwenden wir die gesamten Daten (sowohl aus dem 5G-Netzwerk als auch aus dem WLAN-Netzwerk), um das Modell zu trainieren. In beiden Szenarien wurden die Daten in einer Vorverarbeitung skaliert. Das Training der beiden separaten GNN-Modelle für jedes lokale Netzwerk erreichte eine zufriedenstellende Leistung sowohl für die Latenz- als auch für die Jitter-Vorhersage (relativer Fehler &lt; 1%). Sobald wir jedoch versuchten, ein gemeinsames Modell für beide Netzwerke zu trainieren, erreichten wir keine ausreichende Leistung (selbst nach verschiedenen Versuchen, die Hyperparameter anzupassen). Unsere Erklärung dafür ist, dass die Verteilungen der Daten in den beiden Netzwerken zu unterschiedlich sind. Selbst eine Skalierung der Daten hat bisher keine Verbesserung gebracht.</p>
+<p>Dies veranschaulicht das erhebliche Potenzial von Graph Neural Networks als leistungsstarkes Werkzeug für die Leistungsvorhersage und das Netzwerkmanagement in Edge-Cloud-Systemen. Durch die Nutzung der inhärenten Graphstruktur dieser Netzwerke liefern GNNs genaue Einblicke in kritische Metriken wie Latenz und Jitter und ermöglichen so fundiertere Entscheidungen für die Ressourcenzuweisung und -optimierung. Die Ergebnisse unterstreichen das Potenzial von GNN-basierten Ansätzen zur Steigerung der Effizienz, Zuverlässigkeit und Nachhaltigkeit der Edge-Cloud-Infrastruktur, was letztlich zu reaktionsschnelleren und energieeffizienteren Netzwerkumgebungen beiträgt.</p>
+</section>
+<section id="ausblick" class="level1">
+<h1>Ausblick</h1>
+<p>Aufbauend auf dem in diesem Kapitel entwickelten Ordnungsrahmen, dem Green Software Measurement Model (GSMM) sowie den umgesetzten Demonstratoren ergeben sich mehrere Forschungs- und Entwicklungslinien, die für eine nachhaltige, industriell tragfähige Künstliche Intelligenz im Edge-Cloud-Kontinuum zentral erscheinen.</p>
+<p>Methodisch ist die Überführung des Ordnungsrahmens und des GSMM in verbindliche, branchenübergreifende Standards anzustreben, um die Bewertung der Ressourcen-, Energie- und Dateneffizienz reproduzierbar und plattformübergreifend zu gestalten. Inhaltlich bedarf es einer Ausweitung der Methodik auf Anwendungen der generativen Künstlichen Intelligenz, deren Ressourcenbedarf bislang nur unzureichend erfasst ist, sowie einer expliziten Berücksichtigung der sogenannten Embodied Emissions, da Einsparungen im Betrieb durch Herstellungs- und Entsorgungsaufwände andernfalls teilweise kompensiert werden können. Technisch erscheint die Integration KI-gestützter Prognose- und Orchestrierungsverfahren in die Lastverteilung des Edge-Cloud-Kontinuums vielversprechend, um Verteilungsentscheidungen dynamisch an Energie- und Auslastungsdaten koppeln zu können. Die im Projektverlauf beobachtete softwareinduzierte Hardware-Obsoleszenz verdeutlicht darüber hinaus den Bedarf an langfristigen Software-Pflege- und Treiberstrategien, damit die ökologischen Potenziale energieeffizienter Hardware nicht durch fehlende Framework-Unterstützung verloren gehen. Mit Blick auf den industriellen Transfer sind föderierte Lernverfahren und der Zero-Trust-Ansatz hinsichtlich Skalierbarkeit, Auditierbarkeit und Robustheit gegenüber heterogenen Datenbeständen weiterzuentwickeln. Schließlich erscheint die Übertragung der entwickelten Konzepte auf weitere industrielle Anwendungsfälle sowie auf Smart-Building-Szenarien erfolgversprechend, um den nachhaltigen Einsatz Künstlicher Intelligenz schrittweise in produktive Wertschöpfungsketten zu überführen.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-FAZ24" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">L. B. Fazlic <em>u.&nbsp;a.</em>, <span>„<span>E</span>nhancing <span>E</span>nergy <span>E</span>fficiency in <span>AI</span>: A Multi-Faceted Analysis across Time Series, Semantic AI and Deep Learning Domains“</span>, in <em><span>E</span>nviroInfo 2024: 38th International Conference for Environmental Informatics</em>, Cairo, Egypt, 2024.</div>
+</div>
+<div id="ref-BAS24" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">S. Bast, L. Begic Fazlic, S. Naumann, und G. Dartmann, <span>„<span>LLMs</span> on the Edge: Quality, Latency, and Energy Efficiency“</span>, in <em><span>INFORMATIK</span> 2024</em>, 2024. doi: <a href="https://doi.org/10.18420/inf2024_104">10.18420/inf2024_104</a>.</div>
+</div>
+<div id="ref-CET241" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">B. Cetkin, L. Begic Fazlic, A. Guldner, S. Naumann, und G. Dartmann, <span>„Towards Sustainable Machine Learning: Analyzing Energy-Efficient Algorithmic Strategies for Environmental Sensor Data“</span>, in <em><span>INFORMATIK</span> 2024</em>, 2024. doi: <a href="https://doi.org/10.18420/inf2024_102">10.18420/inf2024_102</a>.</div>
+</div>
+<div id="ref-flenergy" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">Green Software Engineering Group, <span>„Flenergy: Federated Learning Energy Measurement“</span>. <a href="https://gitlab.rlp.net/green-software-engineering/flenergy" class="uri">https://gitlab.rlp.net/green-software-engineering/flenergy</a>; Rheinland-Pfalz GitLab, 2024.</div>
+</div>
+<div id="ref-zta" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">L. Creutz und G. Dartmann, <span>„Decentralized Policy Enforcement in Zero Trust Architectures“</span>, in <em>2023 IEEE Future Networks World Forum (FNWF)</em>, 2023, S. 1–6. doi: <a href="https://doi.org/10.1109/FNWF58287.2023.10520563">10.1109/FNWF58287.2023.10520563</a>.</div>
+</div>
+<div id="ref-rusek2020routenet" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">K. Rusek, J. Suárez-Varela, P. Almasan, P. Barlet-Ros, und A. Cabellos-Aparicio, <span>„RouteNet: Leveraging graph neural networks for network modeling and optimization in SDN“</span>, <em>IEEE Journal on Selected Areas in Communications</em>, Bd. 38, Nr. 10, S. 2260–2270, 2020.</div>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://ignnition.org/doc/intro.html" class="uri">https://ignnition.org/doc/intro.html</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" class="pagination-link" aria-label="Messaufbau und Modellierung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Messaufbau und Modellierung</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../contents/004_verteiltes_ml/zusammenfassung.html" class="pagination-link" aria-label="Zusammenfassung Föderiertes Lernen (Federated Learning)">
+        <span class="nav-page-text"><span class="chapter-title">Zusammenfassung Föderiertes Lernen (Federated Learning)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+  document.title = "EASY Dokumentation";
+</script>
+
+
+
+
+</body></html>
