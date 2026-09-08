@@ -2,7 +2,7 @@
 
 This repository contains the Quarto source files for the documentation of the **EASY Project** (Energieeffiziente Analyse- und Steuerungsprozesse im dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung / Energy-Efficient Analysis and Control Processes in the Dynamic Edge-Cloud Continuum for Industrial Manufacturing), published at [doku.easy-edge-cloud.de](https://doku.easy-edge-cloud.de).
 
-![](pictures/Logos/EASY-Logo-Schwarz.png){width="40%"}
+![](pictures/Logos/EASY-Logo-Schwarz.png)
 
 ## About the Project
 
