@@ -1,0 +1,504 @@
+project:
+  type: book
+  output-dir: _book
+  preview:
+    browser: true
+    navigate: true
+lang: de
+book:
+  # title in document
+  title: |
+    EASY \
+    Energieeffiziente Analyse- und Steuerungsprozesse 
+    im dynamischen Edge-Cloud-Kontinuum \
+    für die industrielle Fertigung
+  subtitle: "Dokumentation des EASY-Projektes"
+  # output filename
+  output-file: "EASY-Dokumentation"
+  search: true
+  repo-url: https://github.com/empolis/easy-documentation
+  repo-actions: []
+  downloads: [pdf]
+  cover-image: pictures/Logos/EASY-Logo-Schwarz.png
+  #
+  navbar:
+    pinned: false
+    collapse: true
+    back-to-top-navigation: true
+    logo: pictures/Logos/EASY-Logo-Schwarz.png
+    right:
+      - icon: linkedin
+        href: https://www.linkedin.com/company/empolis/
+        aria-label: LinkedIn
+        target: _blank
+  # kleines Logo in Browser-Tab
+  favicon: pictures/Logos/favicon.ico
+
+  chapters:
+    - index.qmd
+
+    - text: "---"
+    - part: Einleitung
+      chapters:
+        - contents/001_introduction/intro.qmd
+        - contents/001_introduction/summary.qmd
+        - contents/001_introduction/projektpartner.qmd
+        - contents/001_introduction/kontakt.qmd
+
+    - text: "---"
+    - part: Laufzeitumgebung
+      chapters:
+        - contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.qmd
+        - contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.qmd
+        - contents/002_laufzeitumgebung/datenpipeline.qmd
+        - contents/002_laufzeitumgebung/verwaltungsschale.qmd
+        - contents/002_laufzeitumgebung/verwaltungsschale_architektur.qmd
+        - contents/002_laufzeitumgebung/service_federation.qmd
+        - contents/002_laufzeitumgebung/integration_federated_learning.qmd
+        - contents/002_laufzeitumgebung/k8s_operatoren.qmd
+        - contents/002_laufzeitumgebung/demo_planung_monitoring_agent.qmd
+
+    - text: "---"
+    - part: Effiziente Analyseprozesse
+      chapters:
+        - contents/003_eff_analyseprozesse/zusammenfassung.qmd
+        - contents/003_eff_analyseprozesse/ergebnisse_anforderungsanalyse_kriterien_ressourcen.qmd
+        - contents/003_eff_analyseprozesse/messaufbau_modellierung.qmd
+        - contents/003_eff_analyseprozesse/szenarien_demonstratoren.qmd
+
+    - text: "---"
+    - part: "Verteiltes Machine Learning"
+      chapters:
+        - contents/004_verteiltes_ml/zusammenfassung.qmd
+        - contents/004_verteiltes_ml/fl_intro.qmd
+        - contents/004_verteiltes_ml/anforderungsanalyse.qmd
+        - contents/004_verteiltes_ml/evaluation_metriken.qmd
+        - contents/004_verteiltes_ml/fl_strategien.qmd
+
+        #- part: "FL-Demonstratoren"
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_intro.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_raumluft.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_OT_network_anomaly_detection.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_cwru.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.qmd
+        - contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.qmd
+
+    - text: "---"
+    - part: Flexible Steuerungsprozesse
+      chapters:
+        - contents/005_flex_steuerung/zusammenfassung.qmd
+        - contents/005_flex_steuerung/5.1anforderungen.qmd
+        - contents/005_flex_steuerung/5.2repraesentation_produktionsprozess.qmd
+        - contents/005_flex_steuerung/5.3prozessgestaltung_planung.qmd
+        - contents/005_flex_steuerung/5.4ueberwachte_prozessausfuehrung.qmd
+        - contents/005_flex_steuerung/5.5erprobung_validierung.qmd
+
+
+    - text: "---"
+    - part: Demonstratoren / Use Cases
+      chapters:
+        - contents/006_demonstratoren/zusammenfassung.qmd
+          # @all
+          # AP 6
+        - contents/006_demonstratoren/demo_shared_production.qmd
+          # @DFKI & @IOSB-INA, SmartFactoryKL / OWL Demonstrator
+          # AP 6
+
+        - contents/006_demonstratoren/demo_roboter_use_case.qmd
+            # @coboworx @SRFG @empolis
+            # AP 6
+        - contents/006_demonstratoren/demo_zerspanung_easy_box.qmd
+          # @empolis
+          # AP 6
+        - contents/006_demonstratoren/evaluation_demonstratoren.qmd
+
+    - text: "---"
+    - part: Geschäftsmodelle und Verwertung
+      chapters:
+        - contents/007_geschaeftsmodelle/geschaeftsmodelle.qmd
+            # Datenökosystem
+            # @empolis
+        - contents/007_geschaeftsmodelle/verwertung_standardisierung.qmd
+            # Ansätze Weiterentwicklung Zerspanungs UseCase
+            # IDTA AAS-SM Standardisierung
+            # @empolis
+
+
+    - text: "---"
+    - part: Ausblick
+      chapters:
+        - contents/ausblick.qmd
+
+    - contents/authors.qmd
+
+    - contents/references.qmd
+
+
+bibliography: contents/references.bib
+cite-method: citeproc
+csl: ieee.csl
+
+website:
+  favicon: pictures/Logos/favicon.ico
+  twitter-card: false
+  site-url: https://doku.easy-edge-cloud.de/
+  sidebar:
+    logo: pictures/Logos/EASY-Logo-Schwarz.png
+    
+format:
+
+  html:
+    pagetitle: "EASY Dokumentation"
+    mainfont: IBM Plex Sans
+    theme: [custom.scss, cosmo]
+    cover-image: pictures/Logos/EASY-Logo-Schwarz.png
+    number-depth: 6
+    toc: true
+    toc-depth: 4
+    lof: false
+    lot: false
+    top-level-division: chapter
+    latex-engine: xelatex
+    number-sections: false
+    keep-tex: true
+    citation-package: natbib
+    fig-caption: true
+    link-external-newwindow: true
+    css: styles.css
+    include-after-body:
+      text: |
+        <script>
+          document.title = "EASY Dokumentation";
+        </script>
+
+  titlepage-pdf:
+    mainfont: IBM Plex Sans
+    documentclass: report
+    number-sections: true
+    number-depth: 6
+    toc: true
+    toc-depth: 4
+    cover-image: pictures/Logos/EASY-Logo-Schwarz.png
+    link-citations: true
+    titlepage-fontfamily: "IBM Plex Sans"
+    titlepage-logo: "pictures/Logos/EASY-Logo-Schwarz.png"
+    logo-size: 20
+    logo-align: center
+    titlepage: "formal"
+    titlepage-footer: |
+      19.06.2026 \
+      Version v3.2 \
+    # [https://gitlab.empolis.com/industrial-analytics/easy/easy-documentation](https://gitlab.empolis.com/industrial-analytics/easy/easy-documentation)\
+    include-in-header:
+      text: |
+        \usepackage{fontspec}
+        \setmainfont{IBM Plex Sans}
+    titlepage-theme:
+      elements: ["\\titleblock", "\\authorblock", "\\affiliationblock", "\\vfill", "\\logoblock", "\\footerblock"]
+      page-align: "center"
+      title-style: "plain"
+      #title-fontstyle: ["Huge", "textbf"]
+      title-space-after: "1.5cm"
+      subtitle-fontstyle: "LARGE"
+      title-subtitle-space-between: "0.5cm"
+      author-style: "superscript"
+      author-fontstyle: "small"
+      author-sep: ", "
+      #author-fontstyle: "textbf"
+      #author-space-after: "2\\baselineskip"
+      affiliation-style: "numbered-list"
+      affiliation-fontstyle: "small"
+      affiliation-space-after: "0pt"
+      footer-style: "plain"
+      footer-fontstyle: ["Large", "textsc"]
+      footer-space-after: "0pt"
+      logo-size: "0.4\\textwidth"
+      logo-space-after: "1cm"
+
+    author:
+      - id: "rtr_empolis"
+        name: "Ralph Traphöner"
+        email: "ralph.traphoener@empolis.com"
+        affiliations:
+          name: "Empolis Information Management GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67657"
+      - id: "jhe_empolis"
+        name: "Jens Henninger"
+        orcid: "0009-0000-5733-7024"
+        email: "jens.henninger@empolis.com"
+        affiliations:
+          name: "Empolis Information Management GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67657"
+
+      - id: "as_dfki"
+        name: "Alexander Schultheis"
+        email: "Alexander.Schultheis@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Trier"
+          state: "Germany"
+          postal-code: "54296"
+        orcid: 0000-0002-2458-9943
+
+      - id: "dj_dfki"
+        name: "David Jilg"
+        email: "David.Jilg@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Trier"
+          state: "Germany"
+          postal-code: "54296"
+        orcid: 0000-0002-4841-3512
+
+      - id: "rb_dfki"
+        name: "Ralph Bergmann"
+        email: "Ralph.Bergmann@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Trier"
+          state: "Germany"
+          postal-code: "54296"
+        orcid: 0000-0002-5515-7158
+
+      - id: "jm_dfki"
+        name: "Johannes Mundorf"
+        email: "Johannes.Mundorf@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67663"
+
+      - id: "mr_dfki"
+        name: "Mahdi Rezapour"
+        email: "Mahdi.Rezapour@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67663"
+
+      - id: "sb_dfki"
+        name: "Simon Bergweiler"
+        email: "Simon.Bergweiler@dfki.de"
+        affiliations:
+          name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67663"
+
+      - id: "ngr_srfg"
+        name: "Nina Großegesse"
+        email: "nina.grossegesse@salzburgresearch.at"
+        affiliations:
+          name: "Salzburg Research Forschungsgesellschaft m.b.H."
+          address: "Salzburg"
+          state: "Austria"
+          postal-code: "5020"
+
+      - id: "fst_srfg"
+        name: "Felix Strohmeier"
+        email: "felix.strohmeier@salzburgresearch.at"
+        affiliations:
+          name: "Salzburg Research Forschungsgesellschaft m.b.H."
+          address: "Salzburg"
+          state: "Austria"
+          postal-code: "5020"
+
+      - id: "sn_ucb"
+        name: "Stefan Naumann"
+        email: "s.naumann@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "lc_ucb"
+        name: "Lars Creutz"
+        email: "l.creutz@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "ff_ucb"
+        name: "Franz Freynhofer"
+        email: "f.freynhofer@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "bc_ucb"
+        name: "Berkay Cetkin"
+        email: "b.cetkin@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "ms_ucb"
+        name: "Marvin Schacht"
+        email: "m.schacht@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "sw_ucb"
+        name: "Sebastian Weber"
+        email: "seb.weber@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "sb_ucb"
+        name: "Sebastian Bast"
+        email: "s.bast@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "dj_ucb"
+        name: "David Junk"
+        email: "da.junk@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "gd_ucb"
+        name: "Guido Dartmann"
+        email: "g.dartmann@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "fm_ucb"
+        name: "Florian Mohr"
+        email: "f.mohr@umwelt-campus.de"
+        affiliations:
+          name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+          address: "Hoppstädten-Weiersbach"
+          state: "Germany"
+          postal-code: "55767"
+
+      - id: "cma_srfg"
+        name: "Christian Maier"
+        email: "christian.maier@salzburgresearch.at"
+        affiliations:
+          name: "Salzburg Research Forschungsgesellschaft m.b.H."
+          address: "Salzburg"
+          state: "Austria"
+          postal-code: "5020"
+
+      - id: "sh_bosch"
+        name: "Sabine Haag"
+        email: "sabine.haag@de.bosch.com"
+        affiliations:
+          name: "Robert Bosch GmbH"
+          address: "Renningen"
+          state: "Germany"
+          postal-code: "71272"
+
+      - id: "ts_bosch"
+        name: "Tobias Schlagenhauf"
+        email: "Tobias.Schlagenhauf@de.bosch.com"
+        affiliations:
+          name: "Robert Bosch GmbH"
+          address: "Renningen"
+          state: "Germany"
+          postal-code: "71272"
+
+      - id: "jw_bosch"
+        name: "Jiaqi Wang"
+        email: "jiaqi.wang5@de.bosch.com"
+        affiliations:
+          name: "Robert Bosch GmbH"
+          address: "Renningen"
+          state: "Germany"
+          postal-code: "71272"
+
+      - id: "sh_iosbina"
+        name: "Stefanie Hittmeyer"
+        email: "Stefanie.Hittmeyer@iosb-ina.fraunhofer.de"
+        affiliations:
+          name: "Fraunhofer IOSB-INA"
+          address: "Lemgo"
+          state: "Germany"
+          postal-code: "32657"
+
+      - id: "dh_iosbina"
+        name: "Dennis Heitkamp"
+        email: "Dennis.Heitkamp@iosb-ina.fraunhofer.de"
+        affiliations:
+          name: "Fraunhofer IOSB-INA"
+          address: "Lemgo"
+          state: "Germany"
+          postal-code: "32657"
+
+      - id: "lk_iosbina"
+        name: "Lukas Klein"
+        email: "Lukas.Klein@iosb-ina.fraunhofer.de"
+        affiliations:
+          name: "Fraunhofer IOSB-INA"
+          address: "Lemgo"
+          state: "Germany"
+          postal-code: "32657"
+
+      - id: "nfr_empolis"
+        name: "Nicolas Freudenmacher"
+        email: "nicolas.freudenmacher@empolis.com"
+        affiliations:
+          name: "Empolis Information Management GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67657"
+
+      - id: "meh_empolis"
+        name: "Mouad El-Hachimi"
+        email: "mouad.el-hachimi@empolis.com"
+        affiliations:
+          name: "Empolis Information Management GmbH"
+          address: "Kaiserslautern"
+          state: "Germany"
+          postal-code: "67657"
+
+      - id: "tko_cbwx"
+        name: "Thijs Korse"
+        email: "thijs.korse@coboworx.com"
+        affiliations:
+          name: "coboworx GmbH"
+          address: "Salmtal"
+          state: "Germany"
+          postal-code: "54528"
+
+      - id: "tko_cbwx"
+        name: "Joey Kirwel"
+        email: "joey.kirwel@coboworx.com"
+        affiliations:
+          name: "coboworx GmbH"
+          address: "Salmtal"
+          state: "Germany"
+          postal-code: "54528"
+
+comments:
+  hypothesis: false

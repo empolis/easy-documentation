@@ -1,0 +1,15 @@
+# ignore Quarto project files
+/.quarto/
+
+# ignore Quarto build output
+# remove, if you want to commit into main and publishing
+/_book/
+
+# ignore Quarto extensions
+/_extensions/
+
+**/*.quarto_ipynb
+
+/.idea/
+
+/site_libs/

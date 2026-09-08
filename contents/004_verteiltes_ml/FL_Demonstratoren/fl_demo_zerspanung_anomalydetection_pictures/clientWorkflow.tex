@@ -1,0 +1,77 @@
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  scale=0.95, transform shape,
+  >=Latex,
+  every node/.style={font=\footnotesize},
+  mainwidth/.store in=\mainwidth, mainwidth=12.3cm,
+  box/.style   ={rectangle, rounded corners=2mm, draw, very thick, fill=gray!5,
+                 align=center, inner sep=2mm, text width=\mainwidth}, % zentriert
+  io/.style    ={box, fill=orange!15},                                 % erbt zentriert
+  proc/.style  ={box, fill=blue!8},                                    % erbt zentriert
+  decision/.style={diamond, draw, very thick, aspect=2, fill=green!10,
+                   inner sep=1.0mm, align=center,
+                   minimum width=4.0cm, minimum height=1.0cm},
+  arr/.style   ={->, very thick},
+  arrthin/.style={->, line width=0.8pt},
+  loopframe/.style={draw=black!60, rounded corners=3mm, very thick, dashed}
+]
+
+% --- Spaltenlayout mit definierter vertikaler Distanz ---
+\matrix[column sep=0mm, row sep=7mm] (m) {
+  \node (start) [box] {Start Client (\texttt{python client.py})}; \\
+  \node (sess)  [proc]{Session \& Logging}; \\
+  \node (env)   [box] {Konfiguration: Preprocessing-Parameter, CAE-Architektur, Strategy}; \\
+  \node (load)  [io]  {CSV aus MinIO laden}; \\
+  \node (prep)  [proc]{Vorverarbeitung pro Operation}; \\
+  \node (win)   [proc]{Sliding Windows \& Splits (Train/Val/Test)}; \\
+  \node (model) [proc]{Modellbau (CAE)}; \\
+  \node (strat) [decision]{\textbf{STRATEGY}}; \\
+  % ---- Federated-Learning-Loop ----
+  \node (local)    [proc]{Lokales Training (Client)}; \\
+  \node (exchange) [io]  {Modellaustausch mit Server}; \\
+  \node (eval)     [proc]{Evaluation}; \\
+  \node (save)     [io]  {Artefakte \& Uploads nach MinIO (Metriken, Logs; Modelle)}; \\
+  \node (more)     [decision]{Weitere Runde?}; \\
+  % ---- Ende ----
+  \node (end)      [box] {Ende (Client beendet)}; \\
+};
+
+% Rahmen um den FL-Loop
+\node[loopframe, fit=(local)(exchange)(eval)(save)(more),
+      inner xsep=6mm, inner ysep=6mm,
+      label={[anchor=south east, xshift=-31mm, yshift=1mm]\footnotesize Federated-Learning-Loop}] (loopbox) {};
+
+% Fluss-Pfeile
+\draw[arr] (start) -- (sess);
+\draw[arr] (sess)  -- (env);
+\draw[arr] (env)   -- (load);
+\draw[arr] (load)  -- (prep);
+\draw[arr] (prep)  -- (win);
+\draw[arr] (win)   -- (model);
+\draw[arr] (model) -- (strat);
+\draw[arr] (strat) -- (local);
+\draw[arr] (local) -- (exchange);
+\draw[arr] (exchange) -- (eval);
+\draw[arr] (eval) -- (save);
+\draw[arr] (save) -- (more);
+
+% Loop zurück (JA) bzw. Ende (NEIN)
+\coordinate (retA) at ([xshift=-56mm]more.west);
+\coordinate (retB) at ([xshift=-10mm]local.west);
+\draw[arr] (more.west) -- node[pos=0.08, above]{\footnotesize Ja} (retA)
+                        -- (retB) -- (local.west);
+\draw[arr] (more.south) -- node[right]{\footnotesize Nein} (end.north);
+
+% Callouts (dünne Pfeile) Richtung Server
+\coordinate (rightlane) at ([xshift=10mm]loopbox.east);
+\draw[arrthin] (local.east) -- (rightlane |- local.east)
+  node[pos=1, right]{\scriptsize Fit-Metriken $\rightarrow$ Server};
+\draw[arrthin] (eval.east) -- (rightlane |- eval.east)
+  node[pos=1, right]{\scriptsize Eval-Metriken $\rightarrow$ Server};
+
+\end{tikzpicture}
+\caption{Client-Workflow mit Vorverarbeitung, Fensterung, Modellbau und Federated-Learning-Loop (Austausch \& Metrik-Übermittlung via Flower).}
+\label{fig:client-workflow}
+\end{figure} \pagebreak

@@ -1,0 +1,18 @@
+# Einleitung {.unnumbered #sec-001_intro}
+
+Dieses Buch fasst die Erkenntnisse und Ergebnisse des EASY Projektes zusammen. 
+
+Die Idee zu EASY entstand ursprünglich im Kontext des Wettbewerbs zum [IPCEI Next Generation Cloud Infrastructure and Services](https://www.bundeswirtschaftsministerium.de/Redaktion/EN/Artikel/Industry/ipcei-cis.html){target="_blank"}. Hier wurde prominent das Konzept des Edge-Cloud Kontinuums propagiert. Dabei kann Rechenlast dynamisch und bedarfsgerecht zwischen Netzwerkknoten an der Edge und Knoten in der Cloud verschoben werden. In der Praxis verstehen wir unter dem Begriff „Edge“ eingebettete Systeme, die direkt in einer Anlage Berechnungen durchführen können oder Rechner, die in unmittelbarer Nähe der Anlage betrieben werden. Die „Cloud“ bezeichnet hingegen weit entfernte zentrale Rechenzentren.
+
+Warum nicht einfach alle Daten zentral in die Cloud übertragen und dort analysieren? Das ist bequem. Dagegen können aber Latenz bei der Auswertung, Kosten und Energieverbrauch sowie der Verlust der Datensouveränität sprechen. Was ist also der optimale Ansatz?
+
+Genau diese Fragen hat das Programm [„Edge Datenwirtschaft“](https://www.digitale-technologien.de/DT/Navigation/DE/ProgrammeProjekte/AktuelleTechnologieprogramme/Edge_Datenwirtschaft/edge_dw.html){target="_blank"} des BMWK dann 2022 adressiert:
+
+>> Mit dem Technologieprogramm „Edge Datenwirtschaft“ unterstützt die Bundesregierung Forschungs-, Entwicklungs- und Innovationsvorhaben im Edge-Cloud-Kontinuum, in denen der Nutzen und die Vorteile von Edge Computing-Lösungen insbesondere in ökonomischer und auch ökologischer Hinsicht in unterschiedlichen Anwendungsdomänen aufgezeigt werden.
+
+EASY hat Antworten auf diese und weitere Fragen im Kontext der Fertigungsindustrie entwickelt. Dies kommt im Projekttitel zum Ausdruck:
+
+>> Energieeffiziente Analyse- und Steuerungsprozesse im
+dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung
+
+EASY hat sich mit der Analyse und Auswertung von Sensordaten befasst. Es wurde untersucht, wie das Edge-Cloud Kontinuum zur verteilten standortübergreifenden Produktionssteuerung genutzt werden kann. Dabei wurde mit Metriken die Verteilung von Rechenlast und Kommunikation erfasst, um sie dynamisch steuern zu können und so die Abläufe zu automatisieren. Wichtige zentrale Technologien sind darüber hinaus die Verwaltungsschale zur standardisierten Repräsentation von Zustand und das föderierte maschinelle Lernen zur Wahrung der Datensouveränität.

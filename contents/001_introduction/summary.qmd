@@ -1,0 +1,17 @@
+# Zusammenfassung {.unnumbered #sec-001_zusammenfassung}
+
+Dieses Buch dokumentiert die im Projekt EASY entwickelten Konzepte, Methoden und Demonstratoren für datengetriebene Anwendungen im industriellen Edge-Cloud-Kontinuum. Im Mittelpunkt stehen die Entwicklung einer offenen Edge-Cloud-Plattform, ressourceneffiziente KI-Verfahren, Föderiertes Lernen sowie intelligente Analyse-, Planungs- und Steuerungsprozesse für die industrielle Produktion.
+
+Kapitel 2 beschreibt die technische Grundlage des EASY-Ökosystems. Vorgestellt werden die Kubernetes-basierte Edge-Cloud-Laufzeitumgebung, Datenpipelines und Messaging-Infrastrukturen, digitale Zwillinge auf Basis der Asset Administration Shell (AAS) sowie Konzepte für Deployment, Service Federation, Monitoring und den Betrieb verteilter Analyse- und Steuerungsdienste (@sec-002-laufzeitumgebung_zusammenfassung).
+
+Kapitel 3 behandelt Methoden zur ressourcen- und energieeffizienten Ausführung von Analyse- und KI-Verfahren im Edge-Cloud-Kontinuum. Neben der Entwicklung von Bewertungsmethoden und Metriken werden Analysealgorithmen, Hardwareplattformen und Optimierungsansätze untersucht, um Zielkonflikte zwischen Modellgüte, Latenzzeit, Ressourcenbedarf und Energieverbrauch zu bewerten (@sec-003-zusammenfassung).
+
+Kapitel 4 widmet sich dem Föderierten Lernen als Ansatz für datensouveräne KI-Anwendungen in verteilten Produktionsumgebungen. Es werden Grundlagen, Architekturen und Evaluationsmethoden vorgestellt sowie verschiedene industrielle Demonstratoren beschrieben, in denen Strategien zur Zusammenarbeit verteilter Lernsysteme unter realen Randbedingungen untersucht wurden (@sec-004-zusammenfassung).
+
+Kapitel 5 beschreibt die Entwicklung semantisch gestützter Planungs- und Steuerungsverfahren für Produktionsprozesse. Im Fokus stehen Digitale Zwillinge, Ontologien, KI-basierte Planungsverfahren sowie deren Integration in Workflow-Management-Systeme zur automatisierten Planung, Ausführung und Überwachung von Produktionsabläufen im Edge-Cloud-Umfeld (@sec-005-zusammenfassung).
+
+Kapitel 6 stellt die im Projekt entwickelten Demonstratoren und Anwendungsfälle vor. Die Demonstratoren zeigen exemplarisch die praktische Umsetzung der Forschungsarbeiten und verdeutlichen den Einsatz verteilter Analyse-, Lern- und Steuerungsverfahren entlang des gesamten Edge-Cloud-Kontinuums. Darüber hinaus werden die Ergebnisse der Evaluation und die erreichten Forschungsziele diskutiert (@sec-006-zusammenfassung).
+
+Kapitel 7 behandelt die wirtschaftliche Verwertung der Projektergebnisse. Im Mittelpunkt stehen die Entwicklung und Bewertung geeigneter Geschäftsmodelle für Edge-Cloud-basierte Industrie-4.0-Lösungen (@sec-007-geschaeftsmodelle).
+
+Abschließend wird im Ausblick auf zukünftige Forschungs- und Entwicklungspotenziale für industrielle Edge-Cloud-Systeme und datengetriebene Produktionsumgebungen eingegangen (@sec-ausblick).

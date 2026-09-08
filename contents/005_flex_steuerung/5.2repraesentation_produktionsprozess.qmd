@@ -1,0 +1,45 @@
+# Repräsentationsformen von Produktionsprozessen und -kapazitäten {#sec-005-5.2}
+
+Als Basis für die Systeme zur automatischen Prozessgestaltung (@sec-005-5.3) war es unabdinglich, geeignete semantische Repräsentationsformen für Produktionsprozesse und -kapazitäten zu identifizieren und zu bewerten und darauf aufbauend eine semantische Beschreibung von Prozessen sowie Digitale Zwillinge von Produktionsressourcen zu modellieren. Diese Ergebnisse bildeten die Grundlage für die flexiblen Planungsverfahren und die spätere Prozessausführung und Validierung (@sec-005-5.4 & @sec-005-5.5). Als wichtigste Grundlage für diese Arbeiten dienten der Anforderungskatalog aus der durchgeführten Anforderungsanalyse (@sec-005-5.1), insbesondere die Anforderungen an die Prozessgestaltung auf ERP‑/MES‑Ebene und die Abstraktion von Produktionsressourcen und ‑diensten. Im Rahmen von EASY wurden diese Anforderungen konsequent umgesetzt, indem ein einheitliches Zusammenspiel aus BPMN‑Prozessmodellen, des entwickelten Ontologie-Schemas (@sec-005-5.2-2), Asset‑Administration‑Shell (AAS)‑Modellen und dem Knowledge Transformation Framework (KTF) aufgebaut wurde.
+
+## Klassifikation der erfassten Prozessmodellierungen {#sec-005-5.2-1}
+
+Ausgehend von den erhobenen Anforderungen wurden vorhandene Prozessmodellierungsansätze und Formate systematisch gesammelt und hinsichtlich ihrer Eignung für flexible, planbare Fertigungsprozesse bewertet (z. B. BPMN, ereignisgesteuerte Prozessketten, Petri‑Netze oder UML‑Aktivitätsdiagramme). Die Ergebnisse dieser Analyse wurden im Processes Journal veröffentlicht [@SchultheisJMBB2024].
+
+Die Analyse berücksichtigte insbesondere:
+
+- Kompatibilität mit ERP‑/MES‑Systemen,
+- Möglichkeit zur semantischen Anreicherung,
+- Unterstützung für Hierarchien und Modularität
+- Unterstützung der technischen Anschlussfähigkeit an AAS‑Modelle und Planungsverfahren.
+
+Als Ergebnis wurde die Business Process Model and Notation (BPMN) als zentrales Repräsentationsformat für den Kontrollfluss ausgewählt. BPMN wird von gängigen Workflow‑Engines (z. B. Camunda) unterstützt, ist industrietauglich, gut verständlich und lässt sich durch Erweiterungen und Annotationen mit semantischen Referenzen aus Ontologien kombinieren. Die Analyse und Klassifikation zeigten, dass BPMN im Vergleich zu Alternativen den besten Kompromiss zwischen Verständlichkeit für Domänenexperten und maschineller Auswertbarkeit für KI‑Planungsverfahren bietet [@SchultheisJMBB2024].
+
+## Ontologie zur semantischen Beschreibung von Prozessen {#sec-005-5.2-2}
+
+Für die semantische Beschreibung der Produktionsprozesse wurde das generische Ontologie-Schema „Plato – The Planning Ontologie“ entwickelt und im Projekt eingesetzt. Plato erlaubt es, Produktionsressourcen, Dienste (Capabilities) und deren IOPE‑Semantik (Inputs, Outputs, Preconditions, Effects) explizit zu modellieren. Ferner bietet Plato ein ausdrucksstarkes System für Kosten, Metriken und numerische Konstanten, sodass zum Beispiel CO₂‑Fußabdruck, Durchlaufzeit oder monetäre Kosten formal erfasst werden können. @fig-plato zeigt einen Überblick des Schemas. Zusätzlich zum Ontologie-Schema wurde ebenfalls ein analoges Verwaltungsschalenmodell entworfen, das es erlaubt, die identischen semantischen Informationen in einer AAS zu speichern. @fig-aas zeigt einen Überblick des Modells. Eine wissenschaftliche Veröffentlichung bezüglich des Ontologie-Schemas und des Verwaltungsschalen-Modells ist für die diesjährige Knowledge Engineering and Ontology Development (KEOD) Konferenz geplant, in deren Rahmen das Schema auch in einem öffentlichen Repository bereitgestellt werden soll.
+
+![Plato Ontologie Schema](images\plato.svg){#fig-plato width=100%}
+
+![Plato-basiertes AAS Modell](images\AAS.png){#fig-aas width=100%}
+
+In den BPMN‑Modellen werden die einzelnen Aktivitäten über sogenannte Uniform Resource Identifier (URI) mit den entsprechenden Plato-Individuen verknüpft. Damit ist jede Aufgabe im Prozessmodell semantisch annotiert – inklusive ihrer Parameter, Ressourcentypen sowie Vor‑ und Nachbedingungen. Plato unterstützt neben einfachen auch komplexe, verschachtelte Vorbedingungen (disjunktiv, konjunktiv, universell, existenziell), was eine sehr präzise Abbildung von Planungslogik erlaubt.
+
+Die Ontologie wird im Projekt zusätzlich in der JSON‑basierten JSOnto‑Syntax gepflegt [@JSOnto]^[https://github.com/davidjilg/JSOnto], die durch das KTF^[https://github.com/davidjilg/KTF] automatisch in OWL und Planning Domain Definition Language (PDDL)‑Planungsdomänen überführt werden kann. Dadurch wird der in den Anforderungen geforderte durchgängige Übergang von semantischer Modellierung zu Planungsdomänen realisiert.
+
+## Modellierung Digitaler Zwillinge von Produktionsressourcen {#sec-005-5.2-3}
+
+Aufbauend auf dem Plato‑Schema wurden Digitale Zwillinge der relevanten Produktionsressourcen für die im Projekt vorhandenen Demonstratoren der beiden SmartFactories modelliert. Hierzu wurde eine Kombination aus AAS‑Modellen und ontologischer Beschreibung verwendet. Das Plato Ontologieschema wird hierbei mit dem Pallas^[https://github.com/davidjilg/PALLAS] AAS Modell kombiniert: 
+Die AAS beschreibt den physischen Asset‑Teil (z. B. Maschine, Robotermodul, Druckmodul) mit technischen Stammdaten, Schnittstellen und Zustandsinformationen. Die mit Plato modellierten Fähigkeiten und Dienste der Ressource werden über URIs aus der AAS heraus referenziert. Das KTF stellt hierfür Konverter zur Verfügung, die semantische Beschreibungen in AAS‑Submodelle überführen bzw. umgekehrt aus AAS‑Modellen eine generische Planungsdomäne erzeugen können.
+
+Die Digitalen Zwillinge werden auf einer BaSyx‑basierten AAS‑Infrastruktur betrieben. Die Kopplung von AAS und Ontologie ermöglicht es, auf der Planungsseite ausschließlich mit den semantischen Plato‑Beschreibungen zu arbeiten, während auf der Ausführungsseite die AAS die notwendigen Detailinformationen für die konkrete Maschine bereitstellt.
+
+## Aufbau eines Repositories für Produktionsdienste {#sec-005-5.2-4}
+
+Auf Basis der semantisch angereicherten Beschreibungen wurde ein Service‑Repository aufgebaut, das alle relevanten Produktionsdienste der EASY‑Demonstratoren in der SmartFactoryKL und der SmartFactoryOWL erfasst. Dazu zählen u. a. 3D‑Druck‑Services, robotergestützte Handhabungs‑ und Transportdienste, visuelle Qualitätsprüfungen sowie logistische Transportdienste zwischen den Fabriken. Dadurch erfüllt das Repository die geforderte Rolle als zentrale Grundlage für die automatische Planung von Produktionsprozessen.
+
+Die Abfrage des Repositories erfolgt über semantische Kriterien, z. B. benötigte Eingangs‑/Ausgangsartefakte, Standort, Fähigkeiten oder zu berücksichtigende Optimierungskriterien (Kosten, CO₂, Zeit). Diese Informationen werden später von KTF genutzt, um PDDL‑Domänen und ‑Probleme sowie konkrete Planungsaufgaben dynamisch zu generieren.
+
+## Zusammenfassung
+
+Mit den Arbeiten rund um die semantische Modellierung von Produktionsprozessen und -kapazitäten wurde eine geeignete Repräsentationsform (BPMN in Verknüpfung mit semantischen Annotationen) festgelegt, eine Ontologie zur Selbstbeschreibung von Prozessen und Produktionsumgebung (Plato) aufgebaut, Digitale Zwillinge für die beiden Demonstratoren der SmartFactories erstellt und ein Repository für Produktionsdienste aufgebaut. Diese Artefakte bilden die zentrale Wissensbasis für die zu entwickelnden Planungsverfahren (@sec-005-5.3) und die experimentelle Validierung (@sec-005-5.5).

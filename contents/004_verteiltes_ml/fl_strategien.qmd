@@ -1,0 +1,330 @@
+# Modell-Aggregations Strategien im Federated Learning {#sec-004-fl-strategien}
+
+<!--
+---
+author:
+   - Mouad El-Hachimi
+   - Jiaqi Wang
+---
+-->
+
+In diesem Abschnitt werden im Allgemeinen unterschiedliche Strategien zur Aggregation der Modellgewichte während des Federated Learning beschrieben. Die Erläuterungen erfolgen an ausgewählten Stellen exemplarisch anhand des Use Cases zur Anomaliedetektion auf Zerspanungsdaten ( @sec-004-fl_demo_zerspanung_anomalydetection), wurden jedoch analog in den weiteren in @sec-004-fl_demo_intro vorgestellten Federated-Learning-Demonstratoren verwendet.
+
+Im Federated Learning wird ein gemeinsames Modell über mehrere Clients hinweg trainiert. Jeder Client hat eigene Daten und berechnet daraus eine lokale Verlustfunktion $F_k(w)$. Die globale Zielfunktion setzt sich aus allen Clients zusammen:
+
+$$F(w) = \sum_{k=1}^K \frac{n_k}{n}\, F_k(w), \quad
+n = \sum_{k=1}^K n_k$$
+
+Dabei bezeichnet $K$ die Anzahl der Clients, $k \in \{1, \dots, K\}$ den Index eines einzelnen Clients, $n_k$ die Anzahl der Trainingsbeispiele auf Client $k$ und $n$ die Gesamtzahl aller Beispiele über alle Clients hinweg. $F_k(w)$ ist die lokale Verlustfunktion von Client $k$ und $w$ steht für die Modellparameter (Gewichte und Bias-Terme), die global gelernt werden sollen.
+
+Eine Federated-Learning Strategie legt fest, wie dieses verteilte Training abläuft, zum Beispiel
+
+-   welche Clients in einer Runde teilnehmen,
+-   wie lange und mit welchen Hyperparametern lokal trainiert wird,
+-   wie die vom Client zurückgesendeten Modelle wieder zu einem globalen Modell zusammengeführt werden,
+-   wie mit heterogenen Daten umgegangen wird.
+
+Im Projekt wurden drei Strategien umgesetzt und in den FL-Server und FL-Client integriert:
+
+-   Federated Averaging (FedAvg) – Baseline und Standardverfahren [@mcmahan2017fedavg],
+-   FedProx – Erweiterung von FedAvg mit zusätzlicher Regularisierung [@li2020fedprox],
+-   FedRep – Strategie mit geteilter Repräsentation und lokalem Decoder [@collins2021fedrep].
+
+Die Federated-Learning Strategien FedProx und FedRep wurden ergänzt, weil sie besser mit heterogenen Datenverteilungen umgehen können. Im Federated-Learning Use Case zur Anomaliedetektion auf Daten aus der Zerspanung ( @sec-004-fl_demo_zerspanung_anomalydetection) stammen die Trainingsdaten von unterschiedlichen Maschinen mit eigenen Sensorprofilen und Prozessbedingungen (z. B. unterschiedlichen Schnittgeschwindigkeiten), sodass nicht von einer einheitlichen (Independent and Identically Distributed, IID-) Verteilung ausgegangen werden kann. Alle drei Strategien nutzen dieselbe Modellarchitektur. Sie unterscheiden sich vor allem in der lokalen Loss-Funktion und in der Frage, welche Teile des Modells global synchronisiert werden.
+
+## FedAvg – Federated Averaging
+
+FedAvg ist die klassische Strategie im Federated Learning. Der Ablauf ist:
+
+1.  Der Server sendet das aktuelle globale Modell an die ausgewählten Clients.
+2.  Jeder Client trainiert dieses Modell lokal für eine gewisse Anzahl Epochen.
+3.  Die Clients senden ihre aktualisierten Modellgewichte zurück.
+4.  Der Server mittelt diese Gewichte, meistens gewichtet nach der Anzahl der Trainingsbeispiele pro Client, und erhält so das neue globale Modell.
+
+Im Use Case zur Anomaliedetektion auf Zerspanungsdaten ( @sec-004-fl_demo_zerspanung_anomalydetection) basiert die lokale Loss-Funktion auf dem Rekonstruktionsfehler des CNN-Autoencoders. Für Client $k$ mit Eingangsfenstern $x_i$ und Rekonstruktionen $\hat{x}_i(w)$ wird der Loss wie folgt berechnet:
+
+$$F_k^{\text{FedAvg}}(w)
+=
+\frac{1}{n_k} \sum_{i=1}^{n_k} \left\lVert x_i - \hat{x}_i(w) \right\rVert_2^2$$
+
+Der Server versucht, die globale Zielfunktion
+
+$$F(w) = \sum_{k=1}^K \frac{n_k}{n}\, F_k^{\text{FedAvg}}(w)$$
+
+durch wiederholtes, rundenweises Aggregieren der Client-Modelle zu minimieren.
+
+## FedProx – FedAvg mit zusätzlichem Proximalterm
+
+FedProx erweitert FedAvg speziell für Szenarien mit nicht-IID-Daten und unterschiedlichen Systembedingungen (zum Beispiel Clients mit sehr unterschiedlicher Datenmenge). Die Grundidee: Clients sollen sich beim lokalen Training nicht zu weit vom globalen Modell entfernen.
+
+Dazu wird die lokale Loss-Funktion um einen zusätzlichen Term erweitert, der die Abweichung vom globalen Modell $w_t$ in Runde $t$ begrenzt:
+
+$$F_k^{\text{FedProx}}(w)
+=
+F_k(w) + \frac{\mu}{2}\,\lVert w - w_t \rVert_2^2$$
+
+wobei $\mu > 0$ ein Proximalparameter ist.
+
+-   Basis-Loss: mittlerer quadratischer Rekonstruktionsfehler $\text{MSE}(x, \hat{x})$,
+-   plus Proximalterm, der die Differenz zwischen lokalen Gewichten $w_{\text{local}}$ und den globalen Startgewichten $w_{\text{global}}$ misst:
+
+$$\mathcal{L}_{\text{FedProx}}(x, \hat{x}; w)
+=
+\text{MSE}(x, \hat{x})
++
+\frac{\mu}{2}\sum_j \left\lVert w_{\text{local},j} - w_{\text{global},j} \right\rVert_2^2$$
+
+Wenn $\mu = 0$ gesetzt wird, verhält sich FedProx exakt wie FedAvg. Für $\mu > 0$ werden starke lokale Abweichungen abgeschwächt, was die Stabilität bei heterogenen Daten verbessert.
+
+## FedRep – Geteilte Repräsentation, lokaler Decoder
+
+FedRep geht einen anderen Weg, um mit Datenheterogenität umzugehen. Die Idee ist, das Modell in zwei Teile aufzuteilen:
+
+-   eine globale Repräsentation (geteilte Schichten),
+-   einen lokalen Decoder pro Client (personalisierte Schichten).
+
+Im Use Case zur Anomaliedetektion auf Zerspanungsdaten ( @sec-004-fl_demo_zerspanung_anomalydetection) wird dieses Prinzip auf den CNN-Autoencoder übertragen:
+
+-   Der Encoder dient als globale Repräsentation $\phi$,
+-   der Decoder bildet den lokalen Modellteil $h_k$ und bleibt für jeden Client individuell.
+
+Aus Sicht des Lernverfahrens werden nur die Encoder-Gewichte über alle Clients hinweg aggregiert und als globaler Modellteil weitergegeben. Die Decoder-Gewichte gehen zwar ebenfalls an den Server, werden dort aber nicht in die Aggregation einbezogen, sondern lediglich gespeichert, um komplette Client-Modelle (Encoder + Decoder) pro Runde sichern zu können.
+
+Der Trainingsablauf auf dem Client ist in zwei Phasen unterteilt:
+
+1.  Personalisierungsphase (Decoder-Training)
+    -   Der Encoder ist eingefroren, der Decoder wird trainiert.
+    -   Loss: Rekonstruktionsfehler $$\mathcal{L}_{\text{dec}}(x, \hat{x}; \phi, h_k)
+        =
+        \left\lVert x - \hat{x}(\phi, h_k) \right\rVert_2^2$$
+    -   Ziel: Der lokale Decoder passt sich an die spezifischen Daten des Clients an.
+2.  Repräsentationsphase (Encoder-Training)
+    -   Der Decoder ist eingefroren, nur der Encoder wird trainiert.
+    -   Der Loss bleibt der Rekonstruktionsfehler, die Gradienten fließen aber nur durch die Repräsentation $\phi$.
+    -   Nach dieser Phase sendet der Client ausschließlich die aktualisierten Encoder-Gewichte an den Server zurück.
+
+Dadurch entsteht eine gemeinsame globale Repräsentation für alle Clients, während die letzten Schichten lokal angepasst bleiben. Das ist besonders hilfreich, wenn die Clients ähnliche Signale beobachten (z. B. vergleichbare Maschinen und Sensoren), sich die genauen Anomalieverläufe und Datenverteilungen aber von Client zu Client unterscheiden.
+
+Im Use Case zur Anomaliedetektion auf Zerspanungsdaten ( @sec-004-fl_demo_zerspanung_anomalydetection) umgesetzten System sind die Strategien FedAvg, FedProx und FedRep nicht nur konzeptionell definiert, sondern jeweils als eigene konfigurierbare Federated-Learning-Strategien im FL-Server integriert. Welche Strategie verwendet wird, wird über eine einfache Umgebungsvariable festgelegt, die beim Start des Server-Pods in der Cloud gesetzt werden kann. Zur Laufzeit wählt der Server anhand dieser Variable die passende Strategie aus, ohne dass der Code angepasst werden muss. Die Clients bleiben dabei unverändert und orientieren sich lediglich an den vom Server übermittelten Parametern (etwa Anzahl lokaler Epochen, Proximalparameter oder Angaben zur Repräsentationsstrategie). Dadurch lassen sich die drei Strategien flexibel durch reine Konfiguration aktivieren und vergleichen, während Logging, Modellablage und Experiment-Tracking für alle Varianten konsistent gehandhabt werden.
+
+## Weitere aktuelle Forschungsansätze im Umgang mit Heterogenität
+
+Die wissenschaftliche Gemeinschaft hat in den letzten Jahren eine Vielzahl von Ansätzen entwickelt, um die Herausforderungen heterogener Daten im föderierten Lernen zu adressieren. Diese Ansätze lassen sich grob in mehrere Kategorien einteilen, die unterschiedliche Aspekte des Problems fokussieren.
+
+Wichtig ist jedoch: Die meisten Methoden wurden primär unter vereinfachten Annahmen evaluiert (z. B. synthetische Label-Splits, statische Clients, kontrollierte Benchmarks). Ihre Übertragbarkeit auf reale, strukturell heterogene Systeme ist daher nicht selbstverständlich.
+
+Im Folgenden werden die zentralen methodischen Richtungen sowie ihre Limitationen diskutiert.
+
+### Optimierungsbasierte Stabilisierungsmethoden
+
+Eine erste Klasse von Verfahren betrachtet Heterogenität primär als Optimierungsproblem. Lokale Updates divergieren, weil Clients unterschiedliche Gradienten berechnen. Ziel ist es daher, lokale Updates zu stabilisieren oder zu korrigieren.
+
+Typische Strategien:
+
+-   Hinzufügen von Regularisierungstermen (z. B. proximale Einschränkungen wie beim oben beschriebenen "FedProx")
+-   Korrekturterme für Gradienten
+-   Adaptive Lernraten oder Update-Skalierung
+-   Reduzierung lokaler Epochenzahl
+
+Vorteile:
+
+-   Geringer Implementierungsaufwand
+-   Gute Kompatibilität mit bestehender FL-Infrastruktur
+-   Verbesserte Konvergenzgeschwindigkeit in moderat heterogenen Settings
+
+Grenzen:
+
+Diese Methoden gehen implizit davon aus, dass es ein gemeinsames globales Optimum gibt, dem alle Clients zustreben sollten. Bei stark struktureller Heterogenität – insbesondere bei ausgeprägtem feature skew – ist diese Annahme jedoch fraglich. Stabilisierte Gradienten lösen nicht das Problem strukturell unterschiedlicher Datenrepräsentationen. Sie dämpfen Symptome, adressieren aber nicht die Ursache.
+
+### Personalisierte und partielle Aggregationsansätze
+
+Eine zweite Forschungsrichtung erkennt an, dass ein einzelnes globales Modell nicht immer optimal ist. Ein Teil des Modells wird gemeinsam gelernt, andere Teile bleiben client-spezifisch.
+
+Typische Varianten:
+
+-   Fixierung bestimmter Layer pro Client
+-   Teilweise Parameteraggregation
+-   Zusätzliche personalisierte Köpfe
+-   Meta-Learning-basierte Initialisierungen
+
+Vorteile:
+
+-   Bessere Anpassung an lokale Besonderheiten
+-   Verbesserte Client-spezifische Performance
+
+Grenzen:
+
+Diese Methoden erhöhen die Systemkomplexität:
+
+-   Mehr Speicherbedarf pro Client
+-   Erhöhte Wartungskosten
+-   Schwierigeres Deployment
+
+Zudem bleibt die Frage offen, wie stark personalisiert werden sollte und welche Clients tatsächlich kompatibel sind. In realen Systemen mit vielen Clients kann eine vollständige Personalisierung unpraktikabel sein.
+
+### Repräsentationsbasierte Aligning-Ansätze
+
+Eine weitere Forschungsrichtung fokussiert nicht nur auf Parameterwerte, sondern auf die zugrunde liegenden Repräsentationen. Unterschiedliche Clients lernen unterschiedliche Feature-Repräsentationen. Ziel ist es, diese Repräsentationen explizit gemeinsam auszurichten (alignen).
+
+Typische Strategien
+
+-   Kontrastives Lernen zwischen lokalen und globalen Modellen
+-   Distillation-basierte Wissensübertragung
+-   Nutzung von Proxy-Datensätzen
+-   Konsistenzregularisierung
+
+Vorteile
+
+-   Bessere Generalisierung
+-   Explizite Behandlung von feature skew
+-   Verbesserte Stabilität in frühen Trainingsphasen
+
+Grenzen
+
+Viele dieser Verfahren setzen zusätzliche Annahmen voraus:
+
+-   Verfügbarkeit repräsentativer Proxy-Daten
+-   Zusätzliche Rechenressourcen auf dem Server
+-   Mehr Kommunikationsschritte
+
+Zudem bleibt weiterhin die implizite Annahme bestehen, dass ein einzelnes globales Modell alle strukturellen Unterschiede sinnvoll abdecken kann.
+
+### Clustered Federated Learning
+
+Clustered Federated Learning (CFL) stellt einen strukturell anderen Ansatz dar. Clients werden nicht als homogene Population betrachtet, sondern in Gruppen mit ähnlichen Eigenschaften unterteilt. Jede Gruppe trainiert ein eigenes Modell.
+
+Vorteile
+
+-   Reduzierung negativer Transfer-Effekte
+-   Bessere Anpassung an Subpopulationen
+-   Höhere Fairness zwischen Client-Gruppen
+
+Herausforderungen
+
+-   Definition geeigneter Ähnlichkeitsmetriken
+-   Bestimmung der Clusteranzahl
+-   Stabilität bei dynamischer Client-Teilnahme
+-   Skalierbarkeit bei großen Populationen
+
+Viele existierende CFL-Methoden basieren auf heuristischen oder instabilen Ähnlichkeitsmaßen. Zudem ist oft unklar, welche Modellkomponenten für die Clusterbildung tatsächlich relevant sind.
+
+### Zwischenfazit des Forschungsstands
+
+Zusammenfassend lassen sich folgende Erkenntnisse festhalten:
+
+1.  Optimierungsbasierte Methoden stabilisieren Training, lösen aber keine strukturelle Heterogenität.
+2.  Personalisierung verbessert lokale Performance, erhöht jedoch Systemkomplexität.
+3.  Repräsentationsbasierte Verfahren adressieren feature skew explizit, bleiben jedoch im Single-Model-Paradigma.
+4.  Clustering-Ansätze bieten strukturelle Lösungen, leiden aber häufig unter instabilen Ähnlichkeitsdefinitionen.
+
+Für reale industrielle Anwendungen ergibt sich daraus eine zentrale Forschungslücke:
+
+Es fehlen robuste, skalierbare Verfahren, die strukturelle Heterogenität systematisch modellieren und gleichzeitig praktikabel im Deployment bleiben. Diese Forschungslücke bildet die Motivation für die im Projekt entwickelten Ansätze.
+
+### Federated Clustering – Strukturelle Modellierung von Heterogenität
+
+Federated Clustering stellt eine grundlegende Erweiterung des klassischen föderierten Lernparadigmas dar. Während herkömmliche FL-Methoden davon ausgehen, dass ein einzelnes globales Modell für die gesamte Client-Population geeignet ist, geht Clustering von einer differenzierten Struktur der Population aus. Diese Perspektive entsteht aus der Beobachtung, dass reale Datenquellen nicht zufällig voneinander abweichen, sondern häufig stabilen Substrukturen folgen.
+
+In industriellen oder mobilen Anwendungen sind Unterschiede zwischen Clients oft dauerhaft und systematisch. Unterschiedliche Gerätegenerationen, Produktionslinien, Nutzergruppen oder regionale Kontexte erzeugen persistente Verteilungsunterschiede. Wird in solchen Szenarien ein globales Modell erzwungen, entsteht häufig ein Kompromissmodell, das keine Gruppe optimal repräsentiert. Das Optimierungsproblem wird zu einem Spannungsfeld konkurrierender Gradienten, und das System bewegt sich zwischen lokalen Interessen, ohne strukturelle Unterschiede explizit zu berücksichtigen.
+
+Federated Clustering greift dieses Problem auf, indem es Heterogenität nicht als Abweichung von einer Norm, sondern als strukturelles Organisationsprinzip versteht. Der Ansatz zielt darauf ab, innerhalb der Population Gruppen zu identifizieren, deren Datenverteilungen funktional kompatibler sind. Durch die Bildung solcher Cluster wird das globale Optimierungsproblem in mehrere intern konsistentere Teilprobleme zerlegt. Jedes Teilproblem kann dann mit höherer Stabilität und besserer Anpassung an die jeweilige Subpopulation gelöst werden.
+
+Die theoretische Motivation hierfür liegt unter anderem im Konzept des negativen Transfers. Wenn stark unterschiedliche Clients gemeinsam trainieren, können Updates einer Gruppe die Leistung einer anderen verschlechtern. Ein einzelnes Modell muss widersprüchliche Muster gleichzeitig repräsentieren, was zu suboptimaler Generalisierung führen kann. Clustering reduziert diese Konflikte, indem inkompatible Gruppen voneinander entkoppelt werden.
+
+Allerdings wirft dieser Ansatz neue methodische Fragen auf. Die zentrale Herausforderung besteht darin, strukturelle Ähnlichkeit zwischen Clients robust zu identifizieren. Trainingsdynamiken sind volatil, Gradienten ändern sich über Zeit, und frühe Trainingsphasen können verzerrte Signale liefern. Ein naiver Vergleich vollständiger Parametervektoren kann daher irreführend sein. Ähnlichkeit sollte funktionale Gemeinsamkeiten reflektieren, nicht zufällige Schwankungen.
+
+Darüber hinaus muss ein Clustering-Verfahren mit dynamischer Teilnahme umgehen können. In realen Systemen ist die Client-Population nicht statisch. Clients treten unregelmäßig bei, Datenverteilungen verändern sich, neue Subgruppen entstehen. Ein praktikabler Ansatz muss daher adaptiv sein und über mehrere Trainingsrunden hinweg stabile Strukturen erkennen können.
+
+Ein weiterer Aspekt betrifft Skalierbarkeit und Systemarchitektur. Mehrere Modelle bedeuten erhöhte Koordinationsanforderungen. Die Balance zwischen struktureller Differenzierung und Systemeffizienz ist daher entscheidend. Ein zu stark fragmentiertes System verliert Kollaborationsvorteile, ein zu grobes System leidet unter negativen Transfer-Effekten.
+
+Trotz dieser Herausforderungen bietet Federated Clustering einen entscheidenden strukturellen Vorteil: Es erlaubt, reale Heterogenität explizit zu modellieren und damit die implizite Homogenitätsannahme klassischer FL-Methoden zu überwinden. In realen Anwendungen, in denen Populationen nicht einheitlich sind, stellt dies einen wichtigen Schritt hin zu robusteren und faireren Lernsystemen dar.
+
+### Knowledge Distillation im föderierten Lernen – Funktionale Angleichung unter Feature Skew
+
+Während Federated Clustering strukturelle Differenzierung ermöglicht, adressiert Knowledge Distillation im föderierten Kontext die funktionale Konsistenz zwischen verteilten Modellen. Der Ansatz verschiebt den Fokus von der Aggregation von Parametern hin zur Angleichung von Modellverhalten.
+
+Im klassischen föderierten Lernen werden lokale Modellparameter periodisch aggregiert. Diese Vorgehensweise impliziert, dass Parameterwerte direkt kombinierbar sind und dass ihre Mittelung eine sinnvolle Approximation eines gemeinsamen Modells darstellt. Unter heterogenen Merkmalsverteilungen ist diese Annahme jedoch problematisch. Zwei Modelle können vergleichbare Performance erzielen, obwohl ihre internen Repräsentationen stark divergieren. Eine direkte Mittelung kann in solchen Fällen inkonsistente Strukturen erzeugen.
+
+Knowledge Distillation bietet hier eine alternative Perspektive. Statt Parameterwerte zu kombinieren, wird das funktionale Verhalten der Modelle übertragen. Lokale Modelle dienen als Wissensquellen, deren Vorhersagemuster oder interne Aktivierungen als Referenz für ein globales Modell genutzt werden. Der Transfer erfolgt im Funktionsraum und nicht im Parameterraum.
+
+Dieser Unterschied ist insbesondere unter feature skew bedeutsam. Wenn Clients ähnliche Aufgaben lösen, aber unterschiedliche statistische Strukturen in ihren Eingabedaten aufweisen, kann eine funktionale Angleichung stabiler sein als eine arithmetische Parameteraggregation. Das globale Modell lernt, konsistentes Verhalten über unterschiedliche Datenverteilungen hinweg zu reproduzieren, ohne lokale Spezialisierungen vollständig zu zerstören.
+
+Ein weiterer Vorteil liegt in der Flexibilität des Distillation-Mechanismus. Er kann selektiv eingesetzt werden, etwa zur Stabilisierung früher Trainingsphasen oder zur gezielten Integration neuer Clients. Darüber hinaus ermöglicht Distillation eine differenzierte Gewichtung einzelner Wissensquellen, was bei stark unausgeglichenen Populationen von Bedeutung sein kann.
+
+Gleichzeitig ist Knowledge Distillation kein universelles Allheilmittel. Der Ansatz erfordert zusätzliche Rechenressourcen und geeignete Inputs für die Wissensübertragung. Zudem bleibt die strukturelle Frage bestehen, ob alle Clients tatsächlich in ein gemeinsames Modell integriert werden sollten oder ob strukturelle Differenzierung – wie beim Clustering – sinnvoller ist.
+
+Insgesamt stellt Knowledge Distillation eine funktionale Ergänzung zu strukturellen Ansätzen dar. Während Clustering versucht, inkompatible Gruppen voneinander zu trennen, versucht Distillation, trotz Heterogenität funktionale Konsistenz herzustellen. Beide Strategien operieren auf unterschiedlichen Ebenen, sind jedoch nicht konkurrierend, sondern komplementär.
+
+### Aktuelle Forschungsarbeiten im Projektkontext zum Federated Clustering und zur Knowledge-Distillation
+
+Im Rahmen des Projekts wurden zwei komplementäre Forschungsarbeiten entwickelt, die unterschiedliche Ebenen realer Datenheterogenität adressieren. Während die erste Arbeit den Fokus auf funktionale Repräsentationsangleichung legt, untersucht die zweite Arbeit die strukturelle Organisation heterogener Client-Populationen.
+
+Beide Arbeiten entstanden aus der systematischen Analyse der zuvor dargestellten Herausforderungen und bilden zusammen einen kohärenten methodischen Fortschritt im Umgang mit realer Heterogenität im föderierten Lernen.
+
+**1) FedKeD – Funktionale Wissensübertragung unter nicht-IID Merkmalsverteilungen**
+
+*Motivation und Ausgangspunkt*
+
+Die Entwicklung von FedKeD wurde durch die Beobachtung motiviert, dass in vielen realen Szenarien – insbesondere im Bereich Human Activity Recognition – identische Klassenbezeichnungen nicht zwangsläufig vergleichbare Merkmalsrepräsentationen implizieren. Unterschiedliche Sensorpositionen, individuelle Bewegungsmuster oder Geräteeigenschaften führen dazu, dass Clients trotz ähnlicher Labelverteilungen stark divergierende Feature-Strukturen aufweisen.
+
+In solchen Settings zeigt sich eine zentrale Schwäche klassischer Aggregationsverfahren: Die Mittelung von Modellparametern setzt implizit voraus, dass lokale Modelle strukturell kompatibel sind. Unter feature skew ist dies jedoch häufig nicht der Fall. Lokale Modelle können gute Performance erzielen, während ihre internen Repräsentationen stark voneinander abweichen. Eine direkte Aggregation kann dann zu inkonsistenten Strukturen und reduzierter Generalisierung führen.
+
+{{< pagebreak >}}
+
+*Methodischer Ansatz*
+
+FedKeD verfolgt daher einen alternativen Ansatz, der nicht primär im Parameterraum operiert, sondern im Funktionsraum des Modells. Der zentrale Gedanke besteht darin, Wissen aus lokalen Modellen nicht arithmetisch zu mitteln, sondern funktional zu übertragen.
+
+Im Gegensatz zur klassischen Ensemble-Distillation erfolgt die Wissensübertragung in FedKeD client-spezifisch. Jedes lokale Modell dient als separate Wissensquelle, deren gelernte Entscheidungsstruktur kontrolliert auf das globale Modell projiziert wird. Dabei wird nicht ausschließlich die finale Vorhersageebene berücksichtigt, sondern auch interne Repräsentationen in den Lernprozess integriert.
+
+Diese funktionale Übertragung erlaubt es, lokale Spezialisierungen partiell zu erhalten, während gleichzeitig ein konsistentes globales Verhalten aufgebaut wird. Der Ansatz vermeidet die vollständige Überlagerung heterogener Parameterstrukturen und reduziert damit die Wahrscheinlichkeit inkonsistenter Aggregationseffekte.
+
+*Ergebnisse*
+
+FedKeD wurde auf mehreren realen HAR-Datensätzen evaluiert, die ausgeprägte Merkmalsheterogenität zwischen Clients aufweisen. Die Ergebnisse zeigen:
+
+-   signifikante Verbesserungen der F1-Performance im Vergleich zu FedAvg und weiteren Baselines,
+-   stabilere Konvergenzdynamik insbesondere in frühen Trainingsphasen,
+-   erhöhte Robustheit gegenüber stark heterogenen Clients.
+
+Besonders hervorzuheben ist, dass die Verbesserungen nicht auf synthetischen Label-Splits beruhen, sondern auf realistisch verteilten Sensordaten mit struktureller Feature-Variation.
+
+*Wissenschaftlicher Beitrag*
+
+FedKeD leistet einen methodischen Beitrag in dreifacher Hinsicht. Erstens wird feature skew explizit als eigenständige Herausforderung behandelt und nicht auf Label-Heterogenität reduziert. Zweitens wird der Fokus von Parameteraggregation hin zur funktionalen Wissensübertragung verschoben. Drittens wird gezeigt, dass Repräsentationsangleichung unter realen Bedingungen zu messbaren Stabilitäts- und Generalisierungsvorteilen führt.
+
+Damit adressiert FedKeD primär die funktionale Ebene heterogener Systeme und schafft eine Grundlage für robustere globale Modelle.
+
+**2) SensCluster – Sensitivitätsgeleitete Strukturierung heterogener Populationen**
+
+Während FedKeD innerhalb eines globalen Modells operiert, untersucht SensCluster eine weitergehende Fragestellung: Sollte unter ausgeprägter Heterogenität überhaupt ein einzelnes globales Modell angestrebt werden?
+
+*Motivation*
+
+Empirische Analysen im Projekt zeigten, dass bestimmte Clients strukturell stärker voneinander profitieren als andere. Es existieren Subpopulationen mit kompatiblen Trainingsdynamiken, während zwischen anderen Gruppen negative Transfer-Effekte auftreten.
+
+Gleichzeitig wurde beobachtet, dass nicht alle Modellkomponenten gleichermaßen aussagekräftig für strukturelle Unterschiede sind. Eine Gleichgewichtung sämtlicher Parameter bei der Ähnlichkeitsbestimmung führt häufig zu instabilen oder verrauschten Clusterstrukturen.
+
+*Methodischer Ansatz*
+
+SensCluster verfolgt daher einen sensitivitätsgeleiteten Ansatz. Ziel ist es, funktional relevante Modellkomponenten zu identifizieren, die besonders stark auf client-spezifische Daten reagieren. Diese Komponenten werden selektiv zur Konstruktion robuster Client-Repräsentationen genutzt, auf deren Basis eine strukturierte Clusterbildung erfolgt.
+
+Der Ansatz kombiniert somit:
+
+-   Analyse der funktionalen Sensitivität,
+-   selektive Parameterbetrachtung,
+-   robuste spektrale Clusterverfahren.
+
+Durch diese Fokussierung auf funktional bedeutsame Unterschiede wird die Rauschanfälligkeit klassischer Parametervergleiche reduziert.
+
+*Ergebnisse*
+
+Die Evaluation auf Bild- und Sensordaten zeigt, dass SensCluster im Vergleich zu bestehenden Clustering-Verfahren stabilere Gruppenstrukturen und verbesserte Performance erzielt. Insbesondere unter starker Heterogenität erweist sich der Ansatz als robuster gegenüber der Wahl der Clusteranzahl.
+
+SensCluster adressiert damit die strukturelle Ebene heterogener Systeme. Während FedKeD funktionale Konsistenz innerhalb eines globalen Modells anstrebt, erlaubt SensCluster die explizite Modellierung mehrerer spezialisierter Modelle.
+
+**Gesamtbewertung der Projektarbeiten**
+
+Die beiden Arbeiten sind nicht isoliert zu betrachten, sondern ergänzen sich konzeptionell. FedKeD zielt auf funktionale Angleichung verteilter Repräsentationen ab und verbessert Stabilität sowie Generalisierung innerhalb eines globalen Modells. SensCluster hingegen hinterfragt die Homogenitätsannahme grundlegend und strukturiert die Population adaptiv.
+
+Gemeinsam leisten sie einen Beitrag zu einer systematischen Modellierung realer Datenheterogenität im föderierten Lernen. Anstatt Heterogenität lediglich als Störgröße zu behandeln, wird sie als strukturprägendes Element verstanden und methodisch integriert. Diese Perspektive stellt einen wesentlichen Fortschritt gegenüber klassischen Aggregationsansätzen dar und bildet eine belastbare Grundlage für zukünftige Weiterentwicklungen in heterogenen föderierten Systemen.

@@ -1,0 +1,176 @@
+# FL-Demonstrator - Use-Case: Zerspanung {#sec-004-fl_demo_zerspanung_anomalydetection}
+
+```{=html}
+<!--
+---
+author: 
+  - Mouad El-Hachimi
+  - Jens Henninger
+---
+-->
+```
+
+## Hintergrund: Bestimmung des Werkzeugzustandes mittels Machine Learning in der Zerspanung
+
+Die Anwendung von Machine-Learning-Verfahren zur Vorhersage des Werkzeugstandzeitendes in der Zerspanung ist grundsätzlich vielversprechend: Durch die Nutzung des eingesetzten Zerspanungs-Werkzeuges (Bohrer oder Fräser) bis zu seinem tatsächlichen Standzeitende werden Kosten und Ressourcen für das Werkzeug selbst eingespart. In der Serienproduktion werden diese Werkzeuge häufig bis zu einem vorab definierten Zeitpunkt oder in Anzahl von Zerspanungs-Operationen eingesetzt. Inklusive einkalkulierter Sicherheitszuschlägen werden somit Werkzeuge viel zu früh ausgetauscht. Damit einher geht ein häufiger Werkzeugwechsel und somit erhöhte Rüstzeiten. Durch die Ermittlung des tatsächlichen Werkzeugszustandes und der Abschätzung der möglichen Restlebenszeit des Werkzeuges können diese deutlich optimierter ausgenutzt werden.
+
+In weiteren Untersuchungen wurden auf interne Sensordaten, welche stark mit dem Verschleisszustand des Werkzeugs korrelieren, Machine-Learning Varfahren zur Anomaliedetektion und zur Bestimmung der Remaining Useful life (RUL) untersucht, diese Ansätze in ein Tool Condition Monitoring System (TCM) intgeriert und dabei vielversprechende Ergebnisse erzielt @reeber24, @SIMON2026381. Diese Untersuchungen wurden an praxisnahen Prozessen untersucht, jedoch konnten diese noch nicht die sehr hohe Komplexität und Variabilität realer Fertigungsprozesse abbilden, sodass die Methoden in der praktischen Anwendung schnell an ihre Grenzen stoßen. In industriellen Umgebungen kommen unterschiedliche Werkzeugmaschinen mit variierender Steifigkeit, Regelungscharakteristik und thermischem Verhalten zum Einsatz. Diese Unterschiede spiegeln sich unmittelbar in den erfassten Prozess- und Sensordaten wider und führen dazu, dass identische Verschleißzustände je nach Maschine unterschiedlich ausgeprägt erscheinen. Zusätzlich ist die eingesetzte Sensorik nicht einheitlich. Art, Positionierung, Abtastrate und Signalqualität der Sensoren variieren stark, was zu heterogenen Datenräumen und eingeschränkter Vergleichbarkeit der Messsignale führt.
+
+Darüber hinaus weist der Zerspanprozess selbst eine hohe Komplexität auf. Unterschiedliche Schnittgeschwindigkeiten, Vorschübe, Zustellungen, Werkzeuggeometrien, Beschichtungen sowie Werkstoffe beeinflussen das Verschleißverhalten maßgeblich. Die Vielzahl möglicher Parameterkombinationen führt zu einer starken Streuung der Prozesszustände, wodurch ein stabiles „Normalverhalten“, wie es für Anomaly-Detection-Ansätze häufig vorausgesetzt wird, nur schwer eindeutig definierbar ist. RUL-Modelle wiederum erfordern umfangreiche und konsistent gelabelte Daten über den gesamten Werkzeuglebenszyklus, die in der Praxis nur selten in ausreichender Qualität und Menge verfügbar sind.
+
+Vor diesem Hintergrund bietet ein föderierter Machine-Learning Ansatz eine vielversprechende Alternative. Beim Federated Learning werden Modelle dezentral auf maschinennahen Daten trainiert, während lediglich Modellparameter oder Gradienten zentral aggregiert werden. Dadurch können lokale, maschinen- und prozessspezifische Charakteristika berücksichtigt werden, ohne dass eine Zentralisierung sensibler Produktionsdaten erforderlich ist. Gleichzeitig profitiert das globale Modell von der Vielfalt unterschiedlicher Prozessrealitäten, was zu einer erhöhten Robustheit gegenüber Variationen führt. Insbesondere für Anomaly-Detection-Modelle eröffnet dieser Ansatz die Möglichkeit, verteiltes Erfahrungswissen aus unterschiedlichen Anwendungen nutzbar zu machen und die Grenzen klassischer, zentralisierter Machine-Learning-Methoden in der Zerspanung gezielt zu adressieren.
+
+Im Projekt wurden daher gezielt die Ansätze zur Anomaliedetektion im Kontext des Federated-Learning in der EASY-Architektur umgesetzt und evaluiert. Der Fokus lag dabei zum einen auf der Integration der benötigten Services für das föderierte Lernen in die EASY-Edge und EASY-Cloud Umgebung und zum anderen auf der konkreten Anwendung und Bewertung des Systems anhand des Use Cases zur Werkzeug-Standzeitbestimmung mittels Anomaliedetektion auf Bohrdaten. Ziel ist die zustandsbasierte Bestimmung des Werkzeugverschleißes und die Ableitung eines günstigen Wechselzeitpunktes, um Werkzeuge ressourcenoptimiert einzusetzen.
+
+## Datengrundlage
+
+In einem Vorgängerprojekt wurden dazu bereits praxisnahe Bohrprozesse zu ausgewählten und variierenden Prozessparametern (Schnittgeschwindigkeit, Vorschub) an unterschiedlichen Maschinen mit unterschiedlichen Bohrwerkzeugen durchgeführt und dazugehörige Messdaten in Versuchsreihen aufgezeichnet. Die Bohrwerkzeuge wurden bis zum Ende ihrer Lebensdauer, teilweise bis zum Bruch des Werkzeuges, eingesetzt. Auf Basis der Bohrqualität werden die Daten in normale und anomale Bohrungen eingeteilt.
+
+Die aufgezeichneten Messdaten umfassen je nach Messsystem Features zur Strom-, Spannung- und Leistungsaufnahme sowie Kräfte aller Achsmotoren des Bearbeitungszentrums und separat gemessene Qualitätsdaten, wie Verschleissmarkenbreite, Rauheiten und Konzentrizität der Werkzeuge. Um eine möglichst hohe Vielfalt an Maschinentypen abdecken zu können, wurde darauf geachtet, eine möglichst vergleichbare Grundmenge an Features aufzuzeichnen, die gleichzeitig stark mit dem Verschleißzustand des Werkzeugs korrelieren. Als kleinster gemeinsamer Nenner über alle betrachteten Maschinentypen und Messsysteme konnten der Spindelstrom (I_Spindel) und der Strom der Z-Achse (I_Z) identifiziert werden. Die als (I_Spindel) und (I_Z) bezeichneten Features wurden dabei an den Maschinen in zwei unterschiedlichen Arten erfasst: (i) steuerungsintern (Siemens Sinumerik Edge) und im (ii) Retrofit mit Stromwandlern (Beckhoff). Als zunehmend verfügbare Retrofit-Option gelten dabei Stromaufzeichnungen mittels nachgerüsteten Stromwandlern Edge-Computing für Tool Condition Monitoring (TCM), diese Geräte sind nachrüstbar, kosteneffizient und beeinträchtigen den laufenden Betrieb nicht. Insgesamt zeigen frühere Ergebnisse, dass beide Wege für TCM vergleichbare Aussagen zu Schnittkräften und Werkzeugverschleiß erlauben und somit eine gemeinsame, ML-basierte Auswertung beider Quellen sinnvoll ist @REEBER2024214 .
+
+Nach einer Feature-Selektion, Bereinigung und Aufbereitung der Daten stehen mehrere Datensätze zur Verfügung, welche verschiedene Maschinen und Prozessvarianten abdecken und realistische Schwankungen, zum Beispiel durch Werkzeugverschleiß, Materialstreuungen oder geänderte Prozessparameter, aufzeigen. Die Tabelle ref:table-data gibt einen Überblick über die verwendeten Datensätze. Gezeigt werden pro Datensatz die tool-ID, der Werkzeugtyp, die Schnittgeschwindigkeit $v_c$ in $m/min$ , die genutzten Merkmalkanäle $I_{Spindel},I_{Z-Achse}$.
+
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| tool-ID  | Werkzeug-Typ | $v_c$ (m/min) | Features       | Maschine           | Mess-system                   |
++==========+==============+===============+================+====================+===============================+
+| ES35\    | H_ES35       | 100           | $I_{Spindel}$\ | Hermle C42u        | Retrofit,\                    |
+| -2       |              |               | $I_{Z-Achse}$  |                    | Stromwandler,\                |
+|          |              |               |                |                    | Beckhoff IPC                  |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| ES35\    | H_ES35       | 100           | $I_{Spindel}$\ | Hermle C42u        | Retrofit,\                    |
+| -3       |              |               | $I_{Z-Achse}$  |                    | Stromwandler,\                |
+|          |              |               |                |                    | Beckhoff IPC                  |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| ES35\    | H_ES35       | 100           | $I_{Spindel}$\ | Hermle C42u        | Retrofit,\                    |
+| -1       |              |               | $I_{Z-Achse}$  |                    | Stromwandler,\                |
+|          |              |               |                |                    | Beckhoff IPC                  |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| PH\      | M_tool       | 120           | $I_{Spindel}$\ | Hermle C42u        | Retrofit,\                    |
+| 1006     |              |               | $I_{Z-Achse}$  |                    | Stromwandler,\                |
+|          |              |               |                |                    | Beckhoff IPC                  |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| PH\      | M_tool       | 100           | $I_{Spindel}$\ | Hermle C42u        | Retrofit,\                    |
+| 1015     |              |               | $I_{Z-Achse}$  |                    | Stromwandler,\                |
+|          |              |               |                |                    | Beckhoff IPC                  |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| IfW\     | M_tool       | 100           | $I_{Spindel}$\ | DMG LT65 3D hybrid | Steuerungs-intern, Siemens SE |
+| 1003     |              |               | $I_{Z-Achse}$  |                    |                               |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| IfW\     | M_tool       | 120           | $I_{Spindel}$\ | DMG LT65 3D hybrid | Steuerungs-intern, Siemens SE |
+| 1006     |              |               | $I_{Z-Achse}$  |                    |                               |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+| IfW\     | M_tool       | 140           | $I_{Spindel}$\ | DMG LT65 3D hybrid | Steuerungs-intern, Siemens SE |
+| 1009     |              |               | $I_{Z-Achse}$  |                    |                               |
++----------+--------------+---------------+----------------+--------------------+-------------------------------+
+
+: Überblick über die aufgezeichneten Datensätze, welche sich in der Verwendung des Werkzeugherstellers, des Messsystems, der Maschine und der Prozessparameter (Schnittgeschwindigkeit $v_c$) unterscheiden. Abkürzung Siemens SE steht für Siemens Sinumerik Edge. {#tbl-data-zerspanung}
+
+Die Datensätze decken verschiedene Maschinen und Prozessvarianten ab und zeigen realistische Schwankungen, zum Beispiel durch Werkzeugverschleiß, Materialstreuungen oder geänderte Prozessparameter.
+
+Der Beginn des Anomalieintervalls markiert den Zeitpunkt, an dem aus prozessualer Sicht ein Werkzeugwechsel erforderlich wäre. In der Praxis treten um diesen Zeitpunkt häufig mehrere Anomalien in den Daten auf. @fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar zeigt, dass die Anzahl der Operationen pro Datei erheblich variiert. Die Balken sind nach Normal (blau) und Anomal (rot) aufgeteilt, wodurch sowohl die absolute Menge als auch die klassenweise Verteilung je Datensatz sichtbar werden.
+
+![Anzahl Zerspanungsoperationen pro Datensatz, mit den farblich markierten Verhältnissen von normalen (blau) und anormalen (rot) Bohrungen](fl_demo_zerspanung_anomalydetection_pictures\ops_stacked_bar.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar fig-align="center" width="75%"}
+
+Zur Festlegung des sogenannten Anomalie-Interval-Start Zeitpunkts wurde ein vereinfachtes Verfahren zum Labeln der Daten verwendet: Die aufgezeichneten Kraft- und Stromsignale wurden mit den Mikroskopaufnahmen der Werkzeugspanfläche kombiniert, um den Anomalie-Interval-Start zu bestimmen. Teilweise wurden auch Hinweise der Maschinenbediener mitprotokolliert und die Aussage, ab wann sie das Werkzeug, bspw. anhand der wahrgenommenen Geräusche oder Spanbildung, ausgetauscht hätten. Ab diesem Zeitpunkt häufen sich ungewöhnliche Ereignisse, die Spanbildung ändert sich, Späne verkeilen im Bohrloch, da sie durch den fortschreitenden Verschleiß an Eckenradius und Schneidkante nicht mehr zuverlässig das Material abtragen. Dies legt nahe, dass die werkzeugseitige Einsatzdauer erreicht oder überschritten ist. Alle Bohrungen nach dem Anomalie-Interval-Start werden als Anomalien bewertet. Die konkrete Ursache einzelner Anomalien ist jedoch nicht annotiert. Auch vor dem Anomalie-Interval-Start können prozessbedingte Spänebeeinflussungen zu einzelnen Anomalien in den Daten führen, sodass die Labels in den hier verwendeten Datensätzen nicht die bestmögliche Genauigkeit erreichen.
+
+In folgendem Abbild wird exemplarisch der komplette Standzeitverlauf eines Werkzeuges dargestellt. Die Daten der Sensoren $I_{Spindel}$ und $I_Z$ sind pro Operation (Bohrung) aggregiert. Die Sortierung nach Operationsnummer macht Trend, Drift und plötzliche Änderungen sichtbar.
+
+![Visualisierung der Daten eines vollständigen Standzeitverlaufes eines Werkzeuges. In allen Features sind gegen Standzeitende ein klarer Anstieg der Werte und stark ausgeprägte Anomalien zu beobachten](fl_demo_zerspanung_anomalydetection_pictures\data_werkzeugstandzeit.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-werkzeugstandzeit fig-align="center" width="75%"}
+
+## Umsetzung Federated-Learning zur Anomaliedetektion in der EASY Umgebung
+
+In Abschnitt @sec-002_integration_federeated_learning wird auf die Integration der für das Federated-Learning benötigten Komponenten in der EASY Umgebung eingegangen. In der EASY-Edge werden Streamingdaten per MQTT empfangen und nach Kafka zwischenpersistiert. Ein kafka-s3-connector schreibt die Daten gebündelt in einen Objektspeicher (MinIO). Edge-seitig agiert ein Federated-Learning-Client, welcher das Framework Flower integriert. Server-seitig besteht eine vergleichbare Struktur, wobei zusätzlich ML-Flow für das Modell-Tracking und der Federated-Learning-Server ergänzend hinzukommen. In dieser Untersuchung wurde hauptsächlich die Integration dieser Komponenten anhand der oben vorgestellten Daten und Use Cases getestet.
+
+Im Folgenden wird der Client-seitige Ablauf skizziert. Im FL-Client sind die unterschiedlichen Federated-Learning Strategien "FedAvgWithRoundSaving, FedAvgWithFinalSaveOnly, FedAvgEqualWeight, FedProxWithRoundSaving, FedRepWithRoundSaving, FedAvgRetrainWithRoundSaving" implementiert. Die Client-seitige Implementierung umfasst einen TensorFlow-basierten Flower-Client, der sich auf Anomalieerkennung mit einem 1D Convolutional Autoencoder konzentriert.
+
+Im folgenden Abbild @fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow wird der Client-seitige Ablauf skizziert.
+
+![Client-Workflow mit Daten-Vorverarbeitung, Modelltraining im client-seitigen Federated-Learning-Loop (Austausch & Metrik-Übermittlung an den Server via Flower).](fl_demo_zerspanung_anomalydetection_pictures\clientWorkflow.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow fig-align="center" width="70%"}
+
+Für die im Zerspanungs Use-Case Datenverteilung hat sich die Federated-Learning Strategie "FedRep" als geeignet herausgestellt. Hierfür wird in @fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow der client-seitige Trainingsablauf mit FedRep Strategie dargestellt. Auf Clientseite wird nur der Decoder-Teil des CNN-Autoencoders nachtrainiert und auf Serverseite wird nur der Encoder-Teil aggregiert.
+
+![Client-Trainingsablauf mit FedRep FL-Strategie: Lokales Decoder-Retraining, server-seitige Encoder-Aggregation](fl_demo_zerspanung_anomalydetection_pictures\clientFedRepWorkflow.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow fig-align="center" width="70%"}
+
+Server-seitig werden, wie in der folgenden @fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow dargestellt, die Encoder-Teile aller übermittelten, nachtrainierten Modelle über eine FedAvg Strategie aggregiert.
+
+![Server-seitiger Ablauf mit FedRep FL-Strategie: Von den an den Server übertragenen Modellen werden nur die Encoder per FedAvg aggregiert.](fl_demo_zerspanung_anomalydetection_pictures\serverFedRepWorkflow.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow fig-align="center" width="70%"}
+
+## Ergebnisse Federated Learning Referenzlauf
+
+Im Folgenden werden Ergebnisse des Referenzlaufes mit der gewählten "FedRep" Strategie gezeigt. Die Durchläufe wurden je Client evaluiert, sodass pro Maschine / Prozess Unterschiede in der Güte der lokalen Modelle ersichtlich werden. Zugrunde liegt ein CNN-Autoencoder, welcher das "Normalverhalten" lernt. Die Erkennung der Anomalien in den Daten erfolgt über den Abgleich der Eingangsdaten mit den durch den CNN-Autoencoder rekonstruierten Werten und Ermittlung des Rekonstruktionsfehler (MSE, Mean Squared Error). Durch Übersteigen eines Grenzwertes können somit Anomalien detektiert werden.
+
+Die Aufteilung der client-spezifischen Daten erfolgte in Trainings-, Validierungs- und Testdaten. Trainings- und Validierungsdaten enthalten die "Normaldaten", also Daten vor dem jeweiligen "Anomalie-Interval-Start", also der Zeitpunkt zu dem das Werkzeug spätestens ausgetauscht werden sollte und nachdem gehäuft Anomalien auftreten. Die Testdaten enthalten einen geringen Anteil "Normaldaten", um die Performanz des CNN-Autoencoders dahingehend zu evaluieren, ob das Modell auch auf ungesehenen Normaldaten gute Rekonstruktionen durchführen kann, und alle "Anomaliedaten", um zu überprüfen, dass diese einen möglichst hohen Rekonstruktionsfehler aufweisen. Der Grenzwert wird je Client über eine auf Normalfenstern kalibrierte Schwelle τ (oberes Perzentil) festgelegt.
+
+Ziel der Validierung war zu prüfen, ob die nach dem Training vorliegenden Modelle diese driftenden Abschnitte hinreichend rekonstruieren und von normalen Sequenzen abgrenzen können. Der Referenzdurchlauf mit den best erzielten Ergebnissen hat folgende Konfigurationen:
+
++-------------------+---------------------------------------------------------------+
+| Bezeichnung       | Konfiguration                                                 |
++===================+===============================================================+
+| Strategie         | FedRepWithRoundSaving                                         |
++-------------------+---------------------------------------------------------------+
+| Anzahl FL-Runden  | 25                                                            |
++-------------------+---------------------------------------------------------------+
+| Lokale Epochen    | Encoder: 1, Decoder: 5                                        |
++-------------------+---------------------------------------------------------------+
+| Sliding Windows   | Fenstergröße: 50, Schrittweite: 20                            |
++-------------------+---------------------------------------------------------------+
+| Batchgröße        | 64                                                            |
++-------------------+---------------------------------------------------------------+
+| Features          | $I_{Spindel}, I_Z$                                            |
++-------------------+---------------------------------------------------------------+
+| Normalisierung    | MinMax pro Operation                                          |
++-------------------+---------------------------------------------------------------+
+| Flankendetektion  | deaktiviert                                                   |
++-------------------+---------------------------------------------------------------+
+| Clients (Dateien) | ES35_1, ES35_2, ES35_3, IfW_eID1003, IfW_eID1006, IfW_eID1009 |
++-------------------+---------------------------------------------------------------+
+
+: Konfiguration des Referenzdurchlaufs
+
+In den folgenden Plots werden die Ergebnisse je Client nach dem vollständigen Referenzdurchlauf gezeigt. Als rot gestrichelte vertikale Linie wird immer der "Anomalie-Intervall-Start" Zeitpunkt markiert. Dieser soll möglichst gut "erkannt" werden, das heißt Daten der Bohrungen vor diesem Zeitpunkt sollen möglichst gut rekonstruiert werden (geringer MSE) und danach gut abgrenzbarer, schlecht rekonstruierte Daten mit hohem MSE-Wert folgen.
+
+![Ergebnisplot für Client ES35_1 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\ES35_1__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99_95.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_1 fig-align="center" width="80%"}
+
+![Ergebnisplot für Client ES35_2 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\ES35_2__model_ES35_2_csv_run_fedrep_6_clients__FULL_mse_p99_97.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_2 fig-align="center" width="80%"}
+
+![Ergebnisplot für Client ES35_3 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\ES35_3__model_ES35_3_csv_run_fedrep_6_clients__FULL_mse_p99_9.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_3 fig-align="center" width="80%"}
+
+![Ergebnisplot für Client IfW_eID1003 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1003_flip__model_IfW_eID1003_flip_csv_run_fedrep_6_clients__FULL_mse_p99_5.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1003 fig-align="center" width="80%"}
+
+![Ergebnisplot für Client IfW_eID1006 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1006_flip__model_IfW_eID1006_flip_csv_run_fedrep_6_clients__FULL_mse_p99_99.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1006 fig-align="center" width="80%"}
+
+![Ergebnisplot für Client IfW_eID1009 (FedRep, 6 Clients)](fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1009_flip__model_IfW_eID1009_flip_csv_run_fedrep_6_clients__FULL_mse_p99_99.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1009 fig-align="center" width="80%"}
+
+In den vorliegenden Ergebnisplots lässt sich klar erkennen, dass für die Clients IfW_eID1006, ES35_2 und ES35_1 Modelle im Federated Learning Setup trainiert werden konnten, welche eine zuverlässige Anomaliedetektion zulassen. Bei Client ES35_3 gelingt eine saubere Trennung zwischen Normaldaten und Anomaliedaten kaum, sodass das zugehörige Modell nicht für eine zuverlässige Anomaliedetektion geeignet ist. Die schlechte Performanz lässt sich jedoch im Abgleich mit den Rohdaten womöglich darauf zurückführen, dass sich in der zugrunde liegenden Versuchsreihe keine stark ausgeprägten Anomalien gegen Werkzeugstandzeitende ergeben haben oder das Werkzeug noch nicht bis an das Lebensende ausgenutzt wurde.
+
+Zur Simulation eines Produktionsszenarios mit anschließendem Retraining werden für die folgende Evaluation ausschließlich Dateien/Clients herangezogen, die an der bisher betrachteten Trainingssession nicht teilgenommen haben. Der frühere Durchlauf folgte dem FedRep-Ansatz mit global geteiltem Encoder und lokal personalisierten Decodern. Aufgrund der Ähnlichkeiten im Normalbetrieb zwischen den Datenquellen dient in der aktuellen Auswertung der im vorherigen Lauf gelernte Decoder des Clients ES35_1 als Ausgangspunkt. Dadurch bleibt die lokal spezialisierte Rekonstruktionsfähigkeit für Normalzustände erhalten, während der Encoder in der neuen Runde erneut angepasst wird. Anschließend wurde das Modell mit der implementierten FedAvg Retraining Variante über $drei$ weitere Runden weitertrainiert (Fenstergröße $w = 50$, Schrittweite $s = 50$), wobei ausschließlich die zwei Dateien als Clients verwendet wurden. Die Ergebnisse der Evaluierung auf denselben beiden Dateien nach dem Re-Training sind im Folgenden dargestellt.
+
+![Ergebnisplot für (ungesehene) Client PH_eID1006 nach initialem FL-Training auf Client ES35_1 Daten](fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1006__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99_5.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_before-retrain fig-align="center" width="80%"}
+
+![Ergebnisplot für Client PH_eID1006 nach Retraining (FedAvg, 3 Runden)](fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1006__retrain__FULL_mse_p99_9.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_retrain fig-align="center" width="80%"}
+
+Beim Retraining der Modelle auf den bisher ungesehenen Daten konnte über 3 Runden per FedAvg Strategie erzielt werden, dass die Rekonstruktion der Normaldaten generell verbessert werden konnte (geringerer MSE vor dem Anomalie-Intervall-Start). Auf dem Client PH_eID1006 zeigt sich aber, dass die ersten Anomalien nach dem Anomalie-Intervall-Start nicht gut extrahiert werden können, also erst im späteren Verlauf die Anomalien differenziert werden können. Dies ist womöglich darauf zurückzuführen, dass diese Anomalien sich den im "normalen" Bereich auftretenden, und bisher auch als False Positive bewertet wurden, sehr ähneln.
+
+![Ergebnisplot für (ungesehene) Client PH_eID1015 nach initialem FL-Training auf Client ES35_1 Daten](fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1015__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_before-retrain fig-align="center" width="80%"}
+
+![Ergebnisplot für Client PH_eID1015 nach Retraining (FedAvg, 3 Runden)](fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1015__retrain__FULL_mse_p99_5.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_retrain fig-align="center" width="80%"}
+
+Nach dem Retraining rekonstruiert das Modell die Normaldaten des PH_eID1015 Clients besser als zuvor. Die zuvor als False Positive (lila) gewerteten Abschnitte im Normalbereich konnten durch das Retraining des Modells besser rekonstruiert werden, gegen Standzeitende lassen sich dennoch weiterhin die Anomalien am Ende der Werkzeugstandzeit nicht explizit differenzieren.
+
+Auf ES35_1 fielen die Ergebnisse schlechter aus: Das retrainierte Modell rekonstruiert dort auch anomale Abschnitte besser als zuvor, wie in der folgenden Abbildung zu sehen ist.
+
+![Ergebnisplot für Client ES35_1 nach Retraining (FedAvg, 3 Runden)](fl_demo_zerspanung_anomalydetection_pictures\ES35_1__retrain__FULL_mse_p99_5.png){#fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35-1_retrain fig-align="center" width="80%"}
+
+Die Verschlechterung des Modells auf dem ES35_1 Client ist womöglich darauf zurück zu führen, dass durch das Föderierte Lernsetup mit FedAvg Strategie im Retraining Informationen aus den anderen Daten/Clients in das aggregierte, gobale Modell mit übernommen werden, und somit das zuvor spezialisierte Modell auf ES35_1 durch diese Aggregation nicht profitiert.
+
+## Fazit
+
+Mit dem vorgestellten Use Case der Zerspanung konnte das in der EASY-Edge und Easy-Cloud aufgebaute Federated Learning Setup mit praxisnahen Daten getestet werden. Fokus der Untersuchungen war die Einbindung der Frameworks in die EASY Kubernetes Umgebungen mit Datenpipeline, Einbindung von Flower, Orchestrierung, Einbindung von ML-Flow, Artefaktspeicher und Metriktracking. Obwohl für Anomaliedetektion entwickelt, ist die Pipeline aufgrund klarer Schnittstellen auf weitere Anwendungsfälle übertragbar.
+
+Die Ergebnisse belegen zentrale Vorteile des föderierten Lernens: Datensouveränität durch lokalen Verbleib der Rohdaten, reduzierte Netzwerklast, bessere Generalisierung über Standorte und Skalierbarkeit durch Cloud native Orchestrierung. Gleichzeitig traten typische Machine Learning Herausforderungen zutage. Heterogene non-IID Daten erschweren Konvergenz und Stabilität. Teils grobgranulares Labeling und Drift beeinflussen die Güte der Modelle und Edge Ressourcenbeschränkungen und Orchestrierungsaufwand müssen berücksichtigt werden. In der Praxis wirkten die implementierte Teilnahmesteuerung wie FRACTION_FIT und Mindestquoren sowie Strategien zur Heterogenität wie FedProx und FedRep stabilisierend auf das Modelltraining.
+
+Im Anwendungsfall zur Anomaliedetektion auf Zerspanungsdaten erwies sich FedRep mit globalem Encoder und lokalem Decoder als zweckmäßig. Der geteilte Repräsentationsraum begünstigte eine robustere Erkennung über Datensätze hinweg, während lokale Besonderheiten erhalten blieben. Einzelne Ausreißer korrelierten plausibel mit Skalierungs und Drifteffekten sowie der Labelgranularität. Insgesamt bestätigt der Use Case die Eignung des föderierten Ansatzes für verteilte sensible Maschinendaten. Es zeigen sich die Vorteile des Föderierten Lernens insbesondere darin, wenn auf mehreren Maschinen ähnliche Prozesse laufen und vergleichbare Messsysteme eingesetzt werden. Beim Einsatz bspw. in Serienproduktionen kann das Aggregieren der Modelle zu einem Informationsgewinn für alle Maschinen-Clients führen. Auch der Übertrag eines globalen, aggregierten Modells auf einen Client, welcher den Prozess der anderen Maschinen zuvor noch nie "gesehen" hat, begünstigt insbesondere die initiale Phase und verkürzt Trainingsphasen, welche sonst von Grund auf neu trainiert werden müssten.
+
+Die obigen Ergebnisse zeigen jedoch auch, dass ein global aggregiertes Modell für einen einzelnen Client auch zu schlechteren Ergebnissen führen kann. Insbesondere bei sehr heterogenen Datenverteilungen durch bspw. sehr unterschiedliche Prozesse, kann das "Wissen aus anderen Clients", welches sich im aggregierten Modell befindet, nachteilig auf die lokale Modell-Performanz auswirken. In solchen Fällen wird in initialen Trainingsphasen vom Wissen anderer Maschinen zwar profitiert, im weiteren Verlauf werden sich aber lokal spezialisierte Modelle (bspw. wie durch die FedRep Strategie befördert) herausstellen, die je Client auf die lokalen Daten optimiert sind.
+
+In weiteren Implementierungen bieten sich Optimierungspotenziale durch Integration eines automatisierten Retrainings und Drift Handling. Hierbei können durch zeitbasierte oder qualitätsbasierte Triggermechanismen neue Trainings-Jobs automatisch angestoßen werden. Durch Erweiterung der Datengrundlage müssen zudem die verwendeten Federated Learning Strategien systematisch weiter ausgewertet werden. Eine Integration der AAS Submodelle für Machine Learning Modelle, Datensätze und Deployment bieten zudem eine standardisierte Beschreibung und Nachverfolgung an. Die entwickelte modulare Pipeline bildet eine tragfähige Basis, um im EASY Umfeld weitere föderierte Use Cases neben der Anomaliedetektion umzusetzen und schrittweise in einen kontinuierlichen, reproduzierbaren Betrieb zu überführen.

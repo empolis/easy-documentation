@@ -1,0 +1,346 @@
+---
+authors:
+
+    - id: "rtr_empolis"
+      name: "Ralph Traphöner"
+      email: "ralph.traphoener@empolis.com"
+      affiliations:
+        name: "Empolis Information Management GmbH"
+        address: "Europaallee 10"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67657"
+
+    - id: "jhe_empolis"
+      name: "Jens Henninger"
+      orcid: "0009-0000-5733-7024"
+      email: "jens.henninger@empolis.com"
+      affiliations:
+        name: "Empolis Information Management GmbH"
+        address: "Europaallee 10"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67657"
+    - id: "as_dfki"
+      name: "Alexander Schultheis"
+      email: "Alexander.Schultheis@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Behringstraße 21"
+        city: "Trier"
+        state: "Germany"
+        postal-code: "54296"
+      orcid: 0000-0002-2458-9943
+
+    - id: "dj_dfki"
+      name: "David Jilg"
+      email: "David.Jilg@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Behringstraße 21"
+        city: "Trier"
+        state: "Germany"
+        postal-code: "54296"
+      orcid: 0000-0002-4841-3512
+
+    - id: "rb_dfki"
+      name: "Ralph Bergmann"
+      email: "Ralph.Bergmann@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Behringstraße 21"
+        city: "Trier"
+        state: "Germany"
+        postal-code: "54296"
+      orcid: 0000-0002-5515-7158
+
+    - id: "jm_dfki"
+      name: "Johannes Mundorf"
+      email: "Johannes.Mundorf@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Trippstadter Straße 122"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67663"
+
+    - id: "mr_dfki"
+      name: "Mahdi Rezapour"
+      email: "Mahdi.Rezapour@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Trippstadter Straße 122"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67663"
+
+    - id: "sb_dfki"
+      name: "Simon Bergweiler"
+      email: "Simon.Bergweiler@dfki.de"
+      affiliations:
+        name: "Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH"
+        address: "Trippstadter Straße 122"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67663"
+
+    - id: "ngr_srfg"
+      name: "Nina Großegesse"
+      email: "nina.grossegesse@salzburgresearch.at"
+      affiliations:
+        name: "Salzburg Research Forschungsgesellschaft m.b.H."
+        address: "Jakob Haringer Straße 5"
+        city: "Salzburg"
+        state: "Austria"
+        postal-code: "5020"
+
+    - id: "fst_srfg"
+      name: "Felix Strohmeier"
+      email: "felix.strohmeier@salzburgresearch.at"
+      affiliations:
+        name: "Salzburg Research Forschungsgesellschaft m.b.H."
+        address: "Jakob Haringer Straße 5"
+        city: "Salzburg"
+        state: "Austria"
+        postal-code: "5020"
+
+    - id: "sn_ucb"
+      name: "Stefan Naumann"
+      email: "s.naumann@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "lc_ucb"
+      name: "Lars Creutz"
+      email: "l.creutz@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "ff_ucb"
+      name: "Franz Freynhofer"
+      email: "f.freynhofer@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "bc_ucb"
+      name: "Berkay Cetkin"
+      email: "b.cetkin@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "ms_ucb"
+      name: "Marvin Schacht"
+      email: "m.schacht@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "sw_ucb"
+      name: "Sebastian Weber"
+      email: "seb.weber@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "sb_ucb"
+      name: "Sebastian Bast"
+      email: "s.bast@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "dj_ucb"
+      name: "David Junk"
+      email: "da.junk@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "gd_ucb"
+      name: "Guido Dartmann"
+      email: "g.dartmann@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "fm_ucb"
+      name: "Florian Mohr"
+      email: "f.mohr@umwelt-campus.de"
+      affiliations:
+        name: "Hochschule Trier - Umwelt-Campus Birkenfeld"
+        address: "Campusallee"
+        city: "Hoppstädten-Weiersbach"
+        state: "Germany"
+        postal-code: "55767"
+
+    - id: "cma_srfg"
+      name: "Christian Maier"
+      email: "christian.maier@salzburgresearch.at"
+      affiliations:
+        name: "Salzburg Research Forschungsgesellschaft m.b.H."
+        address: "Jakob Haringer Straße 5"
+        city: "Salzburg"
+        state: "Austria"
+        postal-code: "5020"
+
+    - id: "nfr_empolis"
+      name: "Nicolas Freudenmacher"
+      email: "nicolas.freudenmacher@empolis.com"
+      affiliations:
+        name: "Empolis Information Management GmbH"
+        address: "Europaallee 10"
+        city: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67657"
+
+    - id: "sh_bosch"
+      name: "Sabine Haag"
+      email: "sabine.haag@de.bosch.com"
+      affiliations:
+        name: "Robert Bosch GmbH"
+        address: "Robert-Bosch-Campus 1"
+        city: "Renningen"
+        state: "Germany"
+        postal-code: "71272"
+
+    - id: "ts_bosch"
+      name: "Tobias Schlagenhauf"
+      email: "Tobias.Schlagenhauf@de.bosch.com"
+      affiliations:
+        name: "Robert Bosch GmbH"
+        address: "Robert-Bosch-Campus 1"
+        city: "Renningen"
+        state: "Germany"
+        postal-code: "71272"
+
+    - id: "jw_bosch"
+      name: "Jiaqi Wang"
+      email: "jiaqi.wang5@de.bosch.com"
+      affiliations:
+        name: "Robert Bosch GmbH"
+        address: "Robert-Bosch-Campus 1"
+        city: "Renningen"
+        state: "Germany"
+        postal-code: "71272"
+
+    - id: "sh_iosbina"
+      name: "Stefanie Hittmeyer"
+      email: "Stefanie.Hittmeyer@iosb-ina.fraunhofer.de"
+      affiliations:
+        name: "Fraunhofer IOSB-INA"
+        address: "Campusallee 1"
+        city: "Lemgo"
+        state: "Germany"
+        postal-code: "32657"
+
+    - id: "dh_iosbina"
+      name: "Dennis Heitkamp"
+      email: "Dennis.Heitkamp@iosb-ina.fraunhofer.de"
+      affiliations:
+        name: "Fraunhofer IOSB-INA"
+        address: "Campusallee 1"
+        city: "Lemgo"
+        state: "Germany"
+        postal-code: "32657"
+
+    - id: "lk_iosbina"
+      name: "Lukas Klein"
+      email: "Lukas.Klein@iosb-ina.fraunhofer.de"
+      affiliations:
+        name: "Fraunhofer IOSB-INA"
+        address: "Campusallee 1"
+        city: "Lemgo"
+        state: "Germany"
+        postal-code: "32657"
+
+    - id: "tko_cbwx"
+      name: "Thijs Korse"
+      email: "thijs.korse@coboworx.com"
+      affiliations:
+        name: "coboworx GmbH"
+        address: "Neuer Bahnhof 6"
+        city: "Salmtal"
+        state: "Germany"
+        postal-code: "54528"
+
+    - id: "tko_cbwx"
+      name: "Joey Kirwel"
+      email: "joey.kirwel@coboworx.com"
+      affiliations:
+        name: "coboworx GmbH"
+        address: "Neuer Bahnhof 6"
+        city: "Salmtal"
+        state: "Germany"
+        postal-code: "54528"
+
+    - id: "meh_empolis"
+      name: "Mouad El-Hachimi"
+      email: "mouad.el-hachimi@empolis.com"
+      affiliations:
+        name: "Empolis Information Management GmbH"
+        address: "Kaiserslautern"
+        state: "Germany"
+        postal-code: "67657"
+
+#author:
+#  - id: string
+#    number: number
+#    name:
+#      given: string
+#      family: string
+#      literal: string
+#      dropping-particle: string
+#      non-dropping-particle: string
+#    url: string
+#    email: string
+#    phone: string
+#    fax: string
+#    degrees:
+#      # see schema below
+#    orcid: string
+#    note: string
+#    acknowledgements: string
+#    attributes:
+#      corresponding: boolean
+#      equal-contributor: boolean
+#      deceased: boolean
+#    roles:
+#      # see schema below
+#    metadata: object
+#    affiliations:
+#      # see schema below
+#
+---
+
+# Contributors {.unnumbered}

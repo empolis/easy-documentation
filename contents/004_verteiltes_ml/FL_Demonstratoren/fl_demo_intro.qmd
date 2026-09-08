@@ -1,0 +1,24 @@
+# Überblick FL-Demonstratoren {#sec-004-fl_demo_intro}
+
+<!--
+---
+author: 
+  - Sabine Haag
+---
+-->
+
+In diesem Kapitel werden die Demonstratoren vorgestellt, welche im Rahmen der Umsetzung von realen Use-Cases entstanden sind und somit theoretische Überlegungen in die Praxis überführen. Die verschiedenen Demonstratoren zeigen die vielfältigen Möglichkeiten von Federated Learning auf, wobei die Anwendungsfälle beschrieben, die Herausforderungen sowie Lösungsansätze erläutert und die gewonnenen Erkenntnisse diskutiert werden. Die einzelnen Demonstratoren sind dabei in unterschiedlichen Kontexten angesiedelt und behandeln verschiedene Schwerpunkte bei der Umsetzung von Federated Learning. Es werden folgende Aspekte beleuchtet:
+
+- allgemeine Umsetzbarkeit von FL im Use-Case
+- verfügbare Rechenleistung auf Edge-Geräten
+- Netzwerk mit Einbindung der Clients und Datenübertragung
+- Besonderheiten der Datenverteilung und ihrer Implikationen für FL
+- Auswahl der FL-Strategien und deren Auswirkungen auf die Performance
+- Energieeinsparungspotential
+- Modellübertragung (Wissenstransfer) und Dateneffizienz durch FL-Ansätze
+
+Die Demonstratoren sind nicht als fertige Produkte zu verstehen, sondern vielmehr als Prototypen, welche die Möglichkeiten von Federated Learning aufzeigen und die praktische Umsetzbarkeit demonstrieren. Es bleibt nochmals zu betonen, dass häufig die Datensouveränität es verbietet, Daten zu sammeln. Der Vergleich zwischen der Performance von zentralem und föderiertem Lernen kann zwar in den Demonstratoren durchgeführt werden, doch selbst wenn ein zentrales Training eine bessere Performance hier liefert, ist dies kein Argument gegen den Einsatz von Federated Learning. FL ist in vielen Fällen die einzige Möglichkeit, um überhaupt Wissenstransfer zu ermöglichen und damit ein besseres Modell zu erhalten als durch lediglich lokales Training.
+
+Neben dem klassischen FL Szenario, wobei mehrere Geräte kontinuierlich Informationen austauschen und damit gemeinsam ein Modell trainieren, gibt es auch das Szenario, dass neue Clients in Betrieb genommen werden. In einer realen Produktionsumgebung findet sich ein dynamisches Ein- und Ausgliedern von Maschinen. Dies bedeutet, dass kontinuierlich neue Maschinen in Betrieb genommen werden. Diese neuen Clients müssen idealerweise direkt nach Betrieb in der Lage sein, die eigenen Daten zu analysieren. Da aber lokal noch keine Daten vorliegen, kann kein lokales Modell trainiert werden. Durch Federated Learning kann dieser Client direkt mit einem Modell instanziiert werden. Der Client klinkt sich damit sprichwörtlich in das Federated Learning Netzwerk ein, profitiert fortan vom geteilten Wissen und steuert zu diesem bei.
+
+Die Demonstratoren zeigen, dass die Implementierung von Federated Learning in der Praxis möglich ist und dass es eine Vielzahl von Anwendungsfällen gibt, in denen FL einen Mehrwert bietet. Es werden die Herausforderungen und Lösungsansätze diskutiert, um die Implementierung von FL in der Praxis zu erleichtern. Die Demonstratoren dienen als Grundlage für weitere Entwicklungen und Optimierungen im Bereich des Federated Learning im industriellen Kontext.

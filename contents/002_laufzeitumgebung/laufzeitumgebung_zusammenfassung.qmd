@@ -1,0 +1,26 @@
+# Zusammenfassung Laufzeitumgebung {#sec-002-laufzeitumgebung_zusammenfassung}
+
+Im Rahmen des Projekts wurde eine modulare und skalierbare Laufzeitumgebung für verteilte Edge-Cloud-Systeme aufgebaut. Ziel war die Entwicklung einer offenen, containerbasierten Infrastruktur, auf der Analyse-, Produktions- und Serviceanwendungen flexibel betrieben werden können. Die Architektur basiert vollständig auf Open-Source-Technologien und wurde so konzipiert, dass sie unabhängig von spezifischen Cloud-Anbietern betrieben und auf unterschiedliche (Edge-) Infrastrukturen übertragen werden kann.\
+Als technologische Grundlage wurde eine Kubernetes-basierte Infrastruktur implementiert, die sowohl in der Cloud als auch auf Edge Devices betrieben wird. Für ressourcenbeschränkte Edge-Systeme kommt eine leichtgewichtige k3s-Distribution zum Einsatz. Dadurch können standardisierte Kubernetes-Mechanismen auch auf industriellen IPCs oder anderen Edge-Geräten genutzt werden. Die gesamte Deployment- und Betriebsumgebung wurde dabei automatisiert aufgebaut und über Git-basierte Prozesse verwaltet.\
+Ein wesentlicher Bestandteil der Laufzeitumgebung ist die konsequente Containerisierung aller Plattform- und Anwendungsdienste. Eigene Analyse- und Produktionsservices (Analyse-Agenten) werden als Docker-Images bereitgestellt und automatisiert über CI/CD-Pipelines gebaut und versioniert. Durch den Einsatz von GitOps-Mechanismen und Werkzeugen wie FluxCD wird der gewünschte Clusterzustand kontinuierlich aus Git-Repositories synchronisiert. Dies ermöglicht reproduzierbare und nachvollziehbare Deployments sowohl in der Cloud als auch auf den Edge-Systemen.\
+Darüber hinaus wurde eine umfassende Plattformlandschaft innerhalb der Kubernetes-Umgebung aufgebaut. Dazu zählen Messaging- und Streaming-Komponenten, Datenbanken, Monitoring- und Logging-Dienste, Benutzerverwaltung sowie Dienste zur Verwaltung digitaler Zwillinge. Alle zentralen Funktionen wurden bewusst innerhalb der Kubernetes-Cluster umgesetzt, ohne proprietäre Cloud-Services zu verwenden. Lediglich die grundlegende Infrastruktur der Cluster-Nodes wird beispielsweise über Cloud-Plattform Anbieter bereitgestellt.\
+Ein zentraler Bestandteil der Architektur ist die Nutzung von Verwaltungsschalen (Asset Administration Shells) zur standardisierten Beschreibung digitaler Zwillinge. Durch den Einsatz von Eclipse BaSyx sowie standardisierten IDTA-Submodellen wird eine interoperable Kommunikation zwischen Edge- und Cloud-Systemen ermöglicht. Die Verwaltungsschalen dienen dabei als zentrale semantische Integrationsschicht innerhalb des Gesamtsystems.\
+Die entwickelte Laufzeitumgebung bildet damit die Grundlage für eine flexible, portable und erweiterbare Plattform zur Umsetzung datengetriebener Industrie-4.0-Anwendungen. Durch die Kombination aus Kubernetes, GitOps, standardisierten Schnittstellen und digitalen Zwillingen entsteht eine robuste Infrastruktur für den verteilten Betrieb industrieller Softwaredienste.
+
+Im Rahmen dieses Kapitels wurden insbesondere folgende Themenbereiche behandelt:
+
+-   Architektur der EASY Edge-Cloud-Laufzeitumgebung in einer Kubernetes-basierten Infrastruktur, @sec-002_laufzeitumgebung_architektur_easy_cloud_edge
+
+-   Datenpipeline und Messaging-Infrastruktur - Von der Maschine bis zur Aktion, @sec-002_datenpipeline
+
+-   Digitale Zwillinge mit standardisierter Verwaltungsschale (Asset Administration Shell), @sec-002-verwaltungsschale
+
+-   Hosting und Betrieb der Verwaltungsschalen-Infrastruktur, @sec-002-verwaltungsschale-architektur
+
+-   Service Federation zwischen verteilten Clustern, Clusteraufbau, Deployment-Prozesse und GitOps-Ansatz CI/CD-Pipelines, @sec-002-service-federation
+
+-   Integration von Federated-Learning-Ansätzen, @sec-002_integration_federeated_learning
+
+-   Einsatz von Kubernetes-Operatoren, @sec-002-k8s-operatoren
+
+-   Monitoring- und Steuerungs-Komponenten mittels Analyse und Machine Learning-Agenten oder Planungs- und Steuerungsagenten, @sec-002-demo-planung-monitoring-agent

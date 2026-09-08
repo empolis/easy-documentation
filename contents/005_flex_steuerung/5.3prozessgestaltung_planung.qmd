@@ -1,0 +1,58 @@
+# Prozessgestaltung mit Planungsverfahren {#sec-005-5.3}
+
+Die Arbeiten, die im Rahmen der automatisierten Prozessgestaltung mit dynamischen Planungsverfahren durchgeführt wurden, hatten das Ziel, auf Basis des vorher aufgebauten Repositories mit semantisch beschriebenen Produktionsdiensten flexible Produktionsprozesse zu generieren und diese anschließend in das entwickelte BPMN-basierte Prozessrepräsentationsformat zu überführen.
+
+Dafür wurde eine hybride Architektur umgesetzt, die PDDL‑basierte KI‑Planung [@green_1969, @haslum_2006] mit prozessorientiertem Case‑Based Reasoning (PO‑CBR) [@DBLP:journals/is/MinorMR14,@DBLP:journals/aicom/AamodtP94] kombiniert. ProCAKE [@DBLP:data/11/BergmannGHJMSZ25] dient hierbei als generisches Framework für PO‑CBR, während das KTF die Brücke zwischen semantischen Beschreibungen (Plato, AAS, JSOnto) und PDDL bildet.
+
+## Mapping und Matching zwischen Aufträgen und Dienstleistungen {#sec-005-5.3-1}
+
+Für die Abbildung von Kundenaufträgen auf Produktionsdienste wurden semantische Modelle für Aufträge und Kundenpräferenzen entwickelt. Diese Modelle erfassen u. a.:
+
+- angefragte Produkt‑ und Prozessmerkmale,
+- logistische Rahmenbedingungen (Lieferzeit, Lieferadresse),
+- Optimierungskriterien und deren Gewichtungen (z. B. CO₂‑Fußabdruck oder Kosten).
+
+Die Modelle werden in Plato abgebildet, sodass auch Kundenpräferenzen direkt auf die im Ontologiemodell vorhandenen Kosten‑ und Metrikstrukturen referenzieren können. Über Matchingregeln werden diese Auftragsspezifikationen mit den Fähigkeiten aus dem Service‑Repository verknüpft. Dadurch entsteht eine Menge potenziell geeigneter Dienste, die als Kandidaten für die Planungsdomäne dienen.
+
+Im zweiten Schritt werden aus dem Service‑Repository die aktuell verfügbaren Produktionsdienste extrahiert. Hierzu werden SPARQL‑Abfragen bzw. AAS‑basierte Filter verwendet, die sowohl die Ergebnisse aus dem Mapping als auch den aktuellen Anlagenzustand berücksichtigen.
+
+KTF stellt hierfür generische Anfrage‑Templates bereit; der PlanningDomainTransformer fungiert als „Consumer“ für Plato‑ und AAS‑Modelle und erzeugt eine domänenunabhängige, generische Repräsentation der Planungsdomäne, die anschließend in PDDL überführt wird.
+
+## Auswahl eines geeigneten Planungsverfahrens {#sec-005-5.3-2}
+
+Auf Basis des Anforderungskatalogs (@sec-005-5.1) wurden aktuelle Planungsverfahren untersucht, insbesondere PO‑CBR mit ProCAKE sowie klassische KI‑Planungsverfahren auf Basis von PDDL.
+
+Die Analyse ergab, dass:
+
+- PDDL‑basierte Planer eine sehr gute Unterstützung für heuristische Suche, Metriken und Optimierung bieten
+- PDDL als De-facto-Standard-Planungssprache am weitesten verbreitet und es keine frei verfügbaren Alternativen gibt, die eine geeignete Akzeptanz in der Industrie haben.
+- PO‑CBR mit ProCAKE Stärken bei der Wiederverwendung und Adaptation existierender Prozesslösungen und kann somit die Laufzeitprobleme von klassischen KI-Planungsansätzen kompensieren.
+
+Daher wurde eine hybride Strategie verfolgt: Für wiederkehrende Kundenaufträge werden zunächst ähnliche Fälle über ProCAKE identifiziert, dessen Lösungen (geplante Produktionsprozesse) als Ausgangspunkt dienen. Fehlen passende Fälle oder weichen Randbedingungen stark ab, wird ein PDDL‑Planer verwendet, um einen neuen Plan zu generieren oder einen bestehenden Plan zu adaptieren. Die Planungslogik ist in der generischen Planungsdomäne verankert und kann im Planungsdienst, den das DFKI im Edge Cloud Kontinuum in EASY bereitstellt, konfiguriert werden.
+
+## Aufbau und Entwicklung einer Planungsdomäne {#sec-005-5.3-3}
+
+Eines der Kernprobleme bei der Anwendung von KI-Planungsverfahren ist die Definition einer Planungsdomäne. Im Kontext von EASY kommt erschwerend dazu, dass hier die individuellen Planungsdomänen dynamisch, basierend auf den semantischen Modellen der Kundenanforderungen und Produktionsressourcen, generiert werden müssen. Hierzu kommt erneut das von uns entwickelte Knowledge Transformation Framework zum Einsatz, das wie der Planungsservice auch im Edge Cloud Kontinuum als Service verfügbar ist. 
+
+Der KTF‑Service wird mit einer JSON‑Konfigurationsdatei konfiguriert und ist in der Lage, die Informationen in Plato-Ontologien und Verwaltungsschalen zu verwenden, um PDDL Planungsdomänen und Problembeschreibungen zu generieren.
+
+## Entwicklung von Metriken zur effizienten Prozessplanung {#sec-005-5.3-4}
+
+Das Plato Schema erlaubt die Definition von komplexen Metriken, mit denen Optimierungskriterien definiert werden können, die die Planung je nach Kundenpräferenzen steuern können. Zur Steuerung der Planung für die Shared‑Production‑Szenarien zwischen SmartFactoryKL und SmartFactoryOWL wurden beispielhafte Metriken definiert. Diese umfassen u. a.:
+
+- CO₂‑Fußabdruck (Produktions‑ und Transportemissionen),
+- Lieferzeiten,
+- Transport‑ und Produktionskosten,
+- ggf. weitere Kennzahlen wie Energieverbrauch.
+
+Plato stellt hierfür die Klasse *Metric* bereit, mit der Kostenfunktionen definiert und gewichtet werden können. Dadurch können z. B. Lieferzeit und CO₂‑Emissionen unterschiedlich gewichtet werden, je nach Präferenzen des Kunden. Die Metrik wird vom KTF automatisch in die PDDL‑Problemdatei übertragen. Falls dem Kunden also zum Beispiel der CO₂‑Fußabdruck des hergestellten Produktes besonders wichtig ist, wird die Kostenfunktion, die dieses Optimierungskriterium abbildet, besonders hoch gewichtet. Dadurch kann die Planung so gesteuert werden, dass zum Beispiel eher in Produktionsanlagen mit besserer CO₂‑Bilanz oder zu Zeiten, in denen der Strommix stärker Richtung erneuerbare Energien gewichtet ist, produziert wird.
+
+## Konvertierung des Planungsergebnisses in einen Produktionsprozess {#sec-005-5.3-5}
+
+Die erzeugten Pläne werden mithilfe des KTF in standardisierte, ausführbare Prozessmodelle überführt. Der sogenannte PlanInterpreter kann Pläne verschiedener PDDL‑Planer (z. B. Fast Downward [@fast-downward]) einlesen und zum Beispiel in BPMN Modelle überführen.
+
+Im EASY‑Kontext werden die Pläne in BPMN‑Prozessmodelle transformiert, bei denen jede Aktivität durch URIs wieder mit den entsprechenden Plato‑Individuen und AAS‑Capabilities verknüpft ist. Diese BPMN‑Modelle können anschließend direkt in Workflow‑Engines wie Camunda deployt und dort ausgeführt werden. Dabei können die Workflow-Engines durch die semantischen Annotationen bei Bedarf weitere Informationen aus den Ontologie- und AAS-Modellen beziehen. 
+
+## Zusammenfassung
+
+Für die flexible Gestaltung von Prozessen wurde in EASY eine durchgängige Kette von der Auftragsspezifikation über semantische Dienstbeschreibung automatische Planerzeugung bis hin zum ausführbaren Prozessmodell realisiert. Mapping/Matching, Dienstextraktion, Planungsverfahren, Planungsdomäne, Metriken und Plan‑zu‑Prozess‑Konvertierung liefern zusammen mit semantischen Modellen die methodische Grundlage für flexible, KI‑basierte Produktionsplanung im EASY‑Projekt.

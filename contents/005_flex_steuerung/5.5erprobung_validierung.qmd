@@ -1,0 +1,84 @@
+# Experimentelle Erprobung und Validierung {#sec-005-5.5}
+
+## Zielsetzung und Aufbau der Anwendungsszenarien {#sec-005-5.5-1}
+
+Um die in EASY entwickelten Methoden zur flexiblen Steuerung von Prozessen experimentell zu erproben und zu validieren, wurden drei Anwendungsszenarien konkretisiert. Zuerst wurde das klassische Blocks-World [@russel_norvig] Planungsproblem als ein abstraktes Referenzszenario erprobt, um festzustellen, ob die entwickelten Ansätze grundlegend funktionieren. Außerdem lässt sich dadurch ein Vergleich mit anderen Planungsansätzen erlauben, da dieses Planungsproblem von vielen Forschern dazu verwendet wird, ihre Planungsansätze zu evaluieren.
+
+Des Weiteren wurde ein lokales Szenario innerhalb der SmartFactoryKL entwickelt, um vor allem die Unterstützung komplexer Vor- und Nachbedingungen von Produktionsdiensten und die Ausführung mit Monitoring und Rekonfiguration automatisch generierter Prozessmodelle in einer Camunda‑Workflow‑Engine im Umfeld der SmartFactoryKL zu erproben. 
+
+![Shared Production Szenario](images\SharedProduction.png){#fig-shared-production width=95%}
+
+Als drittes Evaluationsszenario wurde der SharedProduction Demonstrator (@sec-006-demo_shared_production) der in Zusammenarbeit vom DFKI und Fraunhofer IOSB-INA (inklusive beider SmartFactories) entwickelt wurde, herangezogen. Hier werden echte Produktionsdienste beider SmartFactories genutzt (3D‑Druck, Montage, Transport, Qualitätskontrolle), die im gemeinsamen Service‑Repository und in Digitalen Zwillingen beschrieben sind. Dieses Szenario erlaubt insbesondere die Bewertung des Einflusses der Metriken (CO₂, Kosten, Zeit) auf die Planung und überprüft auch die Flexibilität und Modularität der semantischen Modelle.
+
+## Durchführung der experimentellen Erprobung {#sec-005-5.5-2}
+
+Für alle drei Evaluationsszenarien wurde vom DFKI am Standort Trier eine verteilte KubeEdge‑basierte Edge‑Cloud‑Infrastruktur aufgebaut, mit einer Cloud‑Instanz in einem Gebäude und mehreren Edge‑Knoten in einem zweiten Gebäude. Sowohl der KTF als auch der Planungsservice werden auf dieser Infrastruktur betrieben. 
+Für die Szenarien wurde ein standardisierter Ablauf etabliert, der jedoch für jedes Szenario anders angewandt wurde. Bei diesem Ablauf wurde das jeweilige Szenario samt verschiedenen Kundenpräferenzen und Optimierungskriterien zuerst unter Nutzung der entwickelten Ontologie und AAS Modelle semantisch modelliert. Anschließend wurde der KTF Service genutzt, um dynamisch Planungsdomänen zu generieren. Diese Domänen wurden sowohl mit syntaktischen Werkzeugen (z. B. PDDL‑Parsern und VAL [@val]) als auch manuell durch Domänenexperten geprüft. Anschließend wurde der Planungsservice verwendet, um basierend auf den Domänen einen Plan zu erzeugen. Dieser Plan wurde wiederum ebenfalls automatisch und manuell auf Korrektheit überprüft. Außerdem wurde validiert, ob die Kundenpräferenzen und Optimierungskriterien korrekt berücksichtigt wurden. Nach der Überprüfung des Plans wurde dieser mit dem KTF-Service in ein BPMN Prozessmodell überführt und, mit Ausnahme des Blocks-World Szenarios, durch die jeweilige Workflow Engine ausgeführt. 
+
+Im Blocks-World Szenario wurde keine Ausführung getestet, da es sich hier nicht um ein reales Szenario handelt. Beim lokalen SmartFactoryKl Szenario wurde die Ausführung über die Camunda Workflow Engine realisiert, die zusätzlich Fehler bei der Ausführung erkennen und eine Neuplanung anstoßen kann. Um dies zu evaluieren, wurden in diesem Szenario Fehler simuliert, die eine Neuplanung des Produktionsprozesses erforderten, damit wir überprüfen konnten, ob die entwickelten Methoden auch wirklich eine flexible Planung bei unvorhergesehenen Fehlern erlauben. Im Shared Production Szenario ruft die Workflow‑Engine von Fraunhofer den KTF‑ und Planungsservice auf und führt den resultierenden Plan verteilt in beiden Fabriken aus. Hier wurden zusätzlich mehrere Kunden mit verschiedenen Präferenzen simuliert, sodass auch hier mehrere Planungsprobleme gelöst werden mussten.
+
+Während der Erprobung wurden alle relevanten Kennzahlen (z. B. Laufzeit, Anzahl der Schritte, ausgewählte Dienste, Kosten, CO₂‑Proxy‑Werte) für die spätere Auswertung aufgezeichnet.
+
+## Auswertung der Kennzahlen und Ergebnisse {#sec-005-5.5-3}
+
+Die Auswertung der Validierungsergebnisse hat ergeben, dass in allen durchgeführten Tests weder syntaktische noch semantische Fehler in den durch KTF erzeugten PDDL‑Domänen aufzufinden waren. Die mit VAL validierten Pläne waren jeweils konsistent mit der Domäne und erfüllten die spezifizierten Vor‑ und Nachbedingungen der Dienste.
+
+Die Variation der Metriken führte zu unterschiedlichen, plausiblen Plänen – etwa einem schnelleren, aber emissionsintensiveren Prozess vs. einem emissionsärmeren, dafür langsameren Prozess. In speziell konstruierten Testfällen, in denen Kundenpräferenzen mit der tatsächlichen Domäne unvereinbar waren, generierte das System bewusst einen gültigen, aber die Präferenz nicht vollständig erfüllenden Plan, statt ohne Lösung zu terminieren. Dieses Verhalten entspricht den formulierten Anforderungen an Robustheit und Fehlertoleranz.
+
+Sowohl im lokalen SmartFactoryKL‑Szenario als auch im Shared‑Production‑Szenario wurden die automatisch generierten BPMN‑Prozesse ohne Laufzeitfehler ausgeführt. Die Nutzung standardisierter Technologien (AAS, BPMN, REST‑basierte Services) erfüllt die geforderte Kompatibilität mit bestehenden Systemen und die Modularität der Produktionsressourcen.
+
+Generell lässt sich in Bezug auf die erhobenen Anforderungen an die Prozessflexibilität und Prozessgestaltung (@sec-005-5.1) sagen, dass die entwickelten Ansätze die Anforderungen grundsätzlich erfüllen. Die Anforderungen, die wir von den Industriepartnern erhoben haben, sind jedoch teilweise recht abstrakt, weshalb sich schwierig evaluieren lässt, ob spezifische Anforderungen wirklich erfüllt werden. Des Weiteren beziehen sich die Anforderungen der Partner auch teilweise auf Aspekte, die nicht von unseren Ansätzen betrachtet werden. Nachfolgend wollen wir trotzdem jede Anforderung kurz im Hinblick auf die Evaluation diskutieren:
+
+**Unterstützte Prozessarten**
+
+Die entwickelten Modelle (BPMN + semantische Annotationen via Plato/AAS) und die KTF-basierte Domänengenerierung unterstützen sowohl vollautomatisierte Fertigungsabläufe (z. B. 3D-Druck, Qualitätsprüfung, Transport) als auch zusammengesetzte Workflows über zwei Standorte hinweg (Shared-Production-Szenario). Teilweise manuelle oder organisatorische Prozesse (z. B. Personaleinsatzplanung, Freigabeprozesse im ERP) wurden jedoch nur am Rand modelliert und nicht systematisch evaluiert. Hier ist die Übertragbarkeit prinzipiell gegeben, aber im Projektverlauf nicht empirisch nachgewiesen worden.
+
+**Robustheit der Prozesse**
+
+In allen drei Evaluationsszenarien (Blocks-World, lokales SmartFactoryKL-Szenario, Shared-Production) konnten mit KTF und PlanUtils konsistente Planungsdomänen erzeugt und gültige Pläne berechnet werden; syntaktische und semantische Fehler wurden weder durch automatisierte Checks (u. a. VAL) noch durch manuelle Prüfungen gefunden. Die Ausführung über Camunda bzw. die Fraunhofer-Workflow-Engine verlief in allen Testläufen stabil. Eine systematische Untersuchung von Fehlerszenarien (z. B. Ausfall einzelner Anlagen, Netzwerkpartitionen, unvollständige Daten) sowie automatische Re-Planung zur Laufzeit wurden nur exemplarisch betrachtet. Die Robustheitsanforderung wird damit in den betrachteten Szenarien gut, aber nicht umfassend abgedeckt.
+
+**Variable Skalierbarkeit der Prozesse**
+
+Die KTF-basierte Generierung der Planungsdomänen skaliert grundsätzlich mit der Anzahl der im Service-Repository beschriebenen Dienste und Ressourcen; dies konnte insbesondere im Shared-Production-Szenario mit zwei SmartFactories gezeigt werden. Durch den Betrieb von KTF und PlanUtils im KubeEdge-Cluster wurde zudem die technische Skalierbarkeit auf mehrere Knoten demonstriert. Eine explizite, quantitative Evaluation von Durchsatz, Antwortzeiten oder Skalierung auf sehr große Fabriknetze wurde allerdings nicht durchgeführt. Die Anforderung wird konzeptionell gut adressiert, aber nur qualitativ evaluiert.
+
+**Prozessdaten – Erfassung**
+
+Unsere Ansätze unterstützen eine flexible Modellierung der zu erfassenden Daten über AAS-Teilmodelle und Ontologien (Plato, JSOnto). Welche Daten (z. B. Maschinenstatus, Qualitätsbilder, Auftragsparameter) in eine Planungsdomäne übernommen werden, lässt sich über Konfigurationen der KTF-Transformation steuern. Eine explizite Priorisierung der Datenerfassung zur Laufzeit (z. B. dynamisches Umschalten zwischen „Minimaldaten“ und „Maximal-Logging“) wurde nicht umgesetzt und daher auch nicht evaluiert.
+
+**Prozessdaten – echtzeitnahe Datenverarbeitung**
+
+Die Infrastruktur (KubeEdge) und der Einsatz von Workflow-Engines ermöglichen eine grundsätzlich latenzarme Ausführung der geplanten Prozesse. Unsere Planungsansätze sind jedoch primär als vorgelagerte, batch-artige Planung konzipiert; echte Online-Re-Planung mit harten Echtzeitanforderungen wurde im Rahmen der Evaluation nicht untersucht. Entsprechend kann die Anforderung an „Echtzeitnähe“ nur teilweise als erfüllt gelten und bleibt in weiten Teilen zu abstrakt, um sie anhand der durchgeführten Experimente vollständig zu bewerten.
+
+**Prozessdaten – Datenrepräsentation**
+
+Diese Anforderung wird sehr gut erfüllt. Mit Plato und der Abbildung auf AAS-Modelle stehen standardisierte, semantische Repräsentationen für Prozessdaten und Fähigkeiten zur Verfügung. In allen Szenarien wurden Prozessbeschreibungen, Ressourcenfähigkeiten und Kontextinformationen konsistent in diese Modelle überführt und von KTF in PDDL-Domänen und -Probleme übersetzt. Die erfolgreiche Validierung der generierten Pläne zeigt, dass die gewählte Datenrepräsentation für die intelligente Planung hinreichend präzise und konsistent ist.
+
+**Prozessdaten – Zugriff auf Daten**
+
+Der Zugriff auf die semantischen Modelle erfolgt über standardisierte Schnittstellen (AAS-Server, SPARQL-Endpunkte, REST-APIs der Planungsservices) und ist in den Prototypen klar strukturiert. Unterschiedliche Abstraktionsebenen (z. B. hochaggregierte AAS-Sichten versus detaillierte Ontologie-Konzepte) werden unterstützt. Themen wie Datenlebenszyklus, Rollen-/Rechtekonzepte oder umfassende Data-Governance wurden dagegen nur rudimentär betrachtet und eher auf Projektebene als auf Systemebene geregelt. Die Anforderung wird damit funktional, aber nicht in ihrer gesamten organisatorischen Tiefe erfüllt.
+
+**Optimierungskriterien für die intelligente Prozessplanung**
+
+Die gemeinsam mit dem Fraunhofer IOSB-INA entwickelten Metriken (u. a. CO₂-Fußabdruck, Lieferzeit, Transport- und Produktionskosten) konnten in allen Planungsdomänen hinterlegt und zur Steuerung der Planer genutzt werden. Die Experimente zeigen, dass unterschiedliche Kundenpräferenzen (z. B. „CO₂-minimierend“ vs. „Zeit-minimierend“) zu plausibel unterschiedlichen Plänen führen und die Präferenzen korrekt berücksichtigt werden – soweit dies durch die Domäne möglich ist. Eine vollständige, quantitative Optimierungsanalyse (Pareto-Fronten, Sensitivitätsanalysen) war im zeitlichen Rahmen des Projektes nicht möglich, sodass die Erfüllung der Anforderung vor allem qualitativ, nicht formal belegt ist.
+
+**Kompatibilität mit ERP- & MES-Systemen**
+
+Durch die Verwendung etablierter Standards (BPMN, AAS, REST/JSON) und die klare Trennung zwischen Planungslogik (KTF, PlanUtils) und Ausführungsebene wurde die Grundlage für eine Anbindung an ERP- und MES-Systeme geschaffen. In den Demonstratoren kamen jedoch vor allem Workflow-Engines und serviceorientierte Backend-Systeme zum Einsatz; eine direkte Integration in produktive ERP-/MES-Landschaften (z. B. SAP) wurde im Projekt nicht umgesetzt. Die Anforderung wird auf Architektur- und Schnittstellenebene adressiert, aber im Sinne „echter“ Systemintegration nur teilweise validiert.
+
+**Schnittstellen zu anderen Prozessrepräsentationsformen**
+
+Mit KTF steht ein generischer Transformationsrahmen zur Verfügung, der semantische Modelle (Plato/AAS) in PDDL und BPMN überführen kann. Damit ist prinzipiell eine Kopplung an andere, partnerspezifische Repräsentationsformen möglich, sofern geeignete Adapter zu Plato/AAS bereitgestellt werden. Im Projekt wurden solche Adapter jedoch nur für die im EASY-Kontext relevanten Modelle umgesetzt; eine breite Abdeckung weiterer industrieller Modellierungsstandards konnte nicht realisiert werden. Die Anforderung ist daher konzeptionell erfüllt, praktisch aber nur für einen Ausschnitt der möglichen Repräsentationsformen demonstriert.
+
+**Einbezogene Daten und Semantik der Prozesse**
+
+Die Modelle und Dienste berücksichtigen neben den eigentlichen Fertigungsschritten auch Kontextinformationen (z. B. Standort, Transportwege, Fähigkeiten von Maschinen, kundenindividuelle Anforderungen) und stellen diese über semantische IOPE-Beschreibungen (Inputs, Outputs, Preconditions, Effects) zur Verfügung. Dies erlaubt die automatische Ableitung planbarer Dienste und die korrekte Verknüpfung der Prozessschritte. Gleichzeitig sind bestimmte Kontextdaten – etwa detaillierte Personaleinsatzpläne, betriebswirtschaftliche Kennzahlen oder externe Rahmenbedingungen – in den Evaluationsszenarien nur vereinfacht oder gar nicht modelliert worden. Insgesamt wird die Anforderung nach semantisch angereicherten, kontextsensitiven Prozessmodellen gut erfüllt, ihre vollständige Abdeckung aller diskutierten Datenquellen bleibt jedoch eine Aufgabe für zukünftige Arbeiten.
+
+## Zusammenfassung
+
+In der Validierung wurde die in den vorherigen Arbeitspaketen aufgebaute Kette aus semantischer Modellierung (Plato, AAS), automatischer Planungsdomänengenerierung (KTF) und Planerzeugung (PlanUtils) in mehreren Anwendungsszenarien erprobt. Neben einem abstrakten Referenzszenario (Blocks-World) kamen ein lokales Szenario in der SmartFactoryKL sowie das Shared-Production-Szenario zwischen SmartFactoryKL und SmartFactoryOWL zum Einsatz. Damit konnten sowohl synthetische Testfälle als auch realitätsnahe Produktionsabläufe abgedeckt werden.
+
+Die Experimente zeigen, dass die automatisierte Generierung von PDDL-Domänen aus den semantischen Modellen syntaktisch und semantisch korrekte Ergebnisse liefert und dass darauf aufbauend gültige Pläne erzeugt werden können. Die anschließende Transformation der Pläne in BPMN-Prozessmodelle und deren Ausführung in Workflow-Engines (Camunda bzw. Fraunhofer-Engine) verlief stabil; Laufzeitfehler oder Inkonsistenzen traten in den betrachteten Szenarien nicht auf. Damit wird die grundsätzliche technische Funktionsfähigkeit der entwickelten Werkzeugkette nachgewiesen.
+
+Darüber hinaus konnte qualitativ gezeigt werden, dass die verwendeten Metriken (u. a. CO₂-Fußabdruck, Lieferzeit, Kosten) und Kundenpräferenzen einen nachvollziehbaren Einfluss auf die Planungsergebnisse haben. Unterschiedliche Gewichtungen führen zu unterschiedlichen, inhaltlich plausiblen Prozessvarianten. Eine formale, umfassende Optimierungs- und Skalierungsevaluation (z. B. systematische Performance- oder Pareto-Analysen) steht noch aus.
+
+Insgesamt bestätigt die Validierung, dass die im Projekt EASY entwickelten Konzepte und Werkzeuge für semantisch fundierte, KI-basierte Prozessplanung in praxisnahen Szenarien einsetzbar sind. Gleichzeitig werden Grenzen sichtbar: Einige Anforderungen (z. B. tiefe Integration in ERP/MES-Landschaften, umfassende Betrachtung von Echtzeitaspekten oder organisatorische Data-Governance) wurden nur konzeptionell adressiert oder in vereinfachter Form umgesetzt. Diese Punkte bieten Anknüpfungspunkte für weiterführende Arbeiten über das Projektende hinaus.

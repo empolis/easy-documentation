@@ -1,0 +1,246 @@
+# FL Demonstrator Kugellagerüberwachung {#sec-004-fl_demo_CWRU}
+
+```{=html}
+<!--
+---
+author: 
+  - Jiaqi Wang
+---
+-->
+```
+
+In diesem Use-Case wird die Leistungsfähigkeit von Federated Learning bei der Zustandsüberwachung von Kugellagern untersucht. Dieser Anwendungsfall ist in der Industrie relevant und essenziell für einen zuverlässigen sowie wirtschaftlich nachhaltigen Betrieb von Maschinen.
+
+Das Szenario stellt einen geeigneten Anwendungsfall für föderiertes Lernen dar, da Kugellager oft physisch getrennt in unterschiedlichen Maschinen mit verschiedensten Betriebsszenarien verbaut sind. Für die Untersuchung wurde ein Datensatz ausgewählt, der Vibrationsdaten von Kugellagern enthält, die unterschiedliche Defekte aufweisen. Dieser Datensatz der Case Western Reserve University ist frei zugänglich unter der folgenden Adresse: <https://engineering.case.edu/bearingdatacenter>.
+
+## Experimentelles Design
+
+**Industrielle Motivation des experimentellen Designs**
+
+Moderne industrielle Zustandsüberwachungssysteme operieren typischerweise nicht auf einzelnen Maschinen, sondern auf Maschinenflotten. Diese Flotten weisen eine ausgeprägte Heterogenität auf:
+
+-   Maschinen zeigen unterschiedliche Fehlertypen. Am Beispiel eines Kugellagers: Kugel-, Innenring-, Außenring- sowie kombinierte Defekte.
+-   Die Betriebsbedingungen variieren hinsichtlich Last und Drehzahl.
+-   Fehler treten an verschiedenen physikalischen Positionen auf.
+-   Die Datenverfügbarkeit ist nicht uniform, da einige Maschinen reichlich Fehlerdaten liefern, während andere datenarm bleiben.
+
+Aus industrieller Sicht muss ein Lernsystem daher zwei zentrale Anforderungen erfüllen:
+
+-   Robuste Leistung über heterogene Clients hinweg, einschließlich Maschinen- und Fehlertypen, die während des Trainings nicht beobachtet wurden.
+-   Effiziente Nutzung von Rechen- und Energieressourcen, da Modelle häufig auf Edge-Geräten mit begrenzten Kapazitäten trainiert oder aktualisiert werden.
+
+FL adressiert diese Herausforderungen, indem es kollaboratives Modelltraining ohne Zentralisierung der Daten ermöglicht. Der tatsächliche Nutzen von FL muss jedoch unter zunehmend realistischen industriellen Szenarien systematisch evaluiert werden.
+
+**Gesamtstruktur der Experimente**
+
+Für die Analyse der Dateneffizienz wird zusätzlich ein zentrales Training als Referenz betrachtet, da es ein theoretisches Leistungsoberlimit darstellt. Da ein solches zentrales Training in industriellen Szenarien jedoch weder verfügbar noch realistisch ist, beschränken sich die Energieeffizienzanalysen auf lokales Training und föderiertes Lernen. Um reale Einsatzbedingungen abzubilden, sind die Experimente entlang einer graduellen Steigerung der Komplexität aufgebaut:
+
+1.  Baseline-Trainingsszenario. Dieses Experiment etabliert ein Referenz-Trainingsszenario, ohne neue Clients, Fehlertypen oder zusätzliche Verteilungsverschiebungen einzuführen. Es dient als Baseline, anhand derer die zunehmend komplexen Szenarien in Experiment 2 und Experiment 3 bewertet werden.
+2.  Generalisierung auf neue Clients und unbekannte Fehlertypen, entsprechend dem Onboarding neuer Maschinen.
+3.  Client-übergreifender Wissenstransfer, der das Teilen seltener, aber kritischer Anomalien innerhalb der Flotte untersucht.
+
+Alle Experimente verwenden denselben Client-Pool und dieselbe Fehlertaxonomie, um eine direkte Vergleichbarkeit zu gewährleisten.
+
+**Clients und Fehlercharakteristika**
+
+Das experimentelle Setup umfasst verschiedene Clients mit unterschiedlichen Fehlermerkmalen, siehe @fig-fl-demo-CWRU_Fehlermerkmale. Diese kontrollierten Unterschiede stellen sicher, dass jeder Client eine eigenständige industrielle Betriebssituation repräsentiert.
+
+![Experimentelles Setup mit vier industriellen Clients und unterschiedlichen Fehlermerkmalen.](pictures/CWRU_Fehlermerkmale.png){#fig-fl-demo-CWRU_Fehlermerkmale fig-align="center" width="100%"}
+
+**Ziel der Experimente**
+
+Ziel der Experimente ist die Bewertung von Federated Learning als industrielles Trainingsparadigma, insbesondere im Hinblick auf sein Verhalten unter realistischen Randbedingungen und Datenheterogenität.
+
+Zu diesem Zweck wird die Evaluation in zwei komplementäre Dimensionen unterteilt.
+
+**Teilziel I: Dateneffizienz**
+
+Die Dateneffizienz bewertet, wie gut ein Modell grundsätzlich performen kann, vorausgesetzt, es stehen ausreichende Trainingsmöglichkeiten zur Verfügung. Betrachtet werden dabei:
+
+-   Maximal erreichbare Genauigkeit
+-   Generalisierungsfähigkeit über Clients und Fehlertypen hinweg
+-   Robustheit gegenüber non-IID-Datenverteilungen
+
+Diese Dimension beantwortet die Frage: Wie gut kann das Modell sein, wenn kollaboratives Lernen eingesetzt wird?
+
+**Teilziel II: Energieeffizienz**
+
+Die Energieeffizienz bewertet, welche Rechen- und Energiekosten erforderlich sind, um ein nutzbares Leistungsniveau zu erreichen.
+
+Im Gegensatz zur Dateneffizienz wird hier explizit ein zusätzliches Abbruchkriterium eingeführt:
+
+-   Das Training wird anhand des Energieverbrauchs, der Trainingszeit und des Trainingsaufwands bis zum Erreichen eines vordefinierten Leistungsniveaus bewertet.
+
+Dies spiegelt reale industrielle Einschränkungen wider, da:
+
+-   kontinuierliches Retraining kostenintensiv ist,
+-   Edge-Geräte über begrenzte Energiebudgets verfügen,
+-   schnellere Konvergenz unmittelbar die Betriebskosten senkt.
+
+## Experimentelle Umsetzung
+
+Zur Beantwortung der obigen Ziele werden drei Experimente durchgeführt, die jeweils eine zunehmend anspruchsvollere industrielle Fragestellung adressieren:
+
+-   **Experiment 1**: Ist FL energieeffizienter als isoliertes lokales Training?
+-   **Experiment 2**: Kann FL auf neue Clients mit unbekannten Fehlertypen generalisieren?
+-   **Experiment 3**: Kann ein einzelner Client die gesamte Flotte verbessern?
+
+Zur Bewertung der Energieeffizienz unter realistischen industriellen Randbedingungen wird ein festes Genauigkeitsschwellenkriterium als primäre Abbruchbedingung für das Training definiert. Energieverbrauch, Trainingszeit sowie der Trainingsaufwand (Anzahl der Epochen bzw. Kommunikationsrunden) werden bis zum Erreichen dieser Schwelle gemessen.
+
+Ergänzend dazu wird eine maximale Anzahl an Trainingsepochen (bzw. Kommunikationsrunden) als sekundäre Abbruchbedingung festgelegt. Wird die Zielgenauigkeit innerhalb dieses Limits nicht erreicht, wird das Training beendet, um unkontrollierbares oder ineffizientes Weitertrainieren zu vermeiden. Diese Regelung entspricht realistischen industriellen Szenarien, in denen lang andauerndes Training ohne Leistungsgewinn nicht akzeptabel ist, und stellt eine konsistente Vergleichbarkeit der Energieeffizienz über alle Methoden und Experimente hinweg sicher.
+
+Im Gegensatz dazu wird die Dateneffizienz unabhängig von diesem Schwellenkriterium bewertet und fokussiert auf die erreichbare Modellleistung, sowohl bei direkter Evaluation als auch nach Fine-Tuning. Ein zentrales Training wird hierbei ausschließlich als theoretische Referenz (Obergrenze) berücksichtigt, jedoch nicht in die Energieeffizienzanalyse einbezogen, da es in den betrachteten industriellen Anwendungen nicht realistisch ist.
+
+### Labordemonstrator
+
+Die Experimente wurden auf dem Labordemonstrator ausgeführt, der in @sec-004-fl_demo_dali_machine beschrieben ist. Als Edge-Devices wurden in diesem Fall die Bosch ctrlX als IPCs für Produktionsmaschinen ausgewählt. Als Server dient ein PC mit Linux-Betriebssystem. Zur Messung des Energieverbrauchs wurde der Demonstrator mit Strommessgeräten der Firma Janitza ausgestattet.
+
+Um den tatsächlichen Energie-Mehrverbrauch gegenüber den laufenden Geräten ohne Training zu evaluieren, wurde der mittlere Stromverbrauch im Leerlauf gemessen und von den Ergebnissen subtrahiert.
+
+## Ergebnisse der Dateneffizienzanalyse
+
+Die Dateneffizienz bewertet die erreichbare Modellleistung unabhängig vom Energieverbrauch. Für jedes Experiment werden die Ergebnisse vor dem Training (direkte Evaluation des aktuellen Modells) und nach dem Training (Evaluation nach Fine-Tuning gemäß experimentellem Setup) gegenübergestellt. Ein zentrales Training wird ausschließlich als Referenz berücksichtigt.
+
+**Experiment 1**: Baseline-Trainingsszenario - Lokales Training vs. Federated Learning
+
+Die Clients 0, 1 und 3 trainieren entweder unabhängige lokale Modelle oder nehmen an einem föderierten Training teil. Zum Vergleich wird auch noch ein zentrales Training durchgeführt, um die theoretische Obergrenze der Modellleistung zu bestimmen.
+
+Im Baseline-Trainingsszenario wird die erreichbare Modellleistung unter Standardbedingungen analysiert, ohne neue Clients, Fehlertypen oder zusätzliche Verteilungsverschiebungen einzuführen. Die Dateneffizienz wird in zwei Stufen evaluiert:
+
+1.  Direkte Evaluation der jeweils aktuellen Modelle, d. h. ohne Fine-Tuning (kein Vorwissen bzw. vorhandenes Vorwissen aus vorherigen Setups).
+2.  Evaluation nach Fine-Tuning auf demselben Evaluationsdatensatz, wie im experimentellen Setup definiert.
+
+Zentrales Training wird als theoretische Referenz (Obergrenze) in die Dateneffizienzanalyse aufgenommen.
+
+![Ergebnisse (Accuracy in %) des Experiments 1.](pictures/CWRU_Ergebnis_exp1.png){#fig-fl-demo-CWRU_Ergebnisse_exp1 fig-align="center" width="40%"}
+
+Vor dem Training liegen für das Baseline-Szenario keine Evaluierungsergebnisse für lokales und föderiertes Lernen vor, da kein vortrainiertes Modell existiert. Nach dem Training (siehe @fig-fl-demo-CWRU_Ergebnisse_exp1) zeigt das zentrale Training mit 98 % erwartungsgemäß die höchste Genauigkeit. Lokales Training erreicht deutlich niedrigere und stark variierende Leistungen (Mittelwert 79 %), während Federated Learning mit 93 % eine deutlich höhere und stabilere Performance erzielt.
+
+Erkenntnisse:
+
+-   Zentrales Training definiert das obere Leistungslimit.
+
+-   Lokales Training ist stark datenabhängig und instabil.
+
+-   Federated Learning erreicht bereits im Baseline-Fall eine deutlich höhere Dateneffizienz als lokales Training.
+
+**Experiment 2:** Generalisierung auf neue Clients
+
+Ein neuer Client (Client 2) mit zuvor unbekannten Anomalien wird zunächst ohne Fine-Tuning evaluiert. Anschließend wird weitertrainiert in 3 Szenarien:
+
+-   zentrales Modell mit den zusätzlichen Daten von Client 2,
+-   lokales Training mit den Daten von Client 2 auf Basis vortrainierter Modelle der Clients 0, 1 und 3,
+-   FL mit dem zusätzlichen Client 2.
+
+![Ergebnisse (Accuracy in %) des Experiments 2, evaluiert auf Testdaten von Client 2.](pictures/CWRU_Ergebnis_exp2.png){#fig-fl-demo-CWRU_Ergebnisse_exp2 fig-align="center" width="100%"}
+
+Vor dem Fine-Tuning zeigen alle Modelle eine eingeschränkte Performance für den neuen Client (siehe @fig-fl-demo-CWRU_Ergebnisse_exp2): Lokales Training weist erneut eine hohe Streuung auf (Mittelwert ca. 59 %), während Federated Learning mit 60 % eine wenig bessere Ausgangsleistung bietet. Nach dem Fine-Tuning erreicht das zentrale Training 99 % und bestätigt seine Rolle als Referenz. Federated Learning erzielt mit 95 % eine hohe Endleistung, während lokales Training mit 99 % zwar punktuell hohe Werte erreicht, jedoch stark clientabhängig bleibt.
+
+Erkenntnisse:
+
+-   Vortrainierte lokale Modelle generalisieren schlecht auf neue Clients.
+-   Federated Learning bietet eine robustere Ausgangsrepräsentation.
+-   Nach Fine-Tuning nähert sich FL konsistent der zentralen Obergrenze an.
+
+**Experiment 3:** Client-übergreifender Wissenstransfer
+
+Nur Client 2 besitzt während des Trainings Zugriff auf Anomalien am Außenring. Initial werden die Clients 0, 1 und 3 mit den Anomalien am Außenring evaluiert. Das Fine-Tuning ist ein weiteres Training mit den zusätzlichen Anomalien.
+
+![Ergebnisse (Accuracy in %) des Experiments 3.](pictures/CWRU_Ergebnis_exp3.png){#fig-fl-demo-CWRU_Ergebnisse_exp3 fig-align="center" width="100%"}
+
+Bereits initial zeigt das föderierte Modell mit 95 % eine sehr hohe Leistung (siehe @fig-fl-demo-CWRU_Ergebnisse_exp3), während lokales Training erneut eine starke Varianz aufweist (Mittelwert ca. 83 %). Das zentrale Training bestätigt mit 98 % erneut das obere Leistungsniveau. Nach dem Fine-Tuning erreichen alle Methoden hohe Genauigkeiten, wobei Federated Learning mit 97 % nahezu auf dem Niveau des zentralen Trainings liegt und lokales Training trotz hoher Werte weiterhin weniger stabil bleibt.
+
+Erkenntnisse:
+
+-   Föderiertes Lernen ermöglicht effektiven Wissenstransfer.
+
+-   Seltene Anomalien werden systemweit nutzbar gemacht.
+
+-   Die Dateneffizienz des Gesamtsystems wird signifikant erhöht.
+
+## Ergebnisse der Energieeffizienzanalyse
+
+**Experiment 1**: Baseline-Vergleich - Lokales Training vs. Federated Learning
+
+Die Clients 0, 1 und 3 trainieren entweder unabhängige lokale Modelle oder nehmen an einem föderierten Training teil. Energieverbrauch, Trainingszeit und Trainingsaufwand werden bis zum Erreichen eines vordefinierten Leistungsniveaus (80%) gemessen.
+
+![Ergebnisse der Energieeffizienzanalyse, Experiments 1.](pictures/CWRU_Energie_exp1.png){#fig-fl-demo-CWRU_Energie_exp1 fig-align="center" width="100%"}
+
+Erkenntnisse (siehe @fig-fl-demo-CWRU_Energie_exp1):
+
+-   Lokales Training weist eine hohe Varianz im Energieverbrauch zwischen den Clients auf.
+
+-   Datenarme Clients benötigen mehr Epochen und konvergieren teilweise nicht, was zu Energieverschwendung führt.
+
+-   Federated Learning reduziert redundantes Training durch geteilte Repräsentationen.
+
+-   FL erreicht Konvergenz mit geringerem Gesamtenergieverbrauch und stabilerem Trainingsverhalten.
+
+Bereits im einfachsten Szenario zeigt Federated Learning:
+
+-   geringeren Gesamtenergieverbrauch,
+-   zuverlässigere Konvergenz,
+-   Schutz schwacher Clients vor ineffizientem Training.
+
+Die Ergebnisse deuten darauf hin, dass FL in den betrachteten Szenarien energieeffiziente Eigenschaften aufweisen kann.
+
+**Experiment 2**: Energieeffizienz bei Generalisierung auf neue Clients
+
+Ein neuer Client (Client 2) mit zuvor unbekannten Anomalien wird ohne Fine-Tuning evaluiert. Der Energieverbrauch wird gemessen für:
+
+-   lokales Training auf Basis vortrainierter Modelle der Clients 0, 1 und 3,
+-   direkte Nutzung des föderierten globalen Modells.
+
+![Ergebnisse der Energieeffizienzanalyse, Experiments 2.](pictures/CWRU_Energie_exp2.png){#fig-fl-demo-CWRU_Energie_exp2 fig-align="center" width="100%"}
+
+Erkenntnisse (siehe @fig-fl-demo-CWRU_Energie_exp2):
+
+-   Lokal vortrainierte Modelle sind schlecht auf neue Fehlertypen abgestimmt.
+
+-   Hoher Energieaufwand entsteht durch wiederholte, oft ineffektive Anpassungsversuche.
+
+-   Das globale FL-Modell konvergiert stabiler und mit geringerem Zusatzaufwand.
+
+-   Der Energiebedarf ist deutlich geringer als bei mehrfachem lokalem Neutraining.
+
+Die Ergebnisse legen nahe, dass Federated Learning ein energieeffizientes Onboarding neuer Maschinen unterstützen kann, indem es den Trainingsaufwand für neue Clients reduziert und gleichzeitig eine robuste Leistung bei unbekannten Anomalien liefert.
+
+**Experiment 3:** Energieeffizienz des client-übergreifenden Wissenstransfers
+
+Nur Client 2 besitzt während des Trainings Zugriff auf Anomalien am Außenlager. Nach dem föderierten Training werden die Clients 0, 1 und 3 mit den Anomalien am Außenlager evaluiert.
+
+![Ergebnisse der Energieeffizienzanalyse, Experiments 3.](pictures/CWRU_Energie_exp3.png){#fig-fl-demo-CWRU_Energie_exp3 fig-align="center" width="100%"}
+
+Erkenntnisse (siehe @fig-fl-demo-CWRU_Energie_exp3):
+
+-   Lokale Modelle besitzen keine Repräsentationen für unbekannte Anomalien.
+
+-   Hoher Energieverbrauch entsteht durch fehlangepasste Vortrainingsmodelle.
+
+-   Federated Learning überträgt seltenes Anomaliewissen effizient auf alle Clients.
+
+-   Die Zielperformance wird mit minimalem zusätzlichem Energieaufwand erreicht.
+
+Damit:
+
+-   Die Ergebnisse deuten darauf hin, dass Federated Learning das Teilen seltener Anomalien über die gesamte Maschinenflotte hinweg ermöglicht.
+-   Ein einzelner Client kann die Leistungsfähigkeit aller anderen Clients verbessern.
+-   Frühe Exposition gegenüber seltenen Anomalien führt zu einer systemweiten Robustheit. Dies ist entscheidend für präventive Instandhaltung und skalierbare Fehlerdiagnose.
+
+## Zusammenfassende Erkenntnisse zur Daten- und Energieeffizienz von Föderiertem Lernen
+
+Über alle Experimente hinweg zeigt sich ein konsistentes Bild:
+
+-   Zentrales Training fungiert als theoretische Leistungsobergrenze.
+
+-   Lokales Training ist stark von Datenverfügbarkeit und Client-Spezifika abhängig.
+
+-   Federated Learning liefert:
+
+    -   bessere Out-of-the-Box-Performance,
+
+    -   höhere Stabilität über Clients hinweg,
+
+    -   und eine Endleistung nahe der zentralen Referenz.
+
+Damit ergänzt die Dateneffizienzanalyse die Energieeffizienzergebnisse und deutet auf das Potenzial von Federated Learning als praktikablen Kompromiss zwischen Leistungsfähigkeit und industrieller Umsetzbarkeit hin.

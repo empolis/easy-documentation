@@ -1,0 +1,29 @@
+# Vorwort {.unnumbered}
+
+Ein Forschungsprojekt beginnt mit einer Idee. Aus der Idee werden Ziele entwickelt. Viele Diskussionen führen dann zu einem Projekttitel und am Ende zu einem Akronym. Das ist ein iterativer Prozess. Wir haben eine Sache anders gemacht. Das Akronym **EASY** war zuerst da, weil es Programm ist. Das war mir persönlich sehr wichtig. Es drückt unseren Anspruch und die damit verbundenen Ziele in einem einfachen Wort aus: **einfach**.
+
+Einfach meint, das Cloud, Edge und KI Technologie auch für kleinere und mittlere Unternehmen nutzbar sind. Ohne eigene Data Science Abteilung. Zu Kosten, die in einem profitablen Verhältnis zum Nutzen der Anwendungen stehen. Grundlage dazu sind die konsequente Nutzung von Standards und Automatisierung.
+
+Produktionssteuerung, Prozessüberwachung und neue Formen der Sensornutzung sind die Anwendungen mit denen wir uns befasst haben. Dabei sind konkrete Anwendungsbeispiele und neue Verfahren zur föderierten Nutzung von Daten entstanden. Und vieles mehr.
+
+Wir hätten das in technischen Berichten dokumentieren können, um unserer Berichtspflicht nachzukommen. Das wäre zu einfach gewesen. Im Verlauf des Projekts sind viele wertvolle Ideen und Erkenntnisse entstanden, die wir einer breiten Öffentlichkeit zugänglich machen wollen. Darum haben wir dieses Buch verfasst.
+
+Es sammelt die Erkenntnisse und Ergebnisse des EASY Projektes. Nicht alles ist dabei leicht verdaulich. Wir haben versucht, die wissenschaftlichen Ergebnisse möglichst verständlich darzustellen. In diesem Sinne wünsche ich eine nützliche Lektüre.
+
+> Ralph Traphöner
+>
+> Projektkoordinator, Empolis Information Management GmbH
+
+\newpage
+
+## Förderinformation {.unnumbered}
+
+EASY ist ein vom Bundesministerium für Forschung, Technologie und Raumfahrt im Rahmen des Programms [Edge Datenwirtschaft](https://www.digitale-technologien.de/DT/Navigation/DE/ProgrammeProjekte/AktuelleTechnologieprogramme/Edge_Datenwirtschaft/edge_dw.html){target="_blank"} gefördertes Projekt.
+
+![](/pictures/Logos/logo_bmftr.jpg){fig-align="center" width="50%"}
+
+Salzburg Research wird in EASY gefördert durch das österreichische Bundesministerium für Innovation, Mobilität und Infrastruktur.
+
+![](/pictures/Logos/Logo_BMIMI_Gefoerdert_DE_SRGB.png){fig-align="center" width="50%"}
+
+Laufzeit: 01.10.2022 bis 31.12.2025

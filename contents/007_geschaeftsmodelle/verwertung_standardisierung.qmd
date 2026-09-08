@@ -1,0 +1,15 @@
+# Verwertung und Standardisierung {#sec-007-verwertung_standardisierungen}
+
+## Verwertung
+
+Die im Projekt EASY entwickelten Technologien und Konzepte bieten vielfältige Potenziale für die industrielle Verwertung. Eine detaillierte Betrachtung möglicher Geschäftsmodelle und Verwertungsstrategien erfolgt in @sec-007-geschaeftsmodelle. Darüber hinaus wurden projektspezifische Verwertungsmaßnahmen und wirtschaftliche Potenziale durch die einzelnen Projektpartner in ihren jeweiligen, nicht öffentlichen Verwertungsberichten dokumentiert.
+
+## Standardisierung
+
+Im Bereich der Standardisierung orientierte sich das Projekt EASY konsequent an der Asset Administration Shell (AAS). Die AAS definiert Datenstrukturen und deren Semantik für die Abbildung Digitaler Zwilling. Zur Zeit der Konzeption des EASY Projekts vor vier Jahren war die rasante Entwicklung der AAS nicht absehbar. Heute verzeichnet die IDTA schon über 100 standardisierte Submodelle [^verwertung_standardisierung-1]. Darüber hinaus wurden in den Fachverbänden des VDMA eine Vielzahl von OPC-UA Companion Specifications entwickelt [^verwertung_standardisierung-2], die auf AAS Modelle abgebildet werden können.
+
+[^verwertung_standardisierung-1]: Siehe <https://industrialdigitaltwin.org/content-hub/teilmodelle>
+
+[^verwertung_standardisierung-2]: <https://www.vdma.eu/de/catalogs>
+
+Die AAS (dt. Verwaltungsschale) ist eine Technologie zur Implementierung des Konzepts der Digitalen Zwillinge. Die EASY Anwendungsfälle nutzen die AAS wiederum als Basis ihrer Implementierung. Bestehende AAS-Submodelle wurden dabei weitestgehend übernommen und an die Anforderungen der jeweiligen Anwendungsfälle angepasst. Sofern erforderlich, erfolgten projektspezifische Erweiterungen zur Abbildung zusätzlicher Informationen und Funktionalitäten. Da die Standardisierung von Digitalen Zwillingen und AAS-Submodellen ein fortlaufender Prozess ist, werden die zukünftigen Aktivitäten in diesem Bereich im Ausblick näher betrachtet. Insbesondere ist vorgesehen, die im Projekt gewonnenen Erkenntnisse in die Weiterentwicklung bestehender oder neuer Submodelle einfließen zu lassen und geeignete Erweiterungen über die Industrial Digital Twin Association (IDTA) in zukünftige Standardisierungsaktivitäten einzubringen.
