@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>EASY Dokumentation – EASY - 
+Energieeffiziente Analyse- und Steuerungsprozesse 
+im dynamischen Edge-Cloud-Kontinuum
+für die industrielle Fertigung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../contents/005_flex_steuerung/zusammenfassung.html" rel="next">
+<link href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" rel="prev">
+<link href="../../../pictures/Logos/favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-dddb6540b923bee26809846fb4198f84.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo light-content">
+    <img src="../../../pictures/Logos/EASY-Logo-Schwarz.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">EASY - Energieeffiziente Analyse- und Steuerungsprozesse im dynamischen Edge-Cloud-Kontinuum für die industrielle Fertigung</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Suchen"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/company/empolis/" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/empolis/easy-documentation" title="Quellcode" class="quarto-navigation-tool px-1" aria-label="Quellcode"><i class="bi bi-github"></i></a>
+    <a href="../../../EASY-Dokumentation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../contents/004_verteiltes_ml/zusammenfassung.html">Verteiltes Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Einleitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/001_introduction/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einleitung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/001_introduction/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zusammenfassung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/001_introduction/projektpartner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektpartner</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/001_introduction/kontakt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kontakt</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Laufzeitumgebung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/laufzeitumgebung_zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/laufzeitumgebung_architektur_easy_cloud_edge.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Laufzeitumgebung und Architektur der EASY Edge-Cloud Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/datenpipeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenpipeline – Von der Maschine bis zur Aktion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/verwaltungsschale.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Die Verwaltungsschalen in der EASY Architektur</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/verwaltungsschale_architektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Hosting der Verwaltungsschale und Integration von Eclipse BaSyx in die EASY Laufzeitumgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/service_federation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Service Federation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/integration_federated_learning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Integration Federated-Learning in EASY Umgebung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/k8s_operatoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kubernetes Operatoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/002_laufzeitumgebung/demo_planung_monitoring_agent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Planungs- und Monitoring-Agenten</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Effiziente Analyseprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/003_eff_analyseprozesse/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Effiziente Analyseprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/003_eff_analyseprozesse/ergebnisse_anforderungsanalyse_kriterien_ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Kriterien und Indikatoren zum Thema Ressourcen-, Energie- und Dateneffizienz</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/003_eff_analyseprozesse/messaufbau_modellierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Messaufbau und Modellierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/003_eff_analyseprozesse/szenarien_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Verteiltes Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Föderiertes Lernen (Federated Learning)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Föderiertes Lernen - Grundlagen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/anforderungsanalyse.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungsanalyse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/evaluation_metriken.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation und Metriken von Föderiertem Lernen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_strategien.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Modell-Aggregations Strategien im Federated Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Überblick FL-Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_raumluft.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Raumluft</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Bild-basierte Qualitätskontrolle in der Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_OT_network_anomaly_detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Anomalieerkennung in der OT‑Netzwerkkommunikation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_dali_machine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Anomalien in Fräsprozessen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_cwru.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL Demonstrator Kugellagerüberwachung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">FL-Demonstrator Wireless Network</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Flexible Steuerungsprozesse</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Flexible Steuerungsprozesse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/5.1anforderungen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anforderungen an die Flexible Steuerung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/5.2repraesentation_produktionsprozess.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Repräsentationsformen von Produktionsprozessen und -kapazitäten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/5.3prozessgestaltung_planung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessgestaltung mit Planungsverfahren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/5.4ueberwachte_prozessausfuehrung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prozessausführung mit Monitoring &amp; Rekonfiguration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/005_flex_steuerung/5.5erprobung_validierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Experimentelle Erprobung und Validierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Demonstratoren / Use Cases</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/006_demonstratoren/zusammenfassung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Zusammenfassung Demonstratoren</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/006_demonstratoren/demo_shared_production.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demo Shared Production</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/006_demonstratoren/demo_roboter_use_case.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator einer Roboterzelle für Palettierung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/006_demonstratoren/demo_zerspanung_easy_box.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Demonstrator Plug&amp;Play EASY-Box für die Zerspanung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/006_demonstratoren/evaluation_demonstratoren.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Evaluation der Demonstratoren</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Geschäftsmodelle und Verwertung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/007_geschaeftsmodelle/geschaeftsmodelle.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Geschäftsmodelle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/007_geschaeftsmodelle/verwertung_standardisierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Verwertung und Standardisierung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">Ausblick</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/ausblick.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ausblick</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/authors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referenzen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/impressum.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Impressum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../contents/datenschutz.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenschutz</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#hintergrund-bestimmung-des-werkzeugzustandes-mittels-machine-learning-in-der-zerspanung" id="toc-hintergrund-bestimmung-des-werkzeugzustandes-mittels-machine-learning-in-der-zerspanung" class="nav-link active" data-scroll-target="#hintergrund-bestimmung-des-werkzeugzustandes-mittels-machine-learning-in-der-zerspanung">Hintergrund: Bestimmung des Werkzeugzustandes mittels Machine Learning in der Zerspanung</a></li>
+  <li><a href="#datengrundlage" id="toc-datengrundlage" class="nav-link" data-scroll-target="#datengrundlage">Datengrundlage</a></li>
+  <li><a href="#umsetzung-federated-learning-zur-anomaliedetektion-in-der-easy-umgebung" id="toc-umsetzung-federated-learning-zur-anomaliedetektion-in-der-easy-umgebung" class="nav-link" data-scroll-target="#umsetzung-federated-learning-zur-anomaliedetektion-in-der-easy-umgebung">Umsetzung Federated-Learning zur Anomaliedetektion in der EASY Umgebung</a></li>
+  <li><a href="#ergebnisse-federated-learning-referenzlauf" id="toc-ergebnisse-federated-learning-referenzlauf" class="nav-link" data-scroll-target="#ergebnisse-federated-learning-referenzlauf">Ergebnisse Federated Learning Referenzlauf</a></li>
+  <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit">Fazit</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../contents/004_verteiltes_ml/zusammenfassung.html">Verteiltes Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_zerspanung_anomalydetection.html"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-004-fl_demo_zerspanung_anomalydetection" class="quarto-section-identifier"><span class="chapter-title">FL-Demonstrator - Use-Case: Zerspanung</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+---
+author: 
+  - Mouad El-Hachimi
+  - Jens Henninger
+---
+-->
+<section id="hintergrund-bestimmung-des-werkzeugzustandes-mittels-machine-learning-in-der-zerspanung" class="level2">
+<h2 class="anchored" data-anchor-id="hintergrund-bestimmung-des-werkzeugzustandes-mittels-machine-learning-in-der-zerspanung">Hintergrund: Bestimmung des Werkzeugzustandes mittels Machine Learning in der Zerspanung</h2>
+<p>Die Anwendung von Machine-Learning-Verfahren zur Vorhersage des Werkzeugstandzeitendes in der Zerspanung ist grundsätzlich vielversprechend: Durch die Nutzung des eingesetzten Zerspanungs-Werkzeuges (Bohrer oder Fräser) bis zu seinem tatsächlichen Standzeitende werden Kosten und Ressourcen für das Werkzeug selbst eingespart. In der Serienproduktion werden diese Werkzeuge häufig bis zu einem vorab definierten Zeitpunkt oder in Anzahl von Zerspanungs-Operationen eingesetzt. Inklusive einkalkulierter Sicherheitszuschlägen werden somit Werkzeuge viel zu früh ausgetauscht. Damit einher geht ein häufiger Werkzeugwechsel und somit erhöhte Rüstzeiten. Durch die Ermittlung des tatsächlichen Werkzeugszustandes und der Abschätzung der möglichen Restlebenszeit des Werkzeuges können diese deutlich optimierter ausgenutzt werden.</p>
+<p>In weiteren Untersuchungen wurden auf interne Sensordaten, welche stark mit dem Verschleisszustand des Werkzeugs korrelieren, Machine-Learning Varfahren zur Anomaliedetektion und zur Bestimmung der Remaining Useful life (RUL) untersucht, diese Ansätze in ein Tool Condition Monitoring System (TCM) intgeriert und dabei vielversprechende Ergebnisse erzielt <span class="citation" data-cites="reeber24"><a href="../../references.html#ref-reeber24" role="doc-biblioref">[1]</a></span>, <span class="citation" data-cites="SIMON2026381"><a href="../../references.html#ref-SIMON2026381" role="doc-biblioref">[2]</a></span>. Diese Untersuchungen wurden an praxisnahen Prozessen untersucht, jedoch konnten diese noch nicht die sehr hohe Komplexität und Variabilität realer Fertigungsprozesse abbilden, sodass die Methoden in der praktischen Anwendung schnell an ihre Grenzen stoßen. In industriellen Umgebungen kommen unterschiedliche Werkzeugmaschinen mit variierender Steifigkeit, Regelungscharakteristik und thermischem Verhalten zum Einsatz. Diese Unterschiede spiegeln sich unmittelbar in den erfassten Prozess- und Sensordaten wider und führen dazu, dass identische Verschleißzustände je nach Maschine unterschiedlich ausgeprägt erscheinen. Zusätzlich ist die eingesetzte Sensorik nicht einheitlich. Art, Positionierung, Abtastrate und Signalqualität der Sensoren variieren stark, was zu heterogenen Datenräumen und eingeschränkter Vergleichbarkeit der Messsignale führt.</p>
+<p>Darüber hinaus weist der Zerspanprozess selbst eine hohe Komplexität auf. Unterschiedliche Schnittgeschwindigkeiten, Vorschübe, Zustellungen, Werkzeuggeometrien, Beschichtungen sowie Werkstoffe beeinflussen das Verschleißverhalten maßgeblich. Die Vielzahl möglicher Parameterkombinationen führt zu einer starken Streuung der Prozesszustände, wodurch ein stabiles „Normalverhalten“, wie es für Anomaly-Detection-Ansätze häufig vorausgesetzt wird, nur schwer eindeutig definierbar ist. RUL-Modelle wiederum erfordern umfangreiche und konsistent gelabelte Daten über den gesamten Werkzeuglebenszyklus, die in der Praxis nur selten in ausreichender Qualität und Menge verfügbar sind.</p>
+<p>Vor diesem Hintergrund bietet ein föderierter Machine-Learning Ansatz eine vielversprechende Alternative. Beim Federated Learning werden Modelle dezentral auf maschinennahen Daten trainiert, während lediglich Modellparameter oder Gradienten zentral aggregiert werden. Dadurch können lokale, maschinen- und prozessspezifische Charakteristika berücksichtigt werden, ohne dass eine Zentralisierung sensibler Produktionsdaten erforderlich ist. Gleichzeitig profitiert das globale Modell von der Vielfalt unterschiedlicher Prozessrealitäten, was zu einer erhöhten Robustheit gegenüber Variationen führt. Insbesondere für Anomaly-Detection-Modelle eröffnet dieser Ansatz die Möglichkeit, verteiltes Erfahrungswissen aus unterschiedlichen Anwendungen nutzbar zu machen und die Grenzen klassischer, zentralisierter Machine-Learning-Methoden in der Zerspanung gezielt zu adressieren.</p>
+<p>Im Projekt wurden daher gezielt die Ansätze zur Anomaliedetektion im Kontext des Federated-Learning in der EASY-Architektur umgesetzt und evaluiert. Der Fokus lag dabei zum einen auf der Integration der benötigten Services für das föderierte Lernen in die EASY-Edge und EASY-Cloud Umgebung und zum anderen auf der konkreten Anwendung und Bewertung des Systems anhand des Use Cases zur Werkzeug-Standzeitbestimmung mittels Anomaliedetektion auf Bohrdaten. Ziel ist die zustandsbasierte Bestimmung des Werkzeugverschleißes und die Ableitung eines günstigen Wechselzeitpunktes, um Werkzeuge ressourcenoptimiert einzusetzen.</p>
+</section>
+<section id="datengrundlage" class="level2">
+<h2 class="anchored" data-anchor-id="datengrundlage">Datengrundlage</h2>
+<p>In einem Vorgängerprojekt wurden dazu bereits praxisnahe Bohrprozesse zu ausgewählten und variierenden Prozessparametern (Schnittgeschwindigkeit, Vorschub) an unterschiedlichen Maschinen mit unterschiedlichen Bohrwerkzeugen durchgeführt und dazugehörige Messdaten in Versuchsreihen aufgezeichnet. Die Bohrwerkzeuge wurden bis zum Ende ihrer Lebensdauer, teilweise bis zum Bruch des Werkzeuges, eingesetzt. Auf Basis der Bohrqualität werden die Daten in normale und anomale Bohrungen eingeteilt.</p>
+<p>Die aufgezeichneten Messdaten umfassen je nach Messsystem Features zur Strom-, Spannung- und Leistungsaufnahme sowie Kräfte aller Achsmotoren des Bearbeitungszentrums und separat gemessene Qualitätsdaten, wie Verschleissmarkenbreite, Rauheiten und Konzentrizität der Werkzeuge. Um eine möglichst hohe Vielfalt an Maschinentypen abdecken zu können, wurde darauf geachtet, eine möglichst vergleichbare Grundmenge an Features aufzuzeichnen, die gleichzeitig stark mit dem Verschleißzustand des Werkzeugs korrelieren. Als kleinster gemeinsamer Nenner über alle betrachteten Maschinentypen und Messsysteme konnten der Spindelstrom (I_Spindel) und der Strom der Z-Achse (I_Z) identifiziert werden. Die als (I_Spindel) und (I_Z) bezeichneten Features wurden dabei an den Maschinen in zwei unterschiedlichen Arten erfasst: (i) steuerungsintern (Siemens Sinumerik Edge) und im (ii) Retrofit mit Stromwandlern (Beckhoff). Als zunehmend verfügbare Retrofit-Option gelten dabei Stromaufzeichnungen mittels nachgerüsteten Stromwandlern Edge-Computing für Tool Condition Monitoring (TCM), diese Geräte sind nachrüstbar, kosteneffizient und beeinträchtigen den laufenden Betrieb nicht. Insgesamt zeigen frühere Ergebnisse, dass beide Wege für TCM vergleichbare Aussagen zu Schnittkräften und Werkzeugverschleiß erlauben und somit eine gemeinsame, ML-basierte Auswertung beider Quellen sinnvoll ist <span class="citation" data-cites="REEBER2024214"><a href="../../references.html#ref-REEBER2024214" role="doc-biblioref">[3]</a></span> .</p>
+<p>Nach einer Feature-Selektion, Bereinigung und Aufbereitung der Daten stehen mehrere Datensätze zur Verfügung, welche verschiedene Maschinen und Prozessvarianten abdecken und realistische Schwankungen, zum Beispiel durch Werkzeugverschleiß, Materialstreuungen oder geänderte Prozessparameter, aufzeigen. Die Tabelle ref:table-data gibt einen Überblick über die verwendeten Datensätze. Gezeigt werden pro Datensatz die tool-ID, der Werkzeugtyp, die Schnittgeschwindigkeit <span class="math inline">\(v_c\)</span> in <span class="math inline">\(m/min\)</span> , die genutzten Merkmalkanäle <span class="math inline">\(I_{Spindel},I_{Z-Achse}\)</span>.</p>
+<div id="tbl-data-zerspanung" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-data-zerspanung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;26.1: Überblick über die aufgezeichneten Datensätze, welche sich in der Verwendung des Werkzeugherstellers, des Messsystems, der Maschine und der Prozessparameter (Schnittgeschwindigkeit <span class="math inline">\(v_c\)</span>) unterscheiden. Abkürzung Siemens SE steht für Siemens Sinumerik Edge.
+</figcaption>
+<div aria-describedby="tbl-data-zerspanung-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 18%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>tool-ID</th>
+<th>Werkzeug-Typ</th>
+<th><span class="math inline">\(v_c\)</span> (m/min)</th>
+<th>Features</th>
+<th>Maschine</th>
+<th>Mess-system</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ES35<br>
+-2</td>
+<td>H_ES35</td>
+<td>100</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>Hermle C42u</td>
+<td>Retrofit,<br>
+Stromwandler,<br>
+Beckhoff IPC</td>
+</tr>
+<tr class="even">
+<td>ES35<br>
+-3</td>
+<td>H_ES35</td>
+<td>100</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>Hermle C42u</td>
+<td>Retrofit,<br>
+Stromwandler,<br>
+Beckhoff IPC</td>
+</tr>
+<tr class="odd">
+<td>ES35<br>
+-1</td>
+<td>H_ES35</td>
+<td>100</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>Hermle C42u</td>
+<td>Retrofit,<br>
+Stromwandler,<br>
+Beckhoff IPC</td>
+</tr>
+<tr class="even">
+<td>PH<br>
+1006</td>
+<td>M_tool</td>
+<td>120</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>Hermle C42u</td>
+<td>Retrofit,<br>
+Stromwandler,<br>
+Beckhoff IPC</td>
+</tr>
+<tr class="odd">
+<td>PH<br>
+1015</td>
+<td>M_tool</td>
+<td>100</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>Hermle C42u</td>
+<td>Retrofit,<br>
+Stromwandler,<br>
+Beckhoff IPC</td>
+</tr>
+<tr class="even">
+<td>IfW<br>
+1003</td>
+<td>M_tool</td>
+<td>100</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>DMG LT65 3D hybrid</td>
+<td>Steuerungs-intern, Siemens SE</td>
+</tr>
+<tr class="odd">
+<td>IfW<br>
+1006</td>
+<td>M_tool</td>
+<td>120</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>DMG LT65 3D hybrid</td>
+<td>Steuerungs-intern, Siemens SE</td>
+</tr>
+<tr class="even">
+<td>IfW<br>
+1009</td>
+<td>M_tool</td>
+<td>140</td>
+<td><span class="math inline">\(I_{Spindel}\)</span><br>
+<span class="math inline">\(I_{Z-Achse}\)</span></td>
+<td>DMG LT65 3D hybrid</td>
+<td>Steuerungs-intern, Siemens SE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Die Datensätze decken verschiedene Maschinen und Prozessvarianten ab und zeigen realistische Schwankungen, zum Beispiel durch Werkzeugverschleiß, Materialstreuungen oder geänderte Prozessparameter.</p>
+<p>Der Beginn des Anomalieintervalls markiert den Zeitpunkt, an dem aus prozessualer Sicht ein Werkzeugwechsel erforderlich wäre. In der Praxis treten um diesen Zeitpunkt häufig mehrere Anomalien in den Daten auf. <a href="#fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar" class="quarto-xref">Abbildung&nbsp;<span>26.1</span></a> zeigt, dass die Anzahl der Operationen pro Datei erheblich variiert. Die Balken sind nach Normal (blau) und Anomal (rot) aufgeteilt, wodurch sowohl die absolute Menge als auch die klassenweise Verteilung je Datensatz sichtbar werden.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\ops_stacked_bar.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-ops-stacked-bar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.1: Anzahl Zerspanungsoperationen pro Datensatz, mit den farblich markierten Verhältnissen von normalen (blau) und anormalen (rot) Bohrungen
+</figcaption>
+</figure>
+</div>
+<p>Zur Festlegung des sogenannten Anomalie-Interval-Start Zeitpunkts wurde ein vereinfachtes Verfahren zum Labeln der Daten verwendet: Die aufgezeichneten Kraft- und Stromsignale wurden mit den Mikroskopaufnahmen der Werkzeugspanfläche kombiniert, um den Anomalie-Interval-Start zu bestimmen. Teilweise wurden auch Hinweise der Maschinenbediener mitprotokolliert und die Aussage, ab wann sie das Werkzeug, bspw. anhand der wahrgenommenen Geräusche oder Spanbildung, ausgetauscht hätten. Ab diesem Zeitpunkt häufen sich ungewöhnliche Ereignisse, die Spanbildung ändert sich, Späne verkeilen im Bohrloch, da sie durch den fortschreitenden Verschleiß an Eckenradius und Schneidkante nicht mehr zuverlässig das Material abtragen. Dies legt nahe, dass die werkzeugseitige Einsatzdauer erreicht oder überschritten ist. Alle Bohrungen nach dem Anomalie-Interval-Start werden als Anomalien bewertet. Die konkrete Ursache einzelner Anomalien ist jedoch nicht annotiert. Auch vor dem Anomalie-Interval-Start können prozessbedingte Spänebeeinflussungen zu einzelnen Anomalien in den Daten führen, sodass die Labels in den hier verwendeten Datensätzen nicht die bestmögliche Genauigkeit erreichen.</p>
+<p>In folgendem Abbild wird exemplarisch der komplette Standzeitverlauf eines Werkzeuges dargestellt. Die Daten der Sensoren <span class="math inline">\(I_{Spindel}\)</span> und <span class="math inline">\(I_Z\)</span> sind pro Operation (Bohrung) aggregiert. Die Sortierung nach Operationsnummer macht Trend, Drift und plötzliche Änderungen sichtbar.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-werkzeugstandzeit" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-werkzeugstandzeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\data_werkzeugstandzeit.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-werkzeugstandzeit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.2: Visualisierung der Daten eines vollständigen Standzeitverlaufes eines Werkzeuges. In allen Features sind gegen Standzeitende ein klarer Anstieg der Werte und stark ausgeprägte Anomalien zu beobachten
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="umsetzung-federated-learning-zur-anomaliedetektion-in-der-easy-umgebung" class="level2">
+<h2 class="anchored" data-anchor-id="umsetzung-federated-learning-zur-anomaliedetektion-in-der-easy-umgebung">Umsetzung Federated-Learning zur Anomaliedetektion in der EASY Umgebung</h2>
+<p>In Abschnitt <a href="../../002_laufzeitumgebung/integration_federated_learning.html" class="quarto-xref"><span>Integration Federated-Learning in EASY Umgebung</span></a> wird auf die Integration der für das Federated-Learning benötigten Komponenten in der EASY Umgebung eingegangen. In der EASY-Edge werden Streamingdaten per MQTT empfangen und nach Kafka zwischenpersistiert. Ein kafka-s3-connector schreibt die Daten gebündelt in einen Objektspeicher (MinIO). Edge-seitig agiert ein Federated-Learning-Client, welcher das Framework Flower integriert. Server-seitig besteht eine vergleichbare Struktur, wobei zusätzlich ML-Flow für das Modell-Tracking und der Federated-Learning-Server ergänzend hinzukommen. In dieser Untersuchung wurde hauptsächlich die Integration dieser Komponenten anhand der oben vorgestellten Daten und Use Cases getestet.</p>
+<p>Im Folgenden wird der Client-seitige Ablauf skizziert. Im FL-Client sind die unterschiedlichen Federated-Learning Strategien “FedAvgWithRoundSaving, FedAvgWithFinalSaveOnly, FedAvgEqualWeight, FedProxWithRoundSaving, FedRepWithRoundSaving, FedAvgRetrainWithRoundSaving” implementiert. Die Client-seitige Implementierung umfasst einen TensorFlow-basierten Flower-Client, der sich auf Anomalieerkennung mit einem 1D Convolutional Autoencoder konzentriert.</p>
+<p>Im folgenden Abbild <a href="#fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow" class="quarto-xref">Abbildung&nbsp;<span>26.3</span></a> wird der Client-seitige Ablauf skizziert.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\clientWorkflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-clientWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.3: Client-Workflow mit Daten-Vorverarbeitung, Modelltraining im client-seitigen Federated-Learning-Loop (Austausch &amp; Metrik-Übermittlung an den Server via Flower).
+</figcaption>
+</figure>
+</div>
+<p>Für die im Zerspanungs Use-Case Datenverteilung hat sich die Federated-Learning Strategie “FedRep” als geeignet herausgestellt. Hierfür wird in <a href="#fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow" class="quarto-xref">Abbildung&nbsp;<span>26.4</span></a> der client-seitige Trainingsablauf mit FedRep Strategie dargestellt. Auf Clientseite wird nur der Decoder-Teil des CNN-Autoencoders nachtrainiert und auf Serverseite wird nur der Encoder-Teil aggregiert.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\clientFedRepWorkflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-clientFedRepWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.4: Client-Trainingsablauf mit FedRep FL-Strategie: Lokales Decoder-Retraining, server-seitige Encoder-Aggregation
+</figcaption>
+</figure>
+</div>
+<p>Server-seitig werden, wie in der folgenden <a href="#fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow" class="quarto-xref">Abbildung&nbsp;<span>26.5</span></a> dargestellt, die Encoder-Teile aller übermittelten, nachtrainierten Modelle über eine FedAvg Strategie aggregiert.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\serverFedRepWorkflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-serverFedRepWorkflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.5: Server-seitiger Ablauf mit FedRep FL-Strategie: Von den an den Server übertragenen Modellen werden nur die Encoder per FedAvg aggregiert.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="ergebnisse-federated-learning-referenzlauf" class="level2">
+<h2 class="anchored" data-anchor-id="ergebnisse-federated-learning-referenzlauf">Ergebnisse Federated Learning Referenzlauf</h2>
+<p>Im Folgenden werden Ergebnisse des Referenzlaufes mit der gewählten “FedRep” Strategie gezeigt. Die Durchläufe wurden je Client evaluiert, sodass pro Maschine / Prozess Unterschiede in der Güte der lokalen Modelle ersichtlich werden. Zugrunde liegt ein CNN-Autoencoder, welcher das “Normalverhalten” lernt. Die Erkennung der Anomalien in den Daten erfolgt über den Abgleich der Eingangsdaten mit den durch den CNN-Autoencoder rekonstruierten Werten und Ermittlung des Rekonstruktionsfehler (MSE, Mean Squared Error). Durch Übersteigen eines Grenzwertes können somit Anomalien detektiert werden.</p>
+<p>Die Aufteilung der client-spezifischen Daten erfolgte in Trainings-, Validierungs- und Testdaten. Trainings- und Validierungsdaten enthalten die “Normaldaten”, also Daten vor dem jeweiligen “Anomalie-Interval-Start”, also der Zeitpunkt zu dem das Werkzeug spätestens ausgetauscht werden sollte und nachdem gehäuft Anomalien auftreten. Die Testdaten enthalten einen geringen Anteil “Normaldaten”, um die Performanz des CNN-Autoencoders dahingehend zu evaluieren, ob das Modell auch auf ungesehenen Normaldaten gute Rekonstruktionen durchführen kann, und alle “Anomaliedaten”, um zu überprüfen, dass diese einen möglichst hohen Rekonstruktionsfehler aufweisen. Der Grenzwert wird je Client über eine auf Normalfenstern kalibrierte Schwelle τ (oberes Perzentil) festgelegt.</p>
+<p>Ziel der Validierung war zu prüfen, ob die nach dem Training vorliegenden Modelle diese driftenden Abschnitte hinreichend rekonstruieren und von normalen Sequenzen abgrenzen können. Der Referenzdurchlauf mit den best erzielten Ergebnissen hat folgende Konfigurationen:</p>
+<table class="caption-top table">
+<caption>Konfiguration des Referenzdurchlaufs</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bezeichnung</th>
+<th>Konfiguration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Strategie</td>
+<td>FedRepWithRoundSaving</td>
+</tr>
+<tr class="even">
+<td>Anzahl FL-Runden</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>Lokale Epochen</td>
+<td>Encoder: 1, Decoder: 5</td>
+</tr>
+<tr class="even">
+<td>Sliding Windows</td>
+<td>Fenstergröße: 50, Schrittweite: 20</td>
+</tr>
+<tr class="odd">
+<td>Batchgröße</td>
+<td>64</td>
+</tr>
+<tr class="even">
+<td>Features</td>
+<td><span class="math inline">\(I_{Spindel}, I_Z\)</span></td>
+</tr>
+<tr class="odd">
+<td>Normalisierung</td>
+<td>MinMax pro Operation</td>
+</tr>
+<tr class="even">
+<td>Flankendetektion</td>
+<td>deaktiviert</td>
+</tr>
+<tr class="odd">
+<td>Clients (Dateien)</td>
+<td>ES35_1, ES35_2, ES35_3, IfW_eID1003, IfW_eID1006, IfW_eID1009</td>
+</tr>
+</tbody>
+</table>
+<p>In den folgenden Plots werden die Ergebnisse je Client nach dem vollständigen Referenzdurchlauf gezeigt. Als rot gestrichelte vertikale Linie wird immer der “Anomalie-Intervall-Start” Zeitpunkt markiert. Dieser soll möglichst gut “erkannt” werden, das heißt Daten der Bohrungen vor diesem Zeitpunkt sollen möglichst gut rekonstruiert werden (geringer MSE) und danach gut abgrenzbarer, schlecht rekonstruierte Daten mit hohem MSE-Wert folgen.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\ES35_1__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99_95.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.6: Ergebnisplot für Client ES35_1 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_2" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\ES35_2__model_ES35_2_csv_run_fedrep_6_clients__FULL_mse_p99_97.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.7: Ergebnisplot für Client ES35_2 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_3" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\ES35_3__model_ES35_3_csv_run_fedrep_6_clients__FULL_mse_p99_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35_3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.8: Ergebnisplot für Client ES35_3 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1003" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1003-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1003_flip__model_IfW_eID1003_flip_csv_run_fedrep_6_clients__FULL_mse_p99_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1003-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.9: Ergebnisplot für Client IfW_eID1003 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1006" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1006-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1006_flip__model_IfW_eID1006_flip_csv_run_fedrep_6_clients__FULL_mse_p99_99.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1006-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.10: Ergebnisplot für Client IfW_eID1006 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1009" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1009-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\IfW_eID1009_flip__model_IfW_eID1009_flip_csv_run_fedrep_6_clients__FULL_mse_p99_99.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ifw_eID1009-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.11: Ergebnisplot für Client IfW_eID1009 (FedRep, 6 Clients)
+</figcaption>
+</figure>
+</div>
+<p>In den vorliegenden Ergebnisplots lässt sich klar erkennen, dass für die Clients IfW_eID1006, ES35_2 und ES35_1 Modelle im Federated Learning Setup trainiert werden konnten, welche eine zuverlässige Anomaliedetektion zulassen. Bei Client ES35_3 gelingt eine saubere Trennung zwischen Normaldaten und Anomaliedaten kaum, sodass das zugehörige Modell nicht für eine zuverlässige Anomaliedetektion geeignet ist. Die schlechte Performanz lässt sich jedoch im Abgleich mit den Rohdaten womöglich darauf zurückführen, dass sich in der zugrunde liegenden Versuchsreihe keine stark ausgeprägten Anomalien gegen Werkzeugstandzeitende ergeben haben oder das Werkzeug noch nicht bis an das Lebensende ausgenutzt wurde.</p>
+<p>Zur Simulation eines Produktionsszenarios mit anschließendem Retraining werden für die folgende Evaluation ausschließlich Dateien/Clients herangezogen, die an der bisher betrachteten Trainingssession nicht teilgenommen haben. Der frühere Durchlauf folgte dem FedRep-Ansatz mit global geteiltem Encoder und lokal personalisierten Decodern. Aufgrund der Ähnlichkeiten im Normalbetrieb zwischen den Datenquellen dient in der aktuellen Auswertung der im vorherigen Lauf gelernte Decoder des Clients ES35_1 als Ausgangspunkt. Dadurch bleibt die lokal spezialisierte Rekonstruktionsfähigkeit für Normalzustände erhalten, während der Encoder in der neuen Runde erneut angepasst wird. Anschließend wurde das Modell mit der implementierten FedAvg Retraining Variante über <span class="math inline">\(drei\)</span> weitere Runden weitertrainiert (Fenstergröße <span class="math inline">\(w = 50\)</span>, Schrittweite <span class="math inline">\(s = 50\)</span>), wobei ausschließlich die zwei Dateien als Clients verwendet wurden. Die Ergebnisse der Evaluierung auf denselben beiden Dateien nach dem Re-Training sind im Folgenden dargestellt.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_before-retrain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_before-retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1006__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_before-retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.12: Ergebnisplot für (ungesehene) Client PH_eID1006 nach initialem FL-Training auf Client ES35_1 Daten
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_retrain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1006__retrain__FULL_mse_p99_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1006_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.13: Ergebnisplot für Client PH_eID1006 nach Retraining (FedAvg, 3 Runden)
+</figcaption>
+</figure>
+</div>
+<p>Beim Retraining der Modelle auf den bisher ungesehenen Daten konnte über 3 Runden per FedAvg Strategie erzielt werden, dass die Rekonstruktion der Normaldaten generell verbessert werden konnte (geringerer MSE vor dem Anomalie-Intervall-Start). Auf dem Client PH_eID1006 zeigt sich aber, dass die ersten Anomalien nach dem Anomalie-Intervall-Start nicht gut extrahiert werden können, also erst im späteren Verlauf die Anomalien differenziert werden können. Dies ist womöglich darauf zurückzuführen, dass diese Anomalien sich den im “normalen” Bereich auftretenden, und bisher auch als False Positive bewertet wurden, sehr ähneln.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_before-retrain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_before-retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1015__model_ES35_1_csv_run_fedrep_6_clients__FULL_mse_p99.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_before-retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.14: Ergebnisplot für (ungesehene) Client PH_eID1015 nach initialem FL-Training auf Client ES35_1 Daten
+</figcaption>
+</figure>
+</div>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_retrain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\Paulhorn_eID1015__retrain__FULL_mse_p99_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-p_eID1015_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.15: Ergebnisplot für Client PH_eID1015 nach Retraining (FedAvg, 3 Runden)
+</figcaption>
+</figure>
+</div>
+<p>Nach dem Retraining rekonstruiert das Modell die Normaldaten des PH_eID1015 Clients besser als zuvor. Die zuvor als False Positive (lila) gewerteten Abschnitte im Normalbereich konnten durch das Retraining des Modells besser rekonstruiert werden, gegen Standzeitende lassen sich dennoch weiterhin die Anomalien am Ende der Werkzeugstandzeit nicht explizit differenzieren.</p>
+<p>Auf ES35_1 fielen die Ergebnisse schlechter aus: Das retrainierte Modell rekonstruiert dort auch anomale Abschnitte besser als zuvor, wie in der folgenden Abbildung zu sehen ist.</p>
+<div id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35-1_retrain" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35-1_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fl_demo_zerspanung_anomalydetection_pictures\ES35_1__retrain__FULL_mse_p99_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fl-demo-zerspanung-anomalydetection-pictures-result-ES35-1_retrain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;26.16: Ergebnisplot für Client ES35_1 nach Retraining (FedAvg, 3 Runden)
+</figcaption>
+</figure>
+</div>
+<p>Die Verschlechterung des Modells auf dem ES35_1 Client ist womöglich darauf zurück zu führen, dass durch das Föderierte Lernsetup mit FedAvg Strategie im Retraining Informationen aus den anderen Daten/Clients in das aggregierte, gobale Modell mit übernommen werden, und somit das zuvor spezialisierte Modell auf ES35_1 durch diese Aggregation nicht profitiert.</p>
+</section>
+<section id="fazit" class="level2">
+<h2 class="anchored" data-anchor-id="fazit">Fazit</h2>
+<p>Mit dem vorgestellten Use Case der Zerspanung konnte das in der EASY-Edge und Easy-Cloud aufgebaute Federated Learning Setup mit praxisnahen Daten getestet werden. Fokus der Untersuchungen war die Einbindung der Frameworks in die EASY Kubernetes Umgebungen mit Datenpipeline, Einbindung von Flower, Orchestrierung, Einbindung von ML-Flow, Artefaktspeicher und Metriktracking. Obwohl für Anomaliedetektion entwickelt, ist die Pipeline aufgrund klarer Schnittstellen auf weitere Anwendungsfälle übertragbar.</p>
+<p>Die Ergebnisse belegen zentrale Vorteile des föderierten Lernens: Datensouveränität durch lokalen Verbleib der Rohdaten, reduzierte Netzwerklast, bessere Generalisierung über Standorte und Skalierbarkeit durch Cloud native Orchestrierung. Gleichzeitig traten typische Machine Learning Herausforderungen zutage. Heterogene non-IID Daten erschweren Konvergenz und Stabilität. Teils grobgranulares Labeling und Drift beeinflussen die Güte der Modelle und Edge Ressourcenbeschränkungen und Orchestrierungsaufwand müssen berücksichtigt werden. In der Praxis wirkten die implementierte Teilnahmesteuerung wie FRACTION_FIT und Mindestquoren sowie Strategien zur Heterogenität wie FedProx und FedRep stabilisierend auf das Modelltraining.</p>
+<p>Im Anwendungsfall zur Anomaliedetektion auf Zerspanungsdaten erwies sich FedRep mit globalem Encoder und lokalem Decoder als zweckmäßig. Der geteilte Repräsentationsraum begünstigte eine robustere Erkennung über Datensätze hinweg, während lokale Besonderheiten erhalten blieben. Einzelne Ausreißer korrelierten plausibel mit Skalierungs und Drifteffekten sowie der Labelgranularität. Insgesamt bestätigt der Use Case die Eignung des föderierten Ansatzes für verteilte sensible Maschinendaten. Es zeigen sich die Vorteile des Föderierten Lernens insbesondere darin, wenn auf mehreren Maschinen ähnliche Prozesse laufen und vergleichbare Messsysteme eingesetzt werden. Beim Einsatz bspw. in Serienproduktionen kann das Aggregieren der Modelle zu einem Informationsgewinn für alle Maschinen-Clients führen. Auch der Übertrag eines globalen, aggregierten Modells auf einen Client, welcher den Prozess der anderen Maschinen zuvor noch nie “gesehen” hat, begünstigt insbesondere die initiale Phase und verkürzt Trainingsphasen, welche sonst von Grund auf neu trainiert werden müssten.</p>
+<p>Die obigen Ergebnisse zeigen jedoch auch, dass ein global aggregiertes Modell für einen einzelnen Client auch zu schlechteren Ergebnissen führen kann. Insbesondere bei sehr heterogenen Datenverteilungen durch bspw. sehr unterschiedliche Prozesse, kann das “Wissen aus anderen Clients”, welches sich im aggregierten Modell befindet, nachteilig auf die lokale Modell-Performanz auswirken. In solchen Fällen wird in initialen Trainingsphasen vom Wissen anderer Maschinen zwar profitiert, im weiteren Verlauf werden sich aber lokal spezialisierte Modelle (bspw. wie durch die FedRep Strategie befördert) herausstellen, die je Client auf die lokalen Daten optimiert sind.</p>
+<p>In weiteren Implementierungen bieten sich Optimierungspotenziale durch Integration eines automatisierten Retrainings und Drift Handling. Hierbei können durch zeitbasierte oder qualitätsbasierte Triggermechanismen neue Trainings-Jobs automatisch angestoßen werden. Durch Erweiterung der Datengrundlage müssen zudem die verwendeten Federated Learning Strategien systematisch weiter ausgewertet werden. Eine Integration der AAS Submodelle für Machine Learning Modelle, Datensätze und Deployment bieten zudem eine standardisierte Beschreibung und Nachverfolgung an. Die entwickelte modulare Pipeline bildet eine tragfähige Basis, um im EASY Umfeld weitere föderierte Use Cases neben der Anomaliedetektion umzusetzen und schrittweise in einen kontinuierlichen, reproduzierbaren Betrieb zu überführen.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-reeber24" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">T. Reeber <em>u.&nbsp;a.</em>, <span>„Tool condition monitoring in drilling processes using anomaly detection approaches based on control internal data“</span>, <em>Procedia CIRP</em>, Bd. 121, S. 216–221, Jan. 2024, doi: <a href="https://doi.org/10.1016/j.procir.2023.08.066">10.1016/j.procir.2023.08.066</a>.</div>
+</div>
+<div id="ref-SIMON2026381" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. M. Simon <em>u.&nbsp;a.</em>, <span>„Enhancing machining efficiency: Integrating machine-learning-based cutting tool condition monitoring in industrial application“</span>, <em>Procedia CIRP</em>, Bd. 138, S. 381–386, 2026, doi: <a href="https://doi.org/10.1016/j.procir.2026.01.066">https://doi.org/10.1016/j.procir.2026.01.066</a>.</div>
+</div>
+<div id="ref-REEBER2024214" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">T. Reeber, M. Berndt, P. M. Simon, J. Henninger, J. C. Aurich, und H. -Christian Möhring, <span>„A Comparative Analysis of Axis Drive Current Measurements in CNC Machine Tools for Machine Learning Assisted Process Monitoring“</span>, <em>Procedia CIRP</em>, Bd. 130, S. 214–219, 2024, doi: <a href="https://doi.org/10.1016/j.procir.2024.10.078">https://doi.org/10.1016/j.procir.2024.10.078</a>.</div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopiert");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopiert");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../contents/004_verteiltes_ml/fl_demonstratoren/fl_demo_wireless_network.html" class="pagination-link" aria-label="FL-Demonstrator Wireless Network">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">FL-Demonstrator Wireless Network</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../contents/005_flex_steuerung/zusammenfassung.html" class="pagination-link" aria-label="Zusammenfassung Flexible Steuerungsprozesse">
+        <span class="nav-page-text"><span class="chapter-title">Zusammenfassung Flexible Steuerungsprozesse</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>
+  document.title = "EASY Dokumentation";
+</script>
+
+
+
+
+</body></html>
